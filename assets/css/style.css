@@ -212,3 +212,58 @@ h1 .highlight::after { content: ""; position: absolute; z-index: -1; left: -3px;
   box-shadow: 0 8px 22px rgba(37, 52, 74, .16);
   margin: 0 auto 24px;
 }
+
+
+
+/* Disney Discovery home: personal field-notes / scrapbook identity */
+.home-page { background:#fff8e9; }
+.home-page .site-header { background:rgba(255,248,233,.94); border-bottom:2px solid #e9d9b6; }
+.home-page .brand-mark { width:46px; height:46px; border-radius:50% 45% 48% 38%; background:#ef8f79; color:#fff9e9; box-shadow:3px 3px 0 #f2ce71; transform:rotate(-7deg); font-family:Georgia,serif; }
+.home-page .brand-name { font-family:Georgia,"Yu Mincho",serif; letter-spacing:-.025em; }
+.home-page .brand-caption { color:#806c59; }
+.home-page .site-nav a { padding:7px 10px; border-radius:999px; }
+.home-page .site-nav a:hover { background:#f6dfe0; color:#8d4d61; }
+.home-page .hero { position:relative; overflow:hidden; padding:clamp(56px,8vw,104px) 0 78px; background:radial-gradient(circle at 12% 20%,#f9dca1 0 7%,transparent 7.5%),radial-gradient(circle at 88% 18%,#f4c7ce 0 8%,transparent 8.5%),linear-gradient(135deg,#fff0cc 0%,#fff8e9 52%,#e2f3e9 100%); border-bottom:5px dotted #edc86f; }
+.home-page .hero::after { content:"✦  ✧  ·  ✦"; position:absolute; right:4%; bottom:15px; color:#c88998; font-size:1.35rem; letter-spacing:.35em; transform:rotate(-7deg); }
+.home-page .hero-grid { grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); gap:clamp(26px,5vw,64px); }
+.home-page .eyebrow { color:#8b5968; letter-spacing:.025em; text-transform:none; font-size:.86rem; }
+.home-page .eyebrow::before { width:12px; height:12px; border-radius:3px 8px 3px 8px; background:#ef987e; transform:rotate(-12deg); }
+.home-page h1 { font-family:Georgia,"Yu Mincho",serif; font-size:clamp(2.5rem,5.6vw,4.65rem); line-height:1.32; letter-spacing:-.06em; }
+.home-page h1 .highlight::after { background:#f4ca65; height:.31em; border-radius:50% 40% 55% 35%; transform:rotate(-1.5deg); }
+.home-page .lead { color:#6f6257; line-height:2.05; }
+.home-page .button { border:2px solid #4d9b91; background:#4d9b91; box-shadow:0 4px 0 #2e746e; border-radius:16px 16px 16px 5px; }
+.home-page .button:hover { background:#2e746e; }
+.home-page .button-secondary { border:2px solid #d9b8ad; background:#fffaf0; color:#805e5c; box-shadow:0 4px 0 #e9d5c6; }
+.home-page .button-secondary:hover { background:#f8e4df; color:#805e5c; }
+.home-page .hero-art { min-height:340px; }
+.home-page .orbit { width:min(100%,350px); border:2px dashed #d9a4aa; transform:rotate(9deg); }
+.home-page .art-card { width:min(88%,310px); padding:34px 28px 30px; border:2px solid #fff; border-radius:10px 26px 13px 24px; background:#fffaf0; box-shadow:7px 9px 0 rgba(207,155,119,.22); transform:rotate(3deg); }
+.home-page .art-card::before { width:90px; height:22px; top:-11px; border-radius:2px; background:rgba(244,202,101,.78); transform:translateX(-50%) rotate(-4deg); }
+.home-page .art-card-label { color:#9a6572; font-family:monospace; font-size:.68rem; letter-spacing:.07em; }
+.home-page .art-card-title { font-family:Georgia,"Yu Mincho",serif; font-size:1.7rem; line-height:1.5; }
+.home-page .art-card-note { color:#786a5b; line-height:1.8; }
+.home-page .art-spark { border-radius:40% 60% 50% 45%; background:#f3c96b; color:#725b34; box-shadow:2px 3px 0 rgba(161,119,64,.15); }
+.home-page .art-spark.two { background:#f2cbd2; color:#8d5263; }
+.home-page .section { padding:clamp(52px,7vw,78px) 0; }
+.home-page .section-tint { background:#f7eee0; }
+.home-page .section-heading h2,.home-page .about-band h2 { font-family:Georgia,"Yu Mincho",serif; letter-spacing:-.04em; }
+.home-page .category-grid { gap:20px; }
+.home-page .category-card { position:relative; min-height:210px; padding:26px 24px; border:2px solid #fff; border-radius:24px 24px 24px 8px; box-shadow:0 5px 0 #e8d8bd; background:#fffaf0; }
+.home-page .category-card:nth-child(6n+1) { background:#f8e1d8; }
+.home-page .category-card:nth-child(6n+2) { background:#e1f0e7; }
+.home-page .category-card:nth-child(6n+3) { background:#f8edc9; }
+.home-page .category-card:nth-child(6n+4) { background:#e5e7f5; }
+.home-page .category-card:nth-child(6n+5) { background:#f5dfe8; }
+.home-page .category-card:nth-child(6n) { background:#e1eff1; }
+.home-page .category-card:hover { transform:translateY(-4px) rotate(-.5deg); box-shadow:0 9px 0 #e8d8bd; }
+.home-page .category-number { width:42px; height:42px; border-radius:50% 45% 48% 40%; background:#fffaf0; color:#9b6570; border:1px dashed #cfa8a0; transform:rotate(-6deg); }
+.home-page .category-card h3 { font-family:Georgia,"Yu Mincho",serif; font-size:1.12rem; }
+.home-page .category-card p { color:#655b52; line-height:1.9; }
+.home-page .article-placeholder { padding:28px; border:2px dashed #d7bca3; border-radius:22px 22px 22px 8px; background:#fffaf0; }
+.home-page .article-placeholder h3 { font-family:Georgia,"Yu Mincho",serif; }
+.home-page .status-pill { background:#f5dfe8; color:#8d5263; border:1px solid #e6bdc9; }
+.home-page .about-band { border:2px solid #fff; border-radius:30px 30px 30px 8px; background:linear-gradient(120deg,#dff0e7,#fff0cc 65%,#f8dfe3); box-shadow:0 7px 0 rgba(211,180,137,.28); }
+.home-page .site-footer { background:#fffaf0; border-top:2px solid #eadcc2; }
+.home-page .disclaimer { border-left-color:#77bdb0; border-radius:0 12px 12px 0; background:#e7f4ed; color:#4e7068; }
+@media(max-width:760px) { .home-page .hero-grid { grid-template-columns:1fr; } .home-page .hero-art { min-height:280px; } .home-page .art-card { width:min(82%,310px); } }
+@media(max-width:480px) { .home-page .hero { padding-top:46px; } .home-page .hero-art { min-height:250px; } .home-page .category-card { min-height:unset; } }
