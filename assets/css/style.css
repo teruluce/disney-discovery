@@ -199,3 +199,16 @@ h1 .highlight::after { content: ""; position: absolute; z-index: -1; left: -3px;
   .storybook-hero::before { left:3%; }
   .storybook-hero::after { right:3%; }
 }
+
+
+/* Profile portrait */
+.teru-profile-photo {
+  display: block;
+  width: clamp(132px, 28vw, 180px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fffdf8;
+  box-shadow: 0 8px 22px rgba(37, 52, 74, .16);
+  margin: 0 auto 24px;
+}
