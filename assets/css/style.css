@@ -267,3 +267,187 @@ h1 .highlight::after { content: ""; position: absolute; z-index: -1; left: -3px;
 .home-page .disclaimer { border-left-color:#77bdb0; border-radius:0 12px 12px 0; background:#e7f4ed; color:#4e7068; }
 @media(max-width:760px) { .home-page .hero-grid { grid-template-columns:1fr; } .home-page .hero-art { min-height:280px; } .home-page .art-card { width:min(82%,310px); } }
 @media(max-width:480px) { .home-page .hero { padding-top:46px; } .home-page .hero-art { min-height:250px; } .home-page .category-card { min-height:unset; } }
+
+
+/* Disney Discovery editorial identity: contemporary newspaper + field notebook */
+.home-page,
+.profile-page {
+  --dd-ink: #202d3b;
+  --dd-muted: #65717b;
+  --dd-paper: #f8f7f2;
+  --dd-rule: #c9c9bf;
+  --dd-blue: #315d7b;
+  --dd-accent: #b78335;
+  background: var(--dd-paper);
+  color: var(--dd-ink);
+}
+.home-page .site-header,
+.profile-page .site-header {
+  background: rgba(248,247,242,.97);
+  border-bottom: 1px solid var(--dd-ink);
+}
+.home-page .brand-mark,
+.profile-page .brand-mark {
+  border-radius: 0;
+  width: 42px;
+  height: 42px;
+  background: var(--dd-ink);
+  color: #f8f7f2;
+  box-shadow: none;
+  transform: none;
+  font-family: Georgia, serif;
+}
+.home-page .brand-name,
+.profile-page .brand-name {
+  font-family: Georgia, "Yu Mincho", serif;
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+.home-page .brand-caption,
+.profile-page .brand-caption { color: var(--dd-muted); }
+.home-page .site-nav a,
+.profile-page .site-nav a {
+  border-radius: 0;
+  padding: 8px 2px;
+  color: var(--dd-ink);
+  border-bottom: 1px solid transparent;
+}
+.home-page .site-nav a:hover,
+.profile-page .site-nav a:hover { background: transparent; color: var(--dd-blue); border-bottom-color: var(--dd-blue); }
+.home-page .hero {
+  background:
+    linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), rgba(32,45,59,.05) calc(100% - 1px)),
+    var(--dd-paper);
+  border-bottom: 1px solid var(--dd-ink);
+  padding: clamp(52px,7vw,88px) 0 58px;
+}
+.home-page .hero::after { content: "INFORMATION · CULTURE · DISCOVERY"; right: 0; bottom: 12px; color: #78818a; font: 10px/1.4 monospace; letter-spacing: .14em; transform: none; }
+.home-page .hero-grid { grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); }
+.home-page .eyebrow,
+.profile-page .eyebrow {
+  color: var(--dd-blue);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font: 700 .72rem/1.6 monospace;
+}
+.home-page .eyebrow::before,
+.profile-page .eyebrow::before { width: 22px; height: 1px; border-radius: 0; background: var(--dd-accent); transform: none; }
+.home-page h1,
+.profile-page h1 {
+  font-family: Georgia, "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: 1.22;
+}
+.home-page h1 .highlight::after,
+.profile-page h1 .highlight::after { height: .18em; bottom: .04em; border-radius: 0; background: #e8d7a9; transform: none; }
+.home-page .lead,
+.profile-page .lead { color: #4e5a64; line-height: 1.95; }
+.home-page .button,
+.profile-page .button {
+  border: 1px solid var(--dd-ink);
+  border-radius: 2px;
+  background: var(--dd-ink);
+  box-shadow: none;
+  color: #fff;
+}
+.home-page .button:hover,
+.profile-page .button:hover { background: var(--dd-blue); border-color: var(--dd-blue); }
+.home-page .button-secondary,
+.profile-page .button-secondary {
+  border: 1px solid var(--dd-rule);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--dd-ink);
+  box-shadow: none;
+}
+.home-page .button-secondary:hover,
+.profile-page .button-secondary:hover { background: #ecebe4; color: var(--dd-ink); }
+.home-page .hero-art { min-height: 320px; }
+.home-page .orbit { width: min(100%,330px); border: 1px solid #c6c6bb; border-radius: 0; transform: none; }
+.home-page .art-card {
+  width: min(88%,330px);
+  padding: 30px 26px;
+  border: 1px solid var(--dd-ink);
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(49,93,123,.10) 32px),
+    #fbfaf5;
+  box-shadow: 7px 7px 0 #e5e2d7;
+  transform: rotate(-1deg);
+}
+.home-page .art-card::before { width: 44px; height: 4px; top: -5px; border-radius: 0; background: var(--dd-accent); transform: translateX(-50%); }
+.home-page .art-card-label { color: var(--dd-blue); font: 700 .66rem/1.5 monospace; letter-spacing: .1em; }
+.home-page .art-card-title { font-family: Georgia, "Yu Mincho", serif; font-weight: 500; }
+.home-page .art-card-note { color: var(--dd-muted); }
+.home-page .art-spark { border-radius: 0; background: var(--dd-accent); color: white; box-shadow: none; }
+.home-page .art-spark.two { background: var(--dd-blue); color: white; }
+.home-page .section { padding: clamp(48px,6vw,72px) 0; }
+.home-page .section-tint { background: #efeee8; }
+.home-page .section-heading { border-bottom: 1px solid var(--dd-rule); padding-bottom: 18px; margin-bottom: 26px; }
+.home-page .section-heading h2,
+.home-page .about-band h2 { font-family: Georgia, "Yu Mincho", serif; font-weight: 500; letter-spacing: -.04em; }
+.home-page .category-grid { gap: 0; border-top: 1px solid var(--dd-rule); border-left: 1px solid var(--dd-rule); }
+.home-page .category-card {
+  min-height: 190px;
+  padding: 24px;
+  border: 0;
+  border-right: 1px solid var(--dd-rule);
+  border-bottom: 1px solid var(--dd-rule);
+  border-radius: 0;
+  box-shadow: none;
+  background: rgba(255,255,255,.32);
+}
+.home-page .category-card:nth-child(n) { background: rgba(255,255,255,.32); }
+.home-page .category-card:hover { transform: translateY(-2px); box-shadow: inset 0 -3px 0 var(--dd-accent); background: #fffdf7; }
+.home-page .category-number { width: auto; height: auto; border: 0; border-radius: 0; background: transparent; color: var(--dd-accent); font: 700 .75rem/1.5 monospace; transform: none; }
+.home-page .category-card h3 { font-family: Georgia, "Yu Mincho", serif; font-weight: 600; }
+.home-page .category-card p { color: #58636b; }
+.home-page .article-placeholder {
+  border: 1px dashed #aeb4b2;
+  border-radius: 0;
+  background: #fbfaf5;
+}
+.home-page .article-placeholder h3 { font-family: Georgia, "Yu Mincho", serif; }
+.home-page .status-pill { border-radius: 2px; border: 1px solid #d4c18f; background: #f3ecd9; color: #6c5629; }
+.home-page .about-band {
+  border: 1px solid var(--dd-rule);
+  border-radius: 0;
+  background: #eeeee7;
+  box-shadow: none;
+}
+.home-page .site-footer { background: #eae9e2; border-top: 1px solid var(--dd-ink); }
+.home-page .disclaimer,
+.profile-page .disclaimer { border-left: 2px solid var(--dd-accent); border-radius: 0; background: #efeee8; color: #59636b; }
+.profile-page .profile-hero.storybook-hero {
+  background:
+    linear-gradient(rgba(49,93,123,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,93,123,.045) 1px, transparent 1px),
+    var(--dd-paper);
+  background-size: 24px 24px;
+  border-bottom: 1px solid var(--dd-ink);
+}
+.profile-page .profile-hero.storybook-hero::before,
+.profile-page .profile-hero.storybook-hero::after { content: none; }
+.profile-page .storybook-hero .profile-intro {
+  border: 1px solid var(--dd-rule);
+  border-radius: 0;
+  background: rgba(251,250,245,.94);
+  box-shadow: 7px 7px 0 #e5e2d7;
+}
+.profile-page .storybook-hero .eyebrow { padding: 0; border-radius: 0; background: transparent; color: var(--dd-blue); }
+.profile-page .storybook-hero .button { border-radius: 2px; border: 1px solid var(--dd-ink); background: var(--dd-ink); box-shadow: none; }
+.profile-page .storybook-section { background: var(--dd-paper); }
+.profile-page .storybook-section .prose h2 { color: var(--dd-ink); }
+.profile-page .storybook-section .prose h2::after { height: 1px; background: var(--dd-rule); border-radius: 0; }
+.profile-page .storybook-section .profile-note { border: 1px solid var(--dd-rule); border-radius: 0; background: #efeee8; box-shadow: none; }
+.profile-page .storybook-section .about-band { border: 1px solid var(--dd-rule); border-radius: 0; background: #eeeee7; box-shadow: none; }
+@media(max-width:760px) {
+  .home-page .hero-grid { grid-template-columns: 1fr; }
+  .home-page .hero-art { min-height: 275px; }
+}
+@media(max-width:480px) {
+  .home-page .hero { padding-top: 42px; }
+  .home-page .category-card { min-height: 0; }
+  .home-page .section-heading { margin-bottom: 20px; }
+}
