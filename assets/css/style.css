@@ -558,6 +558,9 @@ h3 { color: var(--ink); line-height: 1.55; }
   .article-layout { grid-template-columns: minmax(0, 1fr) 220px; gap: 30px; }
 }
 @media (max-width: 760px) {
+  .article-grid { grid-template-columns: 1fr; gap: 14px; }
+  .article-card { min-height: 0; padding: 23px 21px; }
+  .section { padding: 58px 0; }
   body { font-size: 16px; }
   .container { width: min(var(--content), calc(100% - 36px)); }
   .header-inner { min-height: 0; }
