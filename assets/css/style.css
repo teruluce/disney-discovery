@@ -632,3 +632,19 @@ h3 { color: var(--ink); line-height: 1.55; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Less corporate, more like a personal field notebook */
+.hero .highlight { color: #075d70; }
+.hero-art .ticket {
+  border-radius: 3px 3px 14px 3px;
+  box-shadow: 5px 6px 0 rgba(20, 64, 76, .08);
+  transform: rotate(-1deg);
+}
+.ticket-label { letter-spacing: .12em; }
+.ticket-title { font-weight: 500; line-height: 1.4; }
+.section-heading h2, .about-heading h1 { letter-spacing: .01em; }
+.home-page .section-heading p:not(.eyebrow) { max-width: 42rem; }
+.about-editorial p, .about-heading p { max-width: 44rem; }
+@media (max-width: 760px) {
+  .hero-art .ticket { transform: none; }
+}
