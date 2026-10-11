@@ -256,7 +256,7 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
 
 .article-section { padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); }
 .article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: clamp(28px, 5vw, 64px); align-items: start; }
-.article-body { grid-column: 1; grid-row: 1; max-width: 740px; }
+.article-body { grid-column: 1; grid-row: 1; max-width: 740px; min-width: 0; }
 .toc-col { grid-column: 2; grid-row: 1; }
 .toc { position: sticky; top: 24px; padding: 22px 22px 16px; background: #fffdf6; border: 1px solid var(--line); border-radius: 6px 18px 6px 18px; box-shadow: 6px 8px 0 rgba(185,133,36,.1); font-size: .88rem; }
 .toc h2 { margin: 0 0 10px; font-family: var(--serif); font-size: 1rem; }
@@ -276,7 +276,8 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
 .article-body strong { color: var(--ink); }
 
 .table-wrap { margin: 20px 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 8px; background: #fffdf6; }
-.article-body table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: .88rem; line-height: 1.7; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.7; }
+.article-body table.wide { min-width: 540px; }
 .article-body th, .article-body td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); color: #4a4859; }
 .article-body thead th { background: var(--night); color: #fff; font-weight: 700; white-space: nowrap; }
 .article-body tbody th { background: var(--paper-2); color: var(--ink); font-weight: 700; }
@@ -326,7 +327,7 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
 .not-found .page-hero .lead { margin-inline: auto; }
 
 @media (max-width: 900px) {
-  .article-layout { grid-template-columns: 1fr; }
+  .article-layout { grid-template-columns: minmax(0, 1fr); }
   .article-body, .toc-col { grid-column: 1; }
   .toc-col { grid-row: 1; }
   .article-body { grid-row: 2; }
