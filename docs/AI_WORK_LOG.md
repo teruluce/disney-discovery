@@ -371,5 +371,8 @@
 - **アクセシビリティ:** フォーカス表示、コントラスト、キーボード操作、動きを減らす設定、狭い画面での横はみ出し防止を考慮。
 - **検証:** ソースを取得して既存の主要クラスに対応するCSSを再構成。実ブラウザ・実機スマートフォン・公開サイト反映は、この記録時点では未確認。
 - **ブランチ:** `design/jubilee-editorial-redesign`
-- **状態:** PR作成前。mainへのマージ・公開反映は未実施。
+- **PR:** https://github.com/teruluce/disney-discovery/pull/16
+- **マージ:** 2026-10-12、PR #16をsquash merge。マージコミット: https://github.com/teruluce/disney-discovery/commit/afd48a41d6daf68e3e94f633422bc324c163b49d
+- **状態:** mainへのマージ完了。公開サイトへの反映は、実ブラウザで確認できていないため未確認。
+- **追加検証:** mainブランチから変更ファイルを再取得し、変更が反映されたことを確認。PR用GitHub Actions runは検出されず。
 - **次の作業:** 差分を確認し、HTML/CSSの構文・内部リンク・レスポンシブ表示を検証後、PRを作成する。
