@@ -215,3 +215,20 @@
 - **PR:** https://github.com/teruluce/disney-discovery/pull/7
 - **状態:** PR #7はopen、未マージ。作成応答の mergeable は false だが、作業ブランチはmainから作成し、mainとの比較・PR差分の再確認を続ける必要がある。GitHub Pagesの公開反映は未確認。
 - **次の作業:** PR #7の差分とマージ可否を再確認し、マージ後に公開表示を確認する。
+
+
+### 2026-10-11 — PR #7マージ確認とトップページカテゴリの拡充
+- **担当:** ChatGPT
+- **作業前確認:** 共通作業ログ、コンテンツ制作ガイドライン、SEO戦略、トップページ、記事一覧、既存記事テンプレートを確認。
+- **PR #7の状態訂正:** GitHubのPR情報を再取得し、写真撮影ルール記事のPR #7（https://github.com/teruluce/disney-discovery/pull/7）が2026-10-11にマージ済みであることを確認。今回のカテゴリ拡充はマージ済みPR #7を変更せず、最新mainから新ブランチ `content/fill-topic-categories` を作成して実施。
+- **新規記事:**
+  - `articles/park-day-and-night.html` — 昼・夕暮れ・夜の景色の変化を楽しむ視点。東京ディズニーリゾート公式ブログと運営カレンダーを出典にした。
+  - `articles/donald-duck-profile.html` — ドナルドダックの初登場作品と誕生日の由来。D23／Walt Disney Archivesの記録を出典にした。
+  - `articles/how-disney-animation-is-made.html` — 『Once Upon a Studio』の制作記事を例に、手描きとCGの連携、視線やタイミングの調整を紹介。特定作品の制作事例を全作品に一般化しないよう明記した。
+- **トップページ:** 空いていた3カテゴリに記事リンクを追加。「楽しみ方のヒント」に時間指定サービス・撮影ルール・グリーティング・レストラン予約を集約。「最新情報をチェック」は速報を無理に量産せず、公式運営カレンダー・楽しみ方ガイド・公式アプリへのリンクを追加。
+- **変更ファイル:** 3記事、`index.html`、`articles/index.html`、`sitemap.xml`、本ログ。
+- **SEO:** 各記事に固有のtitle、description、canonical、OGP、Xカード、目次、関連記事、公式出典リンクを設定。トップページと記事一覧に各3記事のカードを追加し、sitemap.xmlを更新。
+- **著作権配慮:** 公式画像、ロゴ、映画の静止画、歌詞、台詞、他サイト本文は転載せず、本文を独自に執筆。事実確認の出典として公式ページへリンクした。
+- **検証:** GitHubから変更後ファイルを再取得。トップページ・記事一覧のカードは各12件、サイトマップは17 URL。新規3記事すべてにtitle、description、canonical、OGP、h1があり、記事内アンカー参照の不一致なし。外部リンクには `rel="noopener noreferrer"` を設定。GitHubソース上の検証であり、ブラウザ表示・モバイル実機・GitHub Pages反映は未確認。
+- **公開状況:** PR #8を作成予定。mainへのマージ・公開は未実施。
+- **次の作業:** PR #8の差分を確認し、Claudeレビュー後にマージ可否を判断。Search Consoleのサイトマップ送信はユーザーアカウントでの操作が必要。
