@@ -513,6 +513,22 @@ h3 { color: var(--ink); line-height: 1.55; }
 .disclaimer, .site-footer .disclaimer { max-width: 920px; margin: 26px 0 0; color: #4d6269; font-size: .75rem; line-height: 1.75; }
 .copyright { margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
 
+
+/* Keep the administrative page available without competing with editorial navigation */
+.site-nav a[href$="profile.html"] {
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 400;
+}
+.site-nav a[href$="profile.html"]::after { height: 1px; opacity: .55; }
+.site-nav a[href$="profile.html"]:hover,
+.site-nav a[href$="profile.html"][aria-current="page"] { color: var(--blue); }
+.footer-links a[href$="profile.html"] {
+  color: var(--muted);
+  font-size: .76rem;
+}
+.footer-links a[href$="profile.html"]:hover { color: var(--blue); }
+
 /* Responsive */
 @media (max-width: 980px) {
   .header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 18px 10px; }
