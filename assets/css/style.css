@@ -443,3 +443,30 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
   .profile-media-card { transition: none; }
   .profile-media-card:hover { transform: none; }
 }
+
+
+/* Minimal about page: the publications, not the operator, are the focus. */
+.about-minimal { padding-bottom: 48px; }
+.about-heading { padding: clamp(44px, 8vw, 84px) 0 36px; }
+.about-heading .container { max-width: 850px; }
+.about-heading h1 { margin: 12px 0 18px; color: var(--night); font-family: var(--serif); font-size: clamp(1.9rem, 4.2vw, 3.1rem); line-height: 1.55; font-weight: 500; }
+.about-heading .container > p:last-child { max-width: 620px; margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.95; }
+.about-sites .container { max-width: 850px; border-top: 1px solid var(--line); }
+.about-site-link { display: grid; grid-template-columns: 44px minmax(0, 1fr) 24px; align-items: center; gap: 12px; padding: 22px 4px; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.about-site-link:hover .about-site-copy strong { color: var(--dusk); }
+.about-site-label { color: var(--gold-deep); font-family: var(--serif); font-size: .82rem; }
+.about-site-copy { display: grid; gap: 5px; }
+.about-site-copy strong { color: var(--night); font-family: var(--serif); font-size: 1.15rem; font-weight: 600; transition: color .15s ease; }
+.about-site-copy small { color: var(--muted); font-size: .82rem; line-height: 1.7; }
+.about-site-arrow { color: var(--gold-deep); text-align: right; }
+.about-editorial { padding-top: 42px; }
+.about-editorial .container { max-width: 850px; }
+.about-editorial .container > p:not(.eyebrow) { max-width: 690px; color: var(--muted); font-size: .91rem; line-height: 2; }
+.about-editorial .about-small-note { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .75rem !important; }
+@media (max-width: 560px) {
+  .about-heading { padding-top: 38px; }
+  .about-heading h1 { font-size: 1.85rem; }
+  .about-site-link { grid-template-columns: 30px minmax(0, 1fr) 18px; gap: 9px; padding: 18px 0; }
+  .about-site-copy strong { font-size: 1.05rem; }
+  .about-site-copy small { font-size: .78rem; }
+}
