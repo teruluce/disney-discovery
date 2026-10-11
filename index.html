@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disney Discovery｜ディズニーの「知りたい！」が見つかる場所</title>
   <meta name="description" content="ディズニーの「知りたい！」が見つかる場所。東京ディズニーリゾートの楽しみ方から、パークやキャラクター、映画の豆知識まで、初心者にもわかりやすく紹介します。">
   <meta name="theme-color" content="#1b2447">
-  <title>Disney Discovery｜ディズニーの「知りたい！」が見つかる場所</title>
+  <link rel="canonical" href="https://teruluce.github.io/disney-discovery/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Disney Discovery">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="Disney Discovery｜ディズニーの「知りたい！」が見つかる場所">
+  <meta property="og:description" content="ディズニーの「知りたい！」が見つかる場所。東京ディズニーリゾートの楽しみ方から、パークやキャラクター、映画の豆知識まで、初心者にもわかりやすく紹介します。">
+  <meta property="og:url" content="https://teruluce.github.io/disney-discovery/">
+  <meta property="og:image" content="https://teruluce.github.io/disney-discovery/assets/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="home-page">
@@ -17,8 +27,8 @@
         <span><span class="brand-name">Disney Discovery</span><span class="brand-caption">ディズニーの「知りたい！」が見つかる場所。</span></span>
       </a>
       <nav class="site-nav" aria-label="メインナビゲーション">
-        <a href="#categories">カテゴリ</a>
-        <a href="#latest">記事一覧</a>
+        <a href="articles/">記事一覧</a>
+        <a href="index.html#categories">カテゴリ</a>
         <a href="profile.html">てるについて</a>
       </nav>
     </div>
@@ -32,7 +42,7 @@
           <h1>ディズニーを、<br><span class="highlight">もっと知る。</span></h1>
           <p class="lead">パークの見どころやキャラクター、作品にまつわる背景を、信頼できる情報をもとに紹介します。初めて知る人にも、長く楽しんでいる人にも、新しい発見につながる情報メディアです。</p>
           <div class="hero-actions">
-            <a class="button" href="#categories">テーマから記事を探す</a>
+            <a class="button" href="articles/">記事を読む</a>
             <a class="button button-secondary" href="profile.html">てるについて</a>
           </div>
         </div>
@@ -64,6 +74,51 @@
       </div>
     </section>
 
+    <section class="section latest" id="latest">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Latest</p>
+          <h2>記事</h2>
+          <p>公式情報を確認したうえで、順次追加しています。</p>
+        </div>
+        <ul class="article-grid">
+          <li>
+            <a class="article-card" href="articles/first-visit-checklist.html">
+              <span class="tag">パーク初心者ガイド</span>
+              <h3>初めてのディズニー前に確認したいこと｜来園準備チェックリスト</h3>
+              <p>来園日を決める前から当日まで、準備の流れを時系列で整理しました。</p>
+              <span class="card-foot"><span>確認日 2026.10.11</span><span class="more">読む →</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="article-card" href="articles/park-ticket-basics.html">
+              <span class="tag">パーク初心者ガイド</span>
+              <h3>パークチケットの基本｜年齢区分・券種・変動価格制と買い方</h3>
+              <p>年齢区分、券種、変動価格制、販売が始まる時刻をまとめました。</p>
+              <span class="card-foot"><span>確認日 2026.10.11</span><span class="more">読む →</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="article-card" href="articles/tdr-app-guide.html">
+              <span class="tag">パーク初心者ガイド</span>
+              <h3>東京ディズニーリゾート・アプリでできること｜機能と事前準備</h3>
+              <p>公式アプリの主な機能と、使い始める前に済ませておくことを整理しました。</p>
+              <span class="card-foot"><span>確認日 2026.10.11</span><span class="more">読む →</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="article-card" href="articles/time-saving-services.html">
+              <span class="tag">楽しみ方のヒント</span>
+              <h3>スタンバイパス・プレミアアクセス・エントリー受付の違い</h3>
+              <p>名前が似た3つのサービスを、対象・料金・仕組みで比べました。</p>
+              <span class="card-foot"><span>確認日 2026.10.11</span><span class="more">読む →</span></span>
+            </a>
+          </li>
+        </ul>
+        <p class="section-cta"><a class="button" href="articles/">記事一覧を見る</a></p>
+      </div>
+    </section>
+
     <section class="section" id="categories">
       <div class="container topics">
         <div class="section-heading">
@@ -77,6 +132,7 @@
             <div>
               <h3>パーク初心者ガイド</h3>
               <p>チケットや公式アプリ、当日の準備など、初めて行く前に知っておきたい基本。</p>
+              <p class="topic-links"><a href="articles/first-visit-checklist.html">来園準備チェックリスト</a> ／ <a href="articles/park-ticket-basics.html">パークチケットの基本</a> ／ <a href="articles/tdr-app-guide.html">アプリでできること</a></p>
             </div>
           </li>
           <li class="topic">
@@ -105,6 +161,7 @@
             <div>
               <h3>楽しみ方のヒント</h3>
               <p>パークでの過ごし方や、知っておくと役立つちょっとしたヒント。</p>
+              <p class="topic-links"><a href="articles/time-saving-services.html">時間指定サービスの違い</a></p>
             </div>
           </li>
           <li class="topic">
@@ -118,24 +175,7 @@
       </div>
     </section>
 
-    <section class="section latest" id="latest">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Latest</p>
-          <h2>記事を準備しています</h2>
-          <p>記事は現在準備中です。情報源を確認し、内容を整理したうえで順次公開します。</p>
-        </div>
-        <div class="postcard">
-          <div>
-            <h3>記事公開に向けて準備中</h3>
-            <p>公開準備が整い次第、このページに掲載します。</p>
-          </div>
-          <span class="status-pill">COMING SOON</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing">
+    <section class="closing latest">
       <div class="container">
         <div class="about-band">
           <div>
@@ -160,12 +200,14 @@
           <p class="footer-copy">ディズニーの楽しみ方・豆知識を、わかりやすく正確に。</p>
         </div>
         <nav class="footer-links" aria-label="フッターナビゲーション">
+          <a href="articles/">記事一覧</a>
           <a href="profile.html">てるについて</a>
-          <a href="#categories">カテゴリ</a>
+          <a href="contact.html">お問い合わせ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
           <a href="#main">ページ上部へ</a>
         </nav>
       </div>
-      <p class="disclaimer">当サイトはディズニー公式サイトではなく、独立したファン向け情報メディアです。</p>
+      <p class="disclaimer">当サイトはディズニー公式サイトではなく、独立したファン向け情報メディアです。記事中の名称等は各権利者に帰属します。</p>
       <p class="copyright">© Disney Discovery. All rights reserved.</p>
     </div>
   </footer>
