@@ -337,3 +337,38 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
   .page-hero { padding-top: 150px; }
   .answer-box { padding: 18px; }
 }
+
+/* Cross-site navigation: companion BGS Chronicles archive */
+.sister-site-switch {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 250, 237, .92);
+  border-bottom: 1px solid rgba(185, 133, 36, .28);
+}
+.sister-site-switch .container { padding-top: 0; padding-bottom: 0; }
+.sister-site-switch a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+  min-height: 42px;
+  padding: 8px 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .82rem;
+}
+.sister-site-switch a:hover { color: var(--dusk); }
+.sister-site-switch .switch-label {
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sister-site-switch strong { color: var(--dusk); font-family: var(--serif); }
+.sister-site-switch .switch-description { color: var(--muted); }
+.sister-site-switch .switch-arrow { color: var(--gold); font-weight: 700; }
+@media (max-width: 560px) {
+  .sister-site-switch a { gap: 4px 8px; font-size: .76rem; }
+  .sister-site-switch .switch-description { flex-basis: 100%; text-align: center; }
+}

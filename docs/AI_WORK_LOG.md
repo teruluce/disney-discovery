@@ -233,3 +233,24 @@
 - **PR:** https://github.com/teruluce/disney-discovery/pull/8
 - **公開状況:** PR #8を作成済み。GitHubで再取得した状態はopen、未マージ、mergeable=true。GitHub Pagesへの反映は未確認。
 - **次の作業:** Claudeレビュー後、差分と表示を確認してからマージ可否を判断。Search Consoleのサイトマップ送信はユーザーアカウントでの操作が必要。
+
+
+### 2026-10-11 — ChatGPT：Disney Discovery から BGS Chronicles への相互導線
+- **対象:** `index.html`、`profile.html`、`contact.html`、`privacy.html`、`404.html`、`articles/*.html` 全13記事＋記事一覧（計18 HTML）および `assets/css/style.css`。
+- **変更内容:** 各ページのヘッダー直下に、BGS Chronicles への関連サイトリンクを追加。通常ページと404ページの双方から絶対URLで移動できるようにした。紙色・既存の文字色に合わせた控えめな導線とし、狭い画面では説明文を折り返す。
+- **変更理由:** BGS Chronicles との相互移動を可能にし、Disney Discovery で基本情報を知った読者が、背景設定・物語の詳しい記事へ自然に移れるようにするため。
+- **検証:** 対象HTML18ページすべてでヘッダー直下に導線を挿入。リンク先は `https://teruluce.github.io/disney-bgs/`。外部リンクには `target="_blank" rel="noopener noreferrer"` を指定。ソース確認のみで、実ブラウザ・スマホ表示と公開反映は未確認。
+- **状態:** PR 作成前。ブランチ `feature/cross-site-navigation`。
+- **次の作業:** BGS Chronicles 側にも対になるリンクを追加し、両サイトのリンク切れと各PR状態を確認する。
+
+
+### 2026-10-11 — ChatGPT：BGS Chronicles との相互ナビゲーション
+- **対象ファイル:** `index.html`、`profile.html`、`contact.html`、`privacy.html`、`404.html)、`articles/index.html)、全13記事HTML、`assets/css/style.css`、本ログ。
+- **変更内容:** 各ページのヘッダー直下に BGS Chronicles への関連サイト導線を追加。サイトの既存配色・文字組みに合わせた控えめなリボン型UIとし、スマートフォン幅では説明文が折り返すようCSSを設定。404ページにも導線を追加。
+- **リンク先:** `https://teruluce.github.io/disney-bgs/`
+- **理由:** Disney Discovery から BGS Chronicles の背景設定・物語記事へ、どのページからでも移動できるようにするため。
+- **検証:** 対象18 HTMLページを更新。リンクに `target="_blank" rel="noopener noreferrer"` を設定。ソースレベルの更新のみ確認し、実ブラウザ・スマホ表示・公開反映は未確認。
+- **ブランチ:** `feature/cross-site-navigation`
+- **PR:** https://github.com/teruluce/disney-discovery/pull/9
+- **状態:** PR #9 作成済み、open・未マージ。作成直後のAPI応答では mergeable=false のため、競合判定を再確認する。公開サイト未確認。
+- **次の作業:** Claudeレビュー後、差分・競合・モバイル表示を確認してからマージ可否を判断。BGS側PR #22とのリンク先も確認する。
