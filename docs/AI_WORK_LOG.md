@@ -251,5 +251,6 @@
 - **理由:** Disney Discovery から BGS Chronicles の背景設定・物語記事へ、どのページからでも移動できるようにするため。
 - **検証:** 対象18 HTMLページを更新。リンクに `target="_blank" rel="noopener noreferrer"` を設定。ソースレベルの更新のみ確認し、実ブラウザ・スマホ表示・公開反映は未確認。
 - **ブランチ:** `feature/cross-site-navigation`
-- **状態:** PR作成前。公開サイト未確認。
-- **次の作業:** BGS側の対向リンクも含めてPRを作成し、両側のリンク先・モバイル表示を確認する。
+- **PR:** https://github.com/teruluce/disney-discovery/pull/9
+- **状態:** PR #9 作成済み、open・未マージ。作成直後のAPI応答では mergeable=false のため、競合判定を再確認する。公開サイト未確認。
+- **次の作業:** Claudeレビュー後、差分・競合・モバイル表示を確認してからマージ可否を判断。BGS側PR #22とのリンク先も確認する。
