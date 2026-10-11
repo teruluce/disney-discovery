@@ -470,3 +470,78 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
   .about-site-copy strong { font-size: 1.05rem; }
   .about-site-copy small { font-size: .78rem; }
 }
+
+/* 21st-century newspaper art direction: editorial paper, contemporary hierarchy. */
+:root {
+  --night: #202a36;
+  --night-2: #334451;
+  --dusk: #7b3f32;
+  --gold: #b68a48;
+  --gold-deep: #8c652f;
+  --paper: #f7f4ed;
+  --line: #d8d1c5;
+  --muted: #6d6b65;
+  --ink: #292d30;
+}
+body { background: var(--paper); color: var(--ink); }
+.site-header { position: relative; background: var(--paper); border-bottom: 1px solid var(--line); }
+.header-inner { min-height: 82px; }
+.brand-mark { color: var(--dusk); }
+.brand-name { letter-spacing: -.035em; }
+.brand-caption { color: var(--muted); }
+.site-nav a { font-size: .82rem; }
+.sister-site-switch { background: #f0ece3; border-bottom: 1px solid var(--line); }
+.sister-site-switch a { max-width: 1200px; }
+.hero {
+  overflow: hidden;
+  padding: clamp(58px, 8vw, 100px) 0 clamp(68px, 9vw, 112px);
+  color: var(--ink);
+  background: var(--paper);
+  border-bottom: 4px double var(--line);
+}
+.hero::before { display: none; }
+.hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(230px, .75fr); gap: clamp(28px, 5vw, 68px); }
+.hero .eyebrow { color: var(--dusk); font-size: .68rem; font-weight: 700; letter-spacing: .13em; }
+.hero h1 { max-width: 760px; color: var(--night); font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.25rem); line-height: 1.22; letter-spacing: -.045em; }
+.hero .highlight { color: var(--dusk); }
+.hero .lead { max-width: 630px; color: #555750; font-size: 1rem; line-height: 2; }
+.hero .button { border-radius: 0; background: var(--night); box-shadow: none; }
+.hero .button-secondary { border: 1px solid var(--line); background: transparent; color: var(--night); }
+.hero-art { border-left: 1px solid var(--line); padding-left: clamp(20px, 4vw, 46px); }
+.ticket { position: relative; width: 100%; max-width: 340px; min-height: 275px; padding: 28px 24px; border: 1px solid #bcb4a5; border-top: 5px solid var(--dusk); border-radius: 0; background: #fbf9f4; box-shadow: 7px 7px 0 #e9e3d8; transform: rotate(0); }
+.ticket::before { content: "THE PARK / CULTURE / CHARACTERS"; display: block; margin: 20px 0 10px; padding: 7px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font-size: .6rem; letter-spacing: .12em; }
+.ticket-label { color: var(--dusk); font-size: .62rem; letter-spacing: .12em; }
+.ticket-title { color: var(--night); font-family: var(--serif); font-size: 1.65rem; line-height: 1.5; }
+.ticket-note { color: var(--muted); font-size: .78rem; }
+.stamp { border: 1px solid var(--dusk); border-radius: 0; color: var(--dusk); font-family: var(--serif); }
+.hero-wave { display: none; }
+.section { padding-block: clamp(42px, 6vw, 76px); }
+.section-heading { display: grid; grid-template-columns: auto 1fr; align-items: baseline; column-gap: 16px; padding-bottom: 17px; border-bottom: 3px double var(--line); }
+.section-heading .eyebrow { color: var(--dusk); font-size: .65rem; font-weight: 700; letter-spacing: .14em; }
+.section-heading h2 { color: var(--night); font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.section-heading p { grid-column: 1 / -1; margin: 8px 0 0; color: var(--muted); font-size: .86rem; }
+.article-grid { gap: 0 26px; }
+.article-grid li { border-bottom: 1px solid var(--line); }
+.article-card { height: 100%; padding: 24px 4px; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.article-card:hover { transform: none; background: rgba(255,255,255,.45); box-shadow: none; }
+.article-card .tag { color: var(--dusk); font-size: .66rem; letter-spacing: .04em; }
+.article-card h3 { color: var(--night); font-family: var(--serif); font-size: 1.12rem; line-height: 1.65; }
+.article-card p { color: var(--muted); font-size: .84rem; }
+.article-card .more { color: var(--dusk); }
+.category-card, .note-card, .topic-card { border-radius: 0; box-shadow: none; }
+.site-footer { background: #eae5da; border-top: 3px double var(--line); }
+.site-footer .brand-name { color: var(--night); }
+.page-hero { background: var(--paper); color: var(--ink); border-bottom: 3px double var(--line); }
+.page-hero::before { display: none; }
+.page-hero h1 { color: var(--night); font-family: var(--serif); }
+.page-hero .lead { color: var(--muted); }
+.profile-page .site-header { position: relative; }
+@media (max-width: 760px) {
+  .header-inner { align-items: flex-start; }
+  .hero { padding-top: 48px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; }
+  .ticket { max-width: none; min-height: 0; }
+  .article-grid { gap: 0; }
+  .article-card { padding: 20px 2px; }
+}
