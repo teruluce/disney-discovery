@@ -230,5 +230,6 @@
 - **SEO:** 各記事に固有のtitle、description、canonical、OGP、Xカード、目次、関連記事、公式出典リンクを設定。トップページと記事一覧に各3記事のカードを追加し、sitemap.xmlを更新。
 - **著作権配慮:** 公式画像、ロゴ、映画の静止画、歌詞、台詞、他サイト本文は転載せず、本文を独自に執筆。事実確認の出典として公式ページへリンクした。
 - **検証:** GitHubから変更後ファイルを再取得。トップページ・記事一覧のカードは各12件、サイトマップは17 URL。新規3記事すべてにtitle、description、canonical、OGP、h1があり、記事内アンカー参照の不一致なし。外部リンクには `rel="noopener noreferrer"` を設定。GitHubソース上の検証であり、ブラウザ表示・モバイル実機・GitHub Pages反映は未確認。
-- **公開状況:** PR #8を作成予定。mainへのマージ・公開は未実施。
-- **次の作業:** PR #8の差分を確認し、Claudeレビュー後にマージ可否を判断。Search Consoleのサイトマップ送信はユーザーアカウントでの操作が必要。
+- **PR:** https://github.com/teruluce/disney-discovery/pull/8
+- **公開状況:** PR #8を作成済み。GitHubで再取得した状態はopen、未マージ、mergeable=true。GitHub Pagesへの反映は未確認。
+- **次の作業:** Claudeレビュー後、差分と表示を確認してからマージ可否を判断。Search Consoleのサイトマップ送信はユーザーアカウントでの操作が必要。
