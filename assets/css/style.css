@@ -338,36 +338,47 @@ h1 .highlight { background: linear-gradient(transparent 84%, var(--gold) 84%, va
   .answer-box { padding: 18px; }
 }
 
-/* Cross-site navigation: companion BGS Chronicles archive */
+/* Quiet cross-site note: BGS Chronicles is a related deep-dive archive, not a second primary navigation. */
 .sister-site-switch {
   position: relative;
-  z-index: 2;
-  background: rgba(255, 250, 237, .92);
-  border-bottom: 1px solid rgba(185, 133, 36, .28);
+  z-index: 1;
+  background: transparent;
+  border-bottom: 1px solid rgba(185, 133, 36, .16);
 }
 .sister-site-switch .container { padding-top: 0; padding-bottom: 0; }
 .sister-site-switch a {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 7px 12px;
-  min-height: 42px;
-  padding: 8px 0;
-  color: var(--ink);
+  gap: 3px 8px;
+  min-height: 0;
+  padding: 5px 0 6px;
+  color: var(--muted);
   text-decoration: none;
-  font-size: .82rem;
+  font-size: .72rem;
+  line-height: 1.6;
 }
 .sister-site-switch a:hover { color: var(--dusk); }
 .sister-site-switch .switch-label {
   color: var(--muted);
-  font-size: .68rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-size: .62rem;
+  letter-spacing: .06em;
+  opacity: .78;
 }
-.sister-site-switch strong { color: var(--dusk); font-family: var(--serif); }
-.sister-site-switch .switch-description { color: var(--muted); }
-.sister-site-switch .switch-arrow { color: var(--gold); font-weight: 700; }
+.sister-site-switch strong {
+  color: var(--night-2);
+  font-family: var(--serif);
+  font-size: .78rem;
+  font-weight: 600;
+}
+.sister-site-switch .switch-description { color: var(--muted); opacity: .86; }
+.sister-site-switch .switch-arrow { color: var(--gold-deep); font-size: .72rem; }
+@media (max-width: 560px) {
+  .sister-site-switch a { gap: 2px 6px; font-size: .68rem; padding: 5px 0; }
+  .sister-site-switch .switch-description { flex-basis: auto; text-align: left; }
+}
+
 @media (max-width: 560px) {
   .sister-site-switch a { gap: 4px 8px; font-size: .76rem; }
   .sister-site-switch .switch-description { flex-basis: 100%; text-align: center; }
