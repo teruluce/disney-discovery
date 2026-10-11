@@ -648,3 +648,69 @@ h3 { color: var(--ink); line-height: 1.55; }
 @media (max-width: 760px) {
   .hero-art .ticket { transform: none; }
 }
+
+
+/* Softer shapes and less crowded home page */
+:root {
+  --line: #d4e5e8;
+  --line-strong: #9fc9d1;
+}
+.site-header { border-bottom-color: rgba(131, 185, 197, .45); }
+.brand-mark { border-radius: 13px 13px 13px 4px; }
+.button, .button-secondary {
+  border-radius: 999px;
+  padding-inline: 1.45em;
+}
+.sister-site-switch a {
+  border-radius: 0 0 18px 18px;
+}
+.ticket {
+  border-radius: 10px 10px 26px 10px;
+}
+.article-card {
+  border: 1px solid rgba(131, 185, 197, .38);
+  border-radius: 18px 18px 18px 6px;
+  box-shadow: 0 4px 18px rgba(3, 72, 88, .045);
+  padding: 25px 24px 22px;
+}
+.article-card .tag {
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-weight: 600;
+}
+.article-card .card-foot {
+  border-top: 0;
+  padding-top: 4px;
+}
+.more { font-size: .82rem; }
+.about-band {
+  border: 0;
+  border-radius: 26px 26px 26px 8px;
+  background: linear-gradient(135deg, #edf8f9, #fffefa 78%);
+}
+.topic-list { border-top: 0; }
+.topic {
+  padding: 22px 20px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(200,223,228,.75);
+  border-radius: 16px 16px 16px 5px;
+  background: rgba(255,255,255,.58);
+}
+.topic:last-child { border-bottom: 1px solid rgba(200,223,228,.75); }
+.prose blockquote, .answer-box, .callout, .toc, .table-wrap {
+  border-radius: 14px 14px 14px 4px;
+}
+.chip { border-radius: 999px; }
+.about-site-link { border-radius: 12px; padding-inline: 12px; }
+.about-editorial { border-top-color: rgba(159,201,209,.8); }
+@media (min-width: 761px) {
+  .home-page .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .home-page .article-grid > li:first-child { grid-column: auto; }
+  .home-page .article-grid > li:first-child .article-card { padding-right: 24px; }
+  .home-page .article-grid > li:first-child .article-card h3 { font-size: clamp(1.2rem, 1.6vw, 1.45rem); line-height: 1.55; }
+  .home-page .article-grid > li:first-child .article-card p { max-width: none; font-size: .9rem; }
+}
+@media (max-width: 760px) {
+  .article-card { border-radius: 16px 16px 16px 5px; }
+  .topic { padding: 18px 15px; }
+}
