@@ -714,3 +714,56 @@ h3 { color: var(--ink); line-height: 1.55; }
   .article-card { border-radius: 16px 16px 16px 5px; }
   .topic { padding: 18px 15px; }
 }
+
+
+/* Return closer to the original Jubilee Editorial layout, with gently softened corners */
+.button, .button-secondary {
+  border-radius: 9px;
+  padding-inline: 1.3em;
+}
+.brand-mark { border-radius: 9px; }
+.sister-site-switch a { border-radius: 0 0 10px 10px; }
+.ticket, .hero-art .ticket { border-radius: 8px 8px 16px 8px; }
+.article-card {
+  border-radius: 10px;
+  padding: 25px 24px 22px;
+}
+.article-card .tag { border-radius: 5px; }
+.about-band { border-radius: 12px; }
+.topic-list {
+  border-top: 1px solid var(--line-strong);
+}
+.topic {
+  margin-bottom: 0;
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+.topic:last-child { border-bottom: 1px solid var(--line); }
+.prose blockquote, .answer-box, .callout, .toc, .table-wrap {
+  border-radius: 9px;
+}
+.chip { border-radius: 5px; }
+.about-site-link { border-radius: 8px; padding-inline: 10px; }
+@media (min-width: 981px) {
+  .home-page .article-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .home-page .article-grid > li:first-child { grid-column: span 2; }
+  .home-page .article-grid > li:first-child .article-card { padding-right: 28px; }
+  .home-page .article-grid > li:first-child .article-card h3 {
+    font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+    line-height: 1.4;
+  }
+  .home-page .article-grid > li:first-child .article-card p {
+    max-width: 650px;
+    font-size: .98rem;
+  }
+}
+@media (max-width: 760px) {
+  .article-card { border-radius: 10px; }
+  .topic { padding: 18px 0; }
+}
