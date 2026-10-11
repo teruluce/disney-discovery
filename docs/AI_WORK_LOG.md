@@ -242,3 +242,14 @@
 - **検証:** 対象HTML18ページすべてでヘッダー直下に導線を挿入。リンク先は `https://teruluce.github.io/disney-bgs/`。外部リンクには `target="_blank" rel="noopener noreferrer"` を指定。ソース確認のみで、実ブラウザ・スマホ表示と公開反映は未確認。
 - **状態:** PR 作成前。ブランチ `feature/cross-site-navigation`。
 - **次の作業:** BGS Chronicles 側にも対になるリンクを追加し、両サイトのリンク切れと各PR状態を確認する。
+
+
+### 2026-10-11 — ChatGPT：BGS Chronicles との相互ナビゲーション
+- **対象ファイル:** `index.html`、`profile.html`、`contact.html`、`privacy.html`、`404.html)、`articles/index.html)、全13記事HTML、`assets/css/style.css`、本ログ。
+- **変更内容:** 各ページのヘッダー直下に BGS Chronicles への関連サイト導線を追加。サイトの既存配色・文字組みに合わせた控えめなリボン型UIとし、スマートフォン幅では説明文が折り返すようCSSを設定。404ページにも導線を追加。
+- **リンク先:** `https://teruluce.github.io/disney-bgs/`
+- **理由:** Disney Discovery から BGS Chronicles の背景設定・物語記事へ、どのページからでも移動できるようにするため。
+- **検証:** 対象18 HTMLページを更新。リンクに `target="_blank" rel="noopener noreferrer"` を設定。ソースレベルの更新のみ確認し、実ブラウザ・スマホ表示・公開反映は未確認。
+- **ブランチ:** `feature/cross-site-navigation`
+- **状態:** PR作成前。公開サイト未確認。
+- **次の作業:** BGS側の対向リンクも含めてPRを作成し、両側のリンク先・モバイル表示を確認する。
