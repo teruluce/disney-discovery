@@ -541,3 +541,16 @@
 - **検証:** 全29ページの内部リンクとページ内アンカーにリンク切れ0、新規記事の目次と見出しIDの不一致0、sitemap.xmlのXML構文は正常。PC幅1280pxとスマホ幅390pxで新規10記事・トップ・記事一覧を表示し、横はみ出し0、コンソールエラー0。2記事はスクリーンショットで目視確認した。文章の事実確認は、上記の出典ページの記述との突き合わせによる。
 - **未確認:** 公開サイトでの実表示、実機スマホ、BGS側の記事が将来変更された場合の整合。
 - **状態:** ブランチ `content/add-10-articles`。PR作成後、mainへのマージはユーザーの確認待ち。
+
+
+### 2026-10-12 — ChatGPT：『塔の上のラプンツェル』の横断調査記事を追加
+- **担当:** ChatGPT
+- **ブランチ:** `content/rapunzel-tangled-feature`
+- **対象:** `articles/tangled-rapunzel-secrets.html`、`articles/index.html`、`index.html`、`sitemap.xml`、本ログ
+- **変更:** 魔法の髪のCG技術、灯籠シーンの着想、塔の壁画、グリム童話との違い、英語題名の読み方を扱う記事を追加。トップページ・記事一覧・サイトマップを更新。
+- **調査:** Animation World Network、Computer Graphics World、Big Shiny Robot、Senses of Cinema、University of Pittsburghのグリム童話資料などを横断。制作側の発言と作品からの解釈を区別。
+- **編集方針:** 夢を削ぐ注意書きの反復を避け、制作秘話と作品の魅力を中心にする。解釈は公式設定と断定しない。
+- **SEO:** title、description、canonical、OGP、Xカード、内部リンクを設定。記事専用画像は転載せず共通OGPを使用。
+- **検証:** GitHubへ反映後、内部リンク・目次アンカー・サイトマップ・表示を再確認する。公開済みとは扱わない。
+- **状態:** PR作成前。mainへのマージ・公開反映は未実施。
+- **次:** 変更ファイルを再取得してソース確認後、PRを作成し、可能ならClaudeレビューを依頼。
