@@ -588,3 +588,11 @@
 - **ブランチ:** `design/ai-studio-jubilee-redesign`
 - **状態:** PR作成前。マージ・公開反映は未確認。
 - **次:** 差分とHTML/CSSの構文を確認後、PRを作成。マージ後は公開URLでPC・スマートフォンの表示とリンクを確認する。
+
+
+### 2026-10-12 — AI Studio参考リデザインのマージ状況を更新
+- **PR:** https://github.com/teruluce/disney-discovery/pull/28
+- **マージ:** PR #28をsquash merge済み。マージコミット: https://github.com/teruluce/disney-discovery/commit/1a012f80594fad9646a295b7fabf4aa10ac9d217
+- **公開状況:** GitHub Pagesのデプロイ実行（https://github.com/teruluce/disney-discovery/actions/runs/38245164063）は確認時点で queued。mainへのマージは完了したが、公開サイトへの反映はまだ確認できていない。
+- **検証:** mainから `index.html` と `assets/css/style.css` を再取得し、デザイン変更が反映されていることを確認。CSSの波括弧数一致、主要リンク、モバイル用メディアクエリをソース上で確認。公開URLはこの環境から取得できず、ブラウザ上の実表示は未確認。
+- **次の確認:** GitHub Actionsが成功してから公開URLを確認。PC・スマートフォンの見た目と操作性は実機でも確認する。
