@@ -566,3 +566,163 @@ h3 { color: var(--ink); font-weight: 700; line-height: 1.6; }
 @media (max-width: 600px) {
   .about-author .editor-profile-photo { width: 124px; height: 124px; }
 }
+
+
+/* ---------- Mobile-first usability refinements (2026-10-12) ----------
+   Mobile is the primary reading experience. Desktop retains the existing
+   editorial layout; these rules prioritize navigation, legibility and touch.
+*/
+@media (max-width: 760px) {
+  html { scroll-padding-top: 16px; }
+  body { font-size: 16px; line-height: 1.85; letter-spacing: .01em; }
+  .container, .about-minimal .container { width: calc(100% - 32px); }
+
+  /* Keep the identity compact and make every navigation item easy to tap. */
+  .header-inner { align-items: flex-start; gap: 12px; padding-block: 14px 10px; }
+  .brand { max-width: 100%; gap: 9px; }
+  .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+  .brand-name { font-size: 1.18rem; }
+  .brand-caption { font-size: .68rem; }
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 4px;
+    overflow: visible;
+    padding: 0 0 4px;
+  }
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 44px;
+    padding: 7px 5px;
+    border-radius: 7px;
+    white-space: normal;
+    text-align: center;
+    font-size: .78rem;
+    line-height: 1.4;
+  }
+  .site-nav a[href$="profile.html"] { font-size: .76rem; }
+
+  .sister-site-switch .container { padding-bottom: 2px; }
+  .sister-site-switch a {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    gap: 3px 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: .76rem;
+    line-height: 1.55;
+  }
+  .switch-description { flex: 1 1 150px; }
+  .switch-arrow { margin-left: auto; }
+
+  .hero { padding-top: 30px; }
+  .hero-grid { gap: 0; }
+  .hero-grid > div:first-child { padding-bottom: 4px; }
+  .hero h1 { max-width: 100%; margin-bottom: 14px; font-size: clamp(1.8rem, 7.8vw, 2.35rem); line-height: 1.42; }
+  .lead { font-size: 1rem; line-height: 1.85; }
+  .hero-actions { gap: 12px; margin-top: 22px; }
+  .hero-actions .button { min-height: 48px; }
+  .hero-art { margin-top: 4px; padding-bottom: 0; }
+  .hero-art svg { width: min(68%, 250px); }
+  .hero-wave { height: 30px; }
+
+  .section { padding-block: 44px; }
+  .section-heading { margin-bottom: 22px; }
+  .section-heading h2 { margin-bottom: 8px; font-size: 1.45rem; line-height: 1.45; }
+  .section-heading > p:last-child { font-size: .93rem; line-height: 1.8; }
+  .home-page .article-grid, .article-grid { gap: 12px; }
+  .article-card { padding: 19px 17px 17px; border-radius: 8px; }
+  .article-card .tag { margin-bottom: 10px; padding: 3px 9px; font-size: .72rem; }
+  .article-card h3 { margin-bottom: 8px; font-size: 1.08rem; line-height: 1.55; }
+  .article-card p { margin-bottom: 12px; font-size: .9rem; line-height: 1.75; }
+  .card-foot { gap: 8px; font-size: .74rem; }
+  .more { padding: 7px 10px; }
+  .section-cta { margin-top: 24px; }
+
+  #categories { margin-inline: 0; }
+  .topics { gap: 12px; }
+  .topics .section-heading { margin-bottom: 8px; }
+  .topic { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 17px 0; }
+  .topic h3 { font-size: 1.02rem; line-height: 1.5; }
+  .topic p { font-size: .9rem; line-height: 1.75; }
+  .topic .topic-links { font-size: .88rem; line-height: 1.9; }
+  .topic-links a { display: inline; padding-block: 3px; }
+
+  .about-band { gap: 18px; padding: 22px 18px; border-radius: 12px; }
+  .about-band h2 { font-size: 1.35rem; line-height: 1.5; }
+  .about-band p { font-size: .93rem; line-height: 1.8; }
+  .about-band .button { width: 100%; }
+  .closing { padding-block: 32px 44px; }
+
+  /* Article pages: title, contents and body follow a clear reading order. */
+  .page-hero { padding-top: 24px; }
+  .page-hero .container { padding-bottom: 18px; }
+  .page-hero h1 { margin-bottom: 12px; font-size: clamp(1.55rem, 7vw, 2.05rem); line-height: 1.48; }
+  .page-hero .lead { font-size: .98rem; }
+  .breadcrumb { margin-bottom: 12px; font-size: .78rem; }
+  .meta-row { gap: 6px; margin-bottom: 12px; }
+  .chip { padding: 4px 9px; font-size: .73rem; }
+  .article-section { padding: 24px 0 54px; }
+  .article-layout { gap: 22px; }
+  .article-body { width: 100%; }
+  .prose { font-size: 1rem; line-height: 1.9; overflow-wrap: anywhere; }
+  .prose p { margin-bottom: 1.2em; }
+  .prose h2 { margin: 2.1em 0 .75em; padding-left: 14px; font-size: 1.28rem; line-height: 1.55; }
+  .prose h2::before { width: 5px; }
+  .prose h3 { margin: 1.7em 0 .55em; font-size: 1.06rem; line-height: 1.6; }
+  .prose ul, .prose ol { padding-left: 1.25em; }
+  .answer-box { padding-left: 14px; }
+  .callout { padding: 16px; }
+  .related { margin-top: 2.2em; padding: 16px; }
+  .related li { line-height: 1.75; }
+  .article-page .toc { margin-top: 0; padding: 14px 0; }
+  .article-page .toc h2 { margin-bottom: 8px; }
+  .article-page .toc ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 14px; padding-left: 1.2em; }
+  .article-page .toc li { margin: 0; padding-right: 3px; font-size: .83rem; line-height: 1.55; overflow-wrap: anywhere; }
+  .article-page .toc a { display: inline-block; padding-block: 4px; }
+  .table-wrap { margin-block: 1.2em 1.6em; border-radius: 8px; }
+  .prose table { font-size: .85rem; }
+  .prose th, .prose td { padding: 9px 10px; }
+
+  .about-heading { padding-block: 26px 18px; }
+  .about-editorial > .container { padding: 22px 18px; border-radius: 10px; }
+  .about-editorial h2 { font-size: 1.3rem; line-height: 1.5; }
+  .about-editorial p:not(.eyebrow), .about-editorial dd { font-size: .94rem; line-height: 1.8; }
+  .about-site-link { grid-template-columns: 34px minmax(0, 1fr) 30px; gap: 10px; padding: 14px 12px; border-radius: 9px; }
+  .about-site-label { width: 32px; height: 32px; font-size: .82rem; }
+  .about-site-copy strong { font-size: 1rem; }
+  .about-site-copy small { font-size: .8rem; line-height: 1.6; }
+  .about-site-arrow { width: 30px; height: 30px; }
+
+  .site-footer { margin-top: 18px; padding: 30px 0 20px; border-radius: 18px 18px 0 0; }
+  .footer-inner { gap: 18px; }
+  .footer-links { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .footer-links a { display: flex; align-items: center; min-height: 42px; padding: 8px 10px; border-radius: 6px; font-size: .78rem; line-height: 1.5; }
+  .disclaimer, .site-footer .disclaimer { margin-top: 20px; font-size: .74rem; }
+  .copyright { font-size: .72rem; }
+}
+
+@media (max-width: 600px) {
+  .site-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-nav a { justify-content: flex-start; padding-inline: 12px; text-align: left; }
+  .site-nav a::after { content: "↗"; margin-left: auto; padding-left: 6px; color: var(--muted); font-size: .75rem; }
+  .site-nav a[href="index.html"]::after,
+  .site-nav a[href="../index.html"]::after { content: "⌂"; }
+  .site-nav a[aria-current="page"]::after { content: "•"; }
+  .hero-art svg { width: min(62%, 220px); }
+  .article-page .toc ol { grid-template-columns: 1fr; gap: 2px; }
+}
+
+@media (max-width: 360px) {
+  .container, .about-minimal .container { width: calc(100% - 24px); }
+  .brand-name { font-size: 1.05rem; }
+  .brand-caption { font-size: .62rem; }
+  .hero h1 { font-size: 1.72rem; }
+  .article-card { padding-inline: 14px; }
+  .article-page .toc li { font-size: .8rem; }
+}
