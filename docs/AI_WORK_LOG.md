@@ -673,5 +673,5 @@
 - **検証:** GitHub上で変更前の各ファイルを取得し、置換対象の文言を確認。更新後は再取得して、注記削減・クリスマス版の記載・HTML構造・内部リンク・目次アンカーを確認する。
 - **未確認:** ブラウザ表示、スマートフォン実機、GitHub Pagesへの反映。マージ後に公開サイトで確認する。
 - **公開状況:** ブランチ `content/refine-parades-copy` で作業。mainへのマージ・公開確認は未実施。
-- **PR:** https://github.com/teruluce/disney-discovery/pull/34（open・未マージ。mainに対して5コミット先行／遅れ0、mergeable=trueを確認）。
+- **PR:** https://github.com/teruluce/disney-discovery/pull/34（open・未マージ。mainに対して8コミット先行／遅れ0、mergeable=trueを確認）。
 - **次の手順:** ユーザー確認後にマージし、GitHub Pagesの反映と公開ページの表示を確認する。
