@@ -45,6 +45,7 @@
     </section>
     <section class="article-section">
       <div class="container">
+        <div class="filter-bar" id="filter-bar" role="group" aria-label="テーマで絞り込む" hidden></div>
         <ul class="article-grid">
           <li>
             <a class="article-card" href="../articles/tangled-rapunzel-secrets.html">
@@ -272,5 +273,46 @@
       <p class="copyright">© Disney Discovery. All rights reserved.</p>
     </div>
   </footer>
+<script>
+/* テーマ別の絞り込み（JavaScriptが使えない場合は、全記事がそのまま表示されます） */
+(function () {
+  var THEMES = {"パーク初心者ガイド":1,"パークの豆知識":1,"キャラクター図鑑":1,"映画・作品の雑学":1};
+  var MAP = {"first-visit-checklist.html":"パーク初心者ガイド","park-ticket-basics.html":"パーク初心者ガイド","tdr-app-guide.html":"パーク初心者ガイド","restaurant-priority-seating-guide.html":"パーク初心者ガイド","tdr-hotel-types.html":"パーク初心者ガイド","tdr-access-guide.html":"パーク初心者ガイド","why-park-areas-feel-different.html":"パークの豆知識","tokyo-disneyland-vs-disneysea.html":"パークの豆知識","park-day-and-night.html":"パークの豆知識","tdr-history-timeline.html":"パークの豆知識","tokyo-disneyland-history.html":"パークの豆知識","tokyo-disneysea-history.html":"パークの豆知識","fantasy-springs-guide.html":"パークの豆知識","donald-duck-profile.html":"キャラクター図鑑","character-greeting-guide.html":"キャラクター図鑑","mickey-mouse-debut.html":"キャラクター図鑑","oswald-lucky-rabbit.html":"キャラクター図鑑","how-disney-animation-is-made.html":"映画・作品の雑学","walt-disney-profile.html":"映画・作品の雑学","snow-white-1937.html":"映画・作品の雑学","tangled-rapunzel-secrets.html":"映画・作品の雑学","paypay-payment-guide.html":"パーク初心者ガイド","time-saving-services.html":"パーク初心者ガイド","park-photography-rules.html":"パーク初心者ガイド","d-otaku-terms.html":"パークの豆知識"};
+  var list = document.querySelector('.article-grid');
+  var bar = document.getElementById('filter-bar');
+  if (!list || !bar) return;
+  var items = Array.prototype.slice.call(list.children);
+  var counts = {};
+  items.forEach(function (li) {
+    var a = li.querySelector('a');
+    var file = a ? a.getAttribute('href').split('/').pop() : '';
+    var theme = MAP[file];
+    if (!theme) { var t = li.querySelector('.tag'); theme = t ? t.textContent.trim() : ''; }
+    li.setAttribute('data-theme', theme);
+    counts[theme] = (counts[theme] || 0) + 1;
+  });
+  function chip(label, key, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'filter-chip';
+    b.setAttribute('data-key', key);
+    b.setAttribute('aria-pressed', key === '' ? 'true' : 'false');
+    b.textContent = label + '（' + n + '）';
+    return b;
+  }
+  bar.appendChild(chip('すべて', '', items.length));
+  Object.keys(THEMES).forEach(function (k) { if (counts[k]) bar.appendChild(chip(k, k, counts[k])); });
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.filter-chip') : null;
+    if (!b) return;
+    var key = b.getAttribute('data-key');
+    Array.prototype.forEach.call(bar.children, function (c) {
+      c.setAttribute('aria-pressed', c === b ? 'true' : 'false');
+    });
+    items.forEach(function (li) { li.hidden = !(key === '' || li.getAttribute('data-theme') === key); });
+  });
+  bar.hidden = false;
+})();
+</script>
 </body>
 </html>
