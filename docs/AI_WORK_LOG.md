@@ -734,3 +734,13 @@
 - **マージ状況:** ユーザーからマージ完了の報告あり。2026-10-15にGitHubの `main` を再取得し、10記事すべてと記事一覧・サイトマップ・本ログがmainに存在することを確認。
 - **未完了の検証:** 全内部リンクのリンク先存在確認、XML/HTMLの機械検証、実ブラウザ表示（360px／390px／1280px）、GitHub Pages公開反映は未確認。mainへのマージ確認と公開反映確認を混同しない。
 - **次の手順:** 内部リンク・出典・本文の事実を再点検し、GitHub Pages上の公開表示を確認する。必要な改善は別コミットで記録する。
+
+
+### 2026-10-15 — ChatGPT：記事10本のマージ後検証
+- **対象:** 10記事、トップページ、記事一覧、サイトマップ、共通CSS、favicon、OGP画像、GitHub PagesのActions実行結果。
+- **構造検証:** 新規10記事それぞれで `title`、description、canonical、OGPタイトル、H1が各1件。目次内アンカーの参照先ID不足は0件。
+- **内部リンク検査:** GitHubのmainツリーを基準に、トップページ・記事一覧・新規10記事のローカルリンク267件を照合。リンク先ファイルの欠落は0件（ディレクトリリンクはindex.htmlとして解決）。
+- **一覧・SEO:** 記事一覧の全40カード中、新規10件を確認。絞り込みMAPに新規10件すべて登録。トップページの新規記事リンク10件、サイトマップの新規URL10件を確認。OGP画像 `assets/img/og-default.png`、`favicon.svg`、共通CSSの存在を確認。
+- **出典の再確認:** D23のアーカイブで、グーフィー、プルート、ミニー、デイジー、スティッチ、プー、トイ・ストーリー、アナと雪の女王、ライオン・キング、ベイマックスに関する記事の基礎情報を照合。D23資料：`https://d23.com/a-to-z/goofy/`、`https://d23.com/a-to-z/pluto/`、`https://d23.com/a-to-z/minnie-mouse/`、`https://d23.com/a-to-z/daisy-duck/`、`https://d23.com/a-to-z/stitch/`、`https://d23.com/a-to-z/winnie-the-pooh/`、`https://d23.com/a-to-z/toy-story-film/`、`https://d23.com/a-to-z/frozen-film/`、`https://d23.com/a-to-z/lion-king-the-film/`、`https://d23.com/a-to-z/big-hero-6-film/`。
+- **公開状況:** GitHub Actionsの `pages build and deployment` がmainのコミット `c5e8d573720009fc64c10c1c7a44007ed9961497` で `completed / success` と確認。これはPagesビルド・デプロイ工程の成功を示す。実ブラウザでの最終見た目とスマートフォン実機表示は、この実行環境から直接確認できていないため未検証扱い。
+- **未完了・注意:** OGPプレビューがX上で実際に表示されるか、実機のレスポンシブ表示、検索エンジンによるインデックス状況は未確認。公開表示の最終目視確認を今後の改善項目として残す。
