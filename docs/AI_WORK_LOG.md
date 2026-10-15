@@ -730,7 +730,7 @@
 - **新規記事10本:** `articles/goofy-guide.html`、`articles/pluto-guide.html`、`articles/minnie-mouse-profile.html`、`articles/daisy-duck-profile.html`、`articles/stitch-guide.html`、`articles/winnie-the-pooh-guide.html`、`articles/toy-story-basics.html`、`articles/frozen-character-guide.html`、`articles/lion-king-basics.html`、`articles/baymax-guide.html`。
 - **記事の狙い:** キャラクター図鑑をグーフィー、プルート、ミニー、デイジー、スティッチへ拡張。作品の基礎知識を『くまのプーさん』『トイ・ストーリー』『アナと雪の女王』『ライオン・キング』『ベイマックス』で補強。既存のドナルド、チップとデール、ミッキー、オズワルド、ラプンツェル等との関連記事導線を設置。
 - **既存ファイル:** `index.html`（キャラクター図鑑・映画雑学のテーマ欄に10本を追加）、`articles/index.html`（10件のカード、テーマ絞り込みMAPを追加）、`sitemap.xml`（10 URLを追加）、本ログ。
-- **出典確認:** D23アーカイブを中心に、グーフィー、プルート、ミニー、デイジー、スティッチ、プー、トイ・ストーリー、アナと雪の女王、ライオン・キングの基本情報を確認。ベイマックス記事は作品の設定についての説明を中心にし、出典リンクはレビュー時に適切な作品資料へ差し替え・補強が必要。
+- **出典確認:** D23アーカイブを中心に、グーフィー、プルート、ミニー、デイジー、スティッチ、プー、トイ・ストーリー、アナと雪の女王、ライオン・キングの基本情報を確認。ベイマックス記事の出典は、D23の『Big Hero 6 (film)』作品記録（https://d23.com/a-to-z/big-hero-6-film/）に修正。
 - **SEO:** 各記事に固有のtitle、description、canonical、OGP、Xカード、H1、目次、出典、関連記事を設定。画像の転載は行わず、既存のOGP画像を使用。
 - **未完了の検証:** 記事10本の内部リンク・目次ID・HTML構造、記事一覧の絞り込み件数、サイトマップのXML妥当性、全サイトリンク検査、ブラウザ表示（360px／390px／1280px）、GitHub Pages公開反映は未確認。ソース登録のみで公開済みとは扱わない。
 - **公開状況:** main未反映。PR作成後、差分と検証結果を再確認する。ユーザーのレビュー・マージ待ち。
