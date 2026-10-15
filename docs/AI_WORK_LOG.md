@@ -744,3 +744,16 @@
 - **出典の再確認:** D23のアーカイブで、グーフィー、プルート、ミニー、デイジー、スティッチ、プー、トイ・ストーリー、アナと雪の女王、ライオン・キング、ベイマックスに関する記事の基礎情報を照合。D23資料：`https://d23.com/a-to-z/goofy/`、`https://d23.com/a-to-z/pluto/`、`https://d23.com/a-to-z/minnie-mouse/`、`https://d23.com/a-to-z/daisy-duck/`、`https://d23.com/a-to-z/stitch/`、`https://d23.com/a-to-z/winnie-the-pooh/`、`https://d23.com/a-to-z/toy-story-film/`、`https://d23.com/a-to-z/frozen-film/`、`https://d23.com/a-to-z/lion-king-the-film/`、`https://d23.com/a-to-z/big-hero-6-film/`。
 - **公開状況:** GitHub Actionsの `pages build and deployment` がmainのコミット `c5e8d573720009fc64c10c1c7a44007ed9961497` で `completed / success` と確認。これはPagesビルド・デプロイ工程の成功を示す。実ブラウザでの最終見た目とスマートフォン実機表示は、この実行環境から直接確認できていないため未検証扱い。
 - **未完了・注意:** OGPプレビューがX上で実際に表示されるか、実機のレスポンシブ表示、検索エンジンによるインデックス状況は未確認。公開表示の最終目視確認を今後の改善項目として残す。
+
+
+### 2026-10-15 — ChatGPT：実用ガイド記事を5本追加（レビュー・マージ待ち）
+- **作業前確認:** 共通作業ログ、コンテンツ制作ガイドライン、トップページ、記事一覧、サイトマップ、既存の来園準備・アプリ・撮影ルール記事を確認。既存記事との重複を避け、雨の日、持ち物、暑さ対策、子ども連れ、予算の5テーマに分けた。
+- **変更ブランチ:** `content/5-practical-park-guides`（最新mainから作成）。
+- **新規記事:** `articles/rainy-day-disney-guide.html`、`articles/disney-park-packing-list.html`、`articles/disney-hot-weather-guide.html`、`articles/disney-with-kids-guide.html`、`articles/disney-park-budget-tips.html`。
+- **既存ファイル:** `index.html`、`articles/index.html`、`sitemap.xml`、本ログ。
+- **内容:** 雨天時の屋内施設・雨具・写真、持ち物チェックリスト、暑さと休憩、子ども連れの準備、チケット・交通・食事・お土産の予算整理。自然な標準語の丁寧語を使用し、変動情報を固定値で断定しない。
+- **SEO・導線:** 個別title、description、canonical、OGP、Xカード、H1、目次、参考情報、関連記事を設定。トップページ、記事一覧、テーマ絞り込みMAP、サイトマップを更新。
+- **調査:** 雨の日の楽しみ方、雨具の販売、持ち込み・滞在上の注意について東京ディズニーリゾート公式ページを参照。各記事末尾に関連する公式案内をまとめた。
+- **検証状況:** 記事と導線ファイルを作業ブランチに作成・更新。HTML構造、目次アンカー、内部リンク、XML構文、ブラウザ表示、スマートフォン表示、公開反映はこれから確認する。未実施の検証を完了扱いにしない。
+- **状態:** PR作成・マージ前。GitHub Pagesへの公開は未確認。
+- **次の手順:** 変更ファイルを再取得してカード・MAP・URL・目次アンカー・内部リンクを検証し、問題がなければPRを作成する。PRレビューとマージ後にPagesのデプロイ状態を確認する。
