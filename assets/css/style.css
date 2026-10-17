@@ -487,3 +487,6 @@ p { margin: 0 0 1.2em; }
 .nav-disclosure>summary::-webkit-details-marker{display:none}
 .nav-disclosure[open] .site-nav{display:flex}
 @media(min-width:761px){.nav-disclosure>summary{display:none}.nav-disclosure{margin-top:0}}
+
+/* Desktop: show the legacy horizontal navigation even when the disclosure is closed */
+@media(min-width:761px){.nav-disclosure:not([open])>.site-nav{display:flex}}
