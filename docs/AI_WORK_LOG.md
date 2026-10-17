@@ -787,5 +787,5 @@
 - **変更内容:** articles/chip-and-dale-difference.html は既存の articles/chip-and-dale-guide.html に統合する案内・自動転送ページへ変更。articles/disney-first-timer-app-day-plan.html は既存の articles/tdr-app-guide.html に転送し、本文から来園準備について知りたい読者向けにチェックリストへのリンクも残す。2つの重複候補はトップページと記事一覧から削除し、記事一覧のカテゴリ絞り込みMAPとサイトマップからも除外。元URLは外部共有や既存インデックスへの配慮から削除せず、noindex,follow と canonical、meta refresh、通常リンクを設定。
 - **維持:** articles/what-is-bgs.html は初心者向けにBGSの意味を紹介する入口記事として残す。詳しい背景設定・個別考察はBGS Chroniclesへ誘導する役割を持たせる。
 - **検証:** 更新後のHTML/XML構造、記事一覧カード、絞り込みMAP、トップページリンク、サイトマップURL、転送先ファイルの存在をPR前に確認する。
-- **状態:** 作業ブランチ content/consolidate-overlapping-articles。PR作成・マージ・GitHub Pages公開反映は未確認。
-- **次の手順:** 差分と検証結果を確認してPRを作成。マージ後にmainとPagesのデプロイ結果を確認する。
+- **状態:** PR #43（https://github.com/teruluce/disney-discovery/pull/43）を作成済み。レビュー・マージ待ち。GitHub Pages公開反映は未確認。
+- **次の手順:** PR #43を確認・マージ後、mainへの反映とPagesのデプロイ結果を確認する。
