@@ -490,3 +490,12 @@ p { margin: 0 0 1.2em; }
 
 /* Desktop: show the legacy horizontal navigation even when the disclosure is closed */
 @media(min-width:761px){.nav-disclosure:not([open])>.site-nav{display:flex}}
+
+
+/* ---------- 画像の保存操作を抑制（完全な取得防止ではありません） ---------- */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
