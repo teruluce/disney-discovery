@@ -857,3 +857,14 @@
 - **PR:** 作成前。
 - **公開状況:** main未反映。公開・デプロイ未確認。
 - **次の作業:** 新規記事と一覧・サイトマップの差分、リンク、HTML構造を確認してPRを作成。ユーザーがPRをマージ後、公開URLで表示を確認する。
+
+
+### 2026-10-19 — Eパレ記事末尾にBGS Chroniclesの深掘り記事への導線を追加
+- **担当:** ChatGPT
+- **依頼:** Disney Discoveryのエレクトリカルパレード記事の最後の方から、BGS Chronicles側のEパレ記事へ移動できるようにする。
+- **作業前確認:** 対象記事と共通作業ログを再取得。公開中のBGS Chroniclesにある該当記事を検索し、実際のURL `https://teruluce07-cmd.github.io/disney-bgs/bgs-electricalparade.html` を確認。
+- **変更ファイル:** `articles/electrical-parade-dreamlights.html`、本ログ。
+- **変更内容:** 出典欄の後、関連記事一覧の前に「光のパレードを、物語の視点から読み解く」という案内セクションを追加。ボタンからBGS ChroniclesのEパレ深掘り記事へ直接移動できるようにした。
+- **検証:** GitHub API経由で記事を再取得し、正しいBGS記事URLが設定されていることを確認。ブラウザ上のクリック動作とGitHub Pages反映は未確認。
+- **状態:** ブランチ `content/electrical-parade-dreamlights` に更新済み。PR #48に含まれる。main未反映、公開反映未確認。
+- **次の作業:** PR #48をマージ後、公開ページからBGS記事へ正しく遷移するか確認する。
