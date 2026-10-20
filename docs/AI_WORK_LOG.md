@@ -903,3 +903,12 @@
 - **PR:** 作成前。
 - **公開状況:** main未反映。公開・デプロイ未確認。
 - **次の作業:** CSSの構文とHTMLクラス対応を確認し、PRで差分をレビューする。必要に応じて調整後、ユーザーがマージする。
+
+
+### 2026-10-21 — ChatGPT：再設計CSSの追加確認
+- **担当:** ChatGPT
+- **対象:** assets/css/style.css
+- **追加確認:** 更新後CSSの波括弧対応を再確認し、画像保存操作を抑制する既存指定が残っていることを確認。トップページと記事ページの主要クラス（masthead、hero、topic-list、article-layout、toc、prose、related、site-footer）がHTMLとCSS双方に存在することを確認。
+- **微修正:** 記事一覧の絞り込み領域は初期状態で hidden 属性を使うため、CSS側で表示状態を上書きしないよう .filter-bar[hidden] を明示的に非表示にするルールを追加。
+- **検証の限界:** これはソースの機械的確認であり、実ブラウザでの描画・操作・レスポンシブの目視確認ではない。GitHub Pages公開反映も未確認。
+- **PR:** https://github.com/teruluce/disney-discovery/pull/50（レビュー待ち、未マージ）。
