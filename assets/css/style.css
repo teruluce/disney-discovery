@@ -305,6 +305,8 @@ p { margin: 0 0 1.15em; }
 .related a { display: inline-block; padding: 5px 0; }
 .about-editorial, .about-minimal, .about-author, .about-sites { margin: 24px 0; }
 .about-heading { margin-bottom: 16px; }
+.about-site-label { display: block; margin-bottom: 5px; color: var(--gold); font-family: var(--font-label); font-size: .65rem; letter-spacing: .1em; }
+.about-site-copy { color: var(--muted); font-size: .88rem; line-height: 1.85; }
 .about-site-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--line); text-decoration: none; }
 .about-site-arrow { color: var(--gold); }
 .editor-profile-photo { width: min(220px, 60%); margin: 0 auto 18px; border: 1px solid var(--line-strong); padding: 4px; background: var(--surface); }
