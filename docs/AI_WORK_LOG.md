@@ -932,3 +932,16 @@
 - **ブランチ:** design/modern-ui-refresh
 - **PR:** 作成前。
 - **公開状況:** main未反映。公開・デプロイ未確認。
+
+
+### 2026-10-21 — ChatGPT：Disney Discoveryの技術SEO初回改善
+- **担当:** ChatGPT
+- **作業前確認:** main上の共通作業ログ、SEO戦略、トップページ、記事一覧、robots.txt、sitemap.xml、Search Console確認ファイル、記事サンプルを確認。BGS Chroniclesは変更対象外。
+- **監査結果:** canonical URL、robots.txtのサイトマップ指定、サイトマップURLは `https://teruluce.github.io/disney-discovery/` に統一。robots.txtはクロールを許可し、`.nojekyll` とSearch Console確認用HTMLファイルも存在。サイトマップは53 URLで、404ページ・noindexの統合ページ・確認ファイルを含めていない点は意図どおり。トップページと記事一覧の最終更新日が古かったため更新。
+- **変更ファイル:** `index.html`、`articles/index.html`、`sitemap.xml`、`docs/SEO_STRATEGY.md`、本ログ。
+- **変更内容:** トップページにWebSite JSON-LD、記事一覧にCollectionPageとBreadcrumbList JSON-LDを追加。サイトマップのトップページ最終更新日を2026-10-21、記事一覧を2026-10-19に修正。SEO戦略文書に監査結果・未検証事項・Search Consoleデータがない状態で順位原因を断定しない方針を追記。
+- **検証:** ソース内容を再取得し、JSON-LDの挿入位置、サイトマップ日付、canonicalとサイトマップURLの一貫性を確認予定。Google URL検査、リッチリザルトテスト、実際の検索結果、GitHub Pages公開反映は未確認。
+- **ブランチ:** `seo/technical-foundation`
+- **PR:** 作成前。
+- **公開状況:** main未反映。公開・デプロイ未確認。
+- **次の作業:** 更新ファイルを再取得し、JSON-LD構文・XML構造・既存リンクを検証してからPRを作成。マージ後、Search Consoleでサイトマップと主要URLの処理状況を確認する。
