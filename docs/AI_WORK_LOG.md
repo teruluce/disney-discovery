@@ -981,3 +981,26 @@
 - **PR:** [#55](https://github.com/teruluce/disney-discovery/pull/55)（open・未マージ）。PR作成時のGitHub応答では mergeable=false と表示されたため、マージ前にPR画面のチェック・競合状態を再確認する。
 - **公開状況:** ブランチ上の作業。mainへのマージ・GitHub Pages公開反映は未確認。
 - **次の作業:** PR差分とリンクを確認し、マージ後に公開ページの表示を確認。
+
+
+### 2026-10-22 — ChatGPT：記事本文の情報量拡充・第1弾
+- **担当:** ChatGPT
+- **依頼:** Disney Discoveryの記事が薄いため、各記事の内容量をおおむね2倍にし、読者に役立つ具体的な説明を増やす。
+- **作業前確認:** 共通作業ログ、コンテンツ制作ガイドライン、サイトマップ、記事一覧、対象記事の本文を確認。既存の文体（標準語・ですます調）、記事の主題、出典欄、SEOメタ情報、内部リンク方針を維持する方針とした。
+- **変更ブランチ:** `content/expand-all-articles`
+- **変更ファイル:** `articles/first-visit-checklist.html`、`articles/park-ticket-basics.html`、`articles/tdr-app-guide.html`、`articles/time-saving-services.html`、`articles/why-park-areas-feel-different.html`。
+- **変更内容:** 初めての来園準備、チケット購入前の検討、アプリの事前準備と利用場面、時間指定サービスの選び方、テーマエリアの景観要素などを追加。単純な言い換えで文字数を増やすのではなく、手順・具体例・よくある見落とし・観察ポイントを補った。
+- **編集上の注意:** 料金・対象サービスなど変動する情報を新たに断定することは避け、最新条件は公式アプリ・公式案内で確認する説明を追加した。既存の本文・出典・canonical・OGPメタ情報は維持。
+- **検証:** GitHub APIで5記事の更新成功を確認。実ブラウザ表示、目次との整合、リンク一括検査、GitHub Pagesへの公開反映は未確認。
+- **状態:** ブランチ上で変更済み。PR作成・mainへのマージ・公開反映は未完了。
+- **残り:** 残りの記事も順次、記事テーマに即して具体例・背景説明・実用的な手順・注意点を加えて拡充する。追加見出しの目次反映と全体のリンク・HTML確認も行う。
+
+
+### 2026-10-22 — ChatGPT：記事本文の拡充・第2弾
+- **担当:** ChatGPT
+- **対象ファイル:** `articles/tokyo-disneyland-vs-disneysea.html`、`articles/character-greeting-guide.html`、`articles/restaurant-priority-seating-guide.html`、`articles/park-photography-rules.html`、`articles/park-day-and-night.html`。
+- **変更内容:** パーク選びの判断軸と1日の計画、グリーティングの事前準備とマナー、レストラン予約の組み立て方、撮影前の注意とSNS投稿時の配慮、昼・夕暮れ・夜の景色の観察ポイントを追加。
+- **方針:** 既存の主題を保ち、具体的な行動や比較方法を増やす。撮影やサービスの運用ルールは、記事内で一律に断定せず現地・公式の案内を優先する記述にした。
+- **検証:** GitHub上で5記事の更新成功を確認。実ブラウザ表示、目次への新規見出し反映、全リンク検査、GitHub Pages公開反映は未確認。
+- **状態:** 第1弾と同じ `content/expand-all-articles` ブランチおよびPR #56に追加済み。mainへのマージ・公開反映は未完了。
+- **次の作業:** 残りの記事をテーマごとに拡充し、追加見出しと目次の整合、リンク、HTML構造を確認する。
