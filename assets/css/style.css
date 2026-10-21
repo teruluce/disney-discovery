@@ -39,6 +39,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 h1, h2, h3 { margin: 0 0 .6em; color: var(--ink); font-family: var(--font-jp); font-weight: 750; line-height: 1.42; letter-spacing: -.025em; }
 p { margin: 0 0 1.1em; }
 .container { width: min(var(--page-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+.nobr { white-space: nowrap; }
 .skip-link { position: absolute; top: -80px; left: 14px; z-index: 1000; padding: 10px 16px; border-radius: 8px; background: var(--navy-deep); color: white; }
 .skip-link:focus { top: 12px; color: white; }
 
@@ -98,6 +99,9 @@ p { margin: 0 0 1.1em; }
 .topic { display: grid; grid-template-columns: 40px minmax(0,1fr); align-content: start; gap: 12px; min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 4px 14px rgba(28,53,82,.035); }
 .topic-no { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 11px; background: var(--surface-blue); color: var(--navy); font-size: .72rem; font-weight: 800; line-height: 1; }
 .topic h3 { margin: 2px 0 7px; font-size: 1.1rem; letter-spacing: -.02em; }
+.topic h3 a { color: var(--ink); text-decoration: none; }
+.topic h3 a:hover { color: var(--navy); text-decoration: underline; }
+.topic-meta { color: var(--gold) !important; font-size: .76rem !important; font-weight: 700; }
 .topic p { margin: 0 0 12px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
 .topic p:last-child { margin-bottom: 0; }
 .topic p.topic-links { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 0; font-size: 0; }
