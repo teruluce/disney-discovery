@@ -1045,5 +1045,6 @@
   - docs/AI_WORK_LOG.md、docs/SEO_STRATEGY.md — 作業履歴と評価方針を追記。
 - **目的:** 検索結果の説明文でページ内容が伝わるようにし、Xなどで共有した際の説明文もページの検索説明と一致させる。検索順位やクリック率の改善は保証せず、公開後のデータで評価する。
 - **検証:** 変更対象ファイルの元テキストを確認してから更新。更新後にdescription/OGP descriptionの整合性を確認する。実際のGoogleスニペット、SNSカード、GitHub Pagesの反映、CTRへの影響は未確認。
-- **公開状況:** PR作成前。mainへのマージ・公開は未完了。
+- **PR:** #59 — https://github.com/teruluce/disney-discovery/pull/59
+- **公開状況:** PR #59作成済み・未マージ。mainへの反映と公開は未完了。
 - **次の作業:** この変更を1本のPRとして提出。マージ後にSearch Consoleのページ別クリック数、表示回数、CTR、平均掲載順位を同じ期間で比較する。
