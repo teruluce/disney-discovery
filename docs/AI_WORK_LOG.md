@@ -1026,6 +1026,21 @@
 - **変更内容:** title、meta description、OGP title/description、H1、リード文を「初めてのディズニー」「チケット」「アプリ」「来園前の準備」が明確に伝わる文言に統一。記事本文の手順や事実情報は変更していない。
 - **目的:** 初来園の検索意図と検索結果の表示文言を合わせ、記事の内容が検索結果から伝わるようにする。
 - **検証:** HTMLソース上でtitle・description・OGP・H1・リード文の文言一致を確認。実際のGoogle検索結果表示、CTRへの効果、ブラウザ・モバイル表示は未確認。
-- **PR:** 作成予定。
+- **PR:** PR #58（ブランチ seo/first-visit-search-snippet）。後続の一括SEO改善も同じPRに集約。
 - **公開状況:** ブランチ上の変更。mainへのマージ・GitHub Pages反映は未実施。
 - **次の作業:** PR差分確認後にマージ。公開後、Search Consoleのページ別CTR・表示回数・掲載順位を比較し、検索データに基づいて次の改善対象を選ぶ。
+### 2026-10-25 — ChatGPT：検索結果・SNS表示・記事メタ情報の一括SEO改善
+- **担当:** ChatGPT
+- **作業前確認:** 共通作業ログ、docs/SEO_STRATEGY.md、docs/CONTENT_GUIDELINES.md、記事一覧、トップページを確認。記事一覧からリンクされている公開記事50本について、title、meta description、OGP title、H1の整合性と検索意図をソース上で確認した。
+- **方針:** 小さなPRを連続して依頼する負担を減らすため、初来園記事の改善を含め、検索表示・SNSプレビュー・短すぎる説明文の改善をPR #58にまとめた。既に検索意図に合っている記事タイトルは、変更のためだけの変更を避けて維持した。
+- **変更ファイル:**
+  - index.html — トップページのOGP説明文をmeta descriptionと一致させ、検索結果とSNS共有の説明の差を解消。
+  - articles/index.html — 記事一覧のOGP説明文をmeta descriptionと一致させた。
+  - articles/first-visit-checklist.html — title、meta description、OGP title/description、H1、導入文を「初めてのディズニー」「チケット」「アプリ」「来園前の準備」に合わせて統一。
+  - articles/winnie-the-pooh-guide.html、articles/stitch-guide.html、articles/toy-story-basics.html、articles/frozen-character-guide.html、articles/lion-king-basics.html、articles/baymax-guide.html — 短く抽象的だったmeta descriptionを記事の内容が伝わる文に改善し、各OGP descriptionも一致させた。
+  - docs/SEO_STRATEGY.md — Search Consoleの初期データと一括監査の結果、未確認事項を記録。
+  - docs/AI_WORK_LOG.md — 本作業を記録。
+- **根拠:** ユーザー提供のSearch Console検索語では「ディズニー チケット 年齢」「ディズニー チケット 何歳から」などチケット年齢区分に関する表示が見られた一方、提示された範囲は合計16表示・クリック0で、CTRや順位の傾向を断定できる量ではない。
+- **検証:** 更新後のGitHubソースでtitle、description、OGP、H1の整合性を確認する。Google検索結果の実表示、CTR・順位への影響、ブラウザ・実機表示、GitHub Pagesへの反映は未確認。
+- **公開状況:** PR #57はユーザーからマージ完了の報告あり。今回の一括変更はPR #58に集約し、mainへのマージ・公開は未完了。
+- **次の作業:** PR #58をまとめて確認・マージする。公開後はSearch Consoleのページ別クリック数・表示回数・CTR・平均掲載順位を同じ期間で比較し、データが増えてから次の改善対象を選ぶ。canonical URLは現状 https://teruluce.github.io/disney-discovery/ に統一されているため、GitHub Pages設定と実際の公開URLを確認せずに別ドメインへ変更しない。
