@@ -75,3 +75,8 @@
 - **構造化データ:** これまでトップページ・記事一覧にJSON-LDがなかったため、サイト名を示すWebSiteと記事一覧を示すCollectionPage／BreadcrumbListを追加。構造化データは順位上昇を保証するものではなく、検索エンジンがページの役割を理解するための補助として扱う。
 - **検索順位の評価:** Search Consoleの検索パフォーマンスデータ（検索語・表示回数・クリック数・掲載順位）をこの監査では取得できていないため、順位が低い原因を断定しない。公開後の日数、競合性、記事ごとの検索意図・独自性・内部リンクを分けて継続評価する。
 - **未実施の検証:** GoogleのURL検査／リッチリザルトテスト、Search Console上のサイトマップ処理結果、実際のGoogle検索結果、モバイル実機・Core Web Vitalsは未確認。ソース上の確認とGoogle側での処理完了を混同しない。
+## 10. 検索スニペットとSNS説明文の一括改善（2026-10-25）
+- main上の最新状態を確認し、マージ済みの初来園記事SEO変更を重複適用せず、トップ・記事一覧のOGP説明文の不一致と、短く抽象的だった6記事のdescriptionを優先して改善する。
+- 対象ファイル：index.html、articles/index.html、articles/winnie-the-pooh-guide.html、articles/stitch-guide.html、articles/toy-story-basics.html、articles/frozen-character-guide.html、articles/lion-king-basics.html、articles/baymax-guide.html。
+- 検索結果の説明文は順位上昇を保証しない。Googleは検索語に応じて本文から別のスニペットを生成する場合があるため、公開後はSearch Consoleのページ別データを確認し、同じ期間でCTR・表示回数・平均掲載順位を比較する。
+- SNS共有プレビューの実表示、Google検索結果、GitHub Pagesの反映は公開後に確認する。
