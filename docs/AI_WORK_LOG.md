@@ -1026,6 +1026,24 @@
 - **変更内容:** title、meta description、OGP title/description、H1、リード文を「初めてのディズニー」「チケット」「アプリ」「来園前の準備」が明確に伝わる文言に統一。記事本文の手順や事実情報は変更していない。
 - **目的:** 初来園の検索意図と検索結果の表示文言を合わせ、記事の内容が検索結果から伝わるようにする。
 - **検証:** HTMLソース上でtitle・description・OGP・H1・リード文の文言一致を確認。実際のGoogle検索結果表示、CTRへの効果、ブラウザ・モバイル表示は未確認。
-- **PR:** 作成予定。
-- **公開状況:** ブランチ上の変更。mainへのマージ・GitHub Pages反映は未実施。
+- **PR:** PR #58として作成し、ユーザーからマージ完了の報告あり。mainで反映済み。
+- **公開状況:** PR #58はGitHub上でマージ済み。GitHub Pagesへの反映とGoogle検索結果への反映は未確認。
 - **次の作業:** PR差分確認後にマージ。公開後、Search Consoleのページ別CTR・表示回数・掲載順位を比較し、検索データに基づいて次の改善対象を選ぶ。
+### 2026-10-25 — ChatGPT：検索スニペットとSNS共有説明文の一括改善
+- **担当:** ChatGPT
+- **リポジトリ:** teruluce/disney-discovery（mainから作成した seo/batch-search-snippets-2026-10-25 ブランチ）
+- **作業前確認:** mainの最新状態、AI_WORK_LOG、SEO_STRATEGY、トップページ、記事一覧、公開記事のメタ情報を確認。PR #58がマージ済みであることを確認し、初来園記事の変更を重複適用せず、mainに不足している別の改善を新しい一括PRに集約。
+- **変更ファイル:**
+  - index.html — meta descriptionと異なっていたOGP descriptionを、ディズニー初心者向けのサイト説明に統一。
+  - articles/index.html — 記事一覧のOGP descriptionを、meta descriptionに合わせて更新。
+  - articles/winnie-the-pooh-guide.html — 説明文を原作・ディズニー版の始まり・仲間たちに関する内容が伝わる文に改善し、OGPも同期。
+  - articles/stitch-guide.html — 試作品626号、リロとの出会い、家族のテーマが伝わる説明文に改善し、OGPも同期。
+  - articles/toy-story-basics.html — 第1作、ウッディとバズ、フルCG長編アニメーションの説明を具体化し、OGPも同期。
+  - articles/frozen-character-guide.html — 主要人物と物語の基本が伝わる説明文に改善し、OGPも同期。
+  - articles/lion-king-basics.html — 公開年、シンバの成長、主要人物、テーマが伝わる説明文に改善し、OGPも同期。
+  - articles/baymax-guide.html — ケア・ロボット、ヒロとの関係、作品のテーマが伝わる説明文に改善し、OGPも同期。
+  - docs/AI_WORK_LOG.md、docs/SEO_STRATEGY.md — 作業履歴と評価方針を追記。
+- **目的:** 検索結果の説明文でページ内容が伝わるようにし、Xなどで共有した際の説明文もページの検索説明と一致させる。検索順位やクリック率の改善は保証せず、公開後のデータで評価する。
+- **検証:** 変更対象ファイルの元テキストを確認してから更新。更新後にdescription/OGP descriptionの整合性を確認する。実際のGoogleスニペット、SNSカード、GitHub Pagesの反映、CTRへの影響は未確認。
+- **公開状況:** PR作成前。mainへのマージ・公開は未完了。
+- **次の作業:** この変更を1本のPRとして提出。マージ後にSearch Consoleのページ別クリック数、表示回数、CTR、平均掲載順位を同じ期間で比較する。
