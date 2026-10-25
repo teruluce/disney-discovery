@@ -432,3 +432,155 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
 @media (prefers-reduced-motion: reduce) {
   .menu-toggle-lines i { transition: none; }
 }
+
+
+/* 2026 refresh: cleaner, contemporary navigation and visual language */
+:root {
+  --paper: #f6faff;
+  --paper-2: #edf5ff;
+  --surface: #ffffff;
+  --surface-blue: #eaf3ff;
+  --ink: #152b43;
+  --ink-2: #3c526a;
+  --muted: #687d92;
+  --navy: #2463a6;
+  --navy-deep: #174675;
+  --blue-soft: #d9eaff;
+  --gold: #3979b9;
+  --gold-soft: #c9def5;
+  --line: #dce7f2;
+  --line-strong: #c4d5e7;
+  --shadow: 0 14px 38px rgba(25, 68, 110, .07);
+  --shadow-hover: 0 18px 42px rgba(25, 68, 110, .13);
+}
+body { background: var(--paper); }
+.masthead {
+  padding-top: 82px;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+}
+.masthead > .container {
+  grid-template-columns: minmax(0,1fr);
+  grid-template-areas: "title" "subtitle";
+  row-gap: 5px;
+  padding-bottom: 22px;
+}
+.masthead-top, .masthead-kicker { display: none; }
+.masthead-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -.055em;
+}
+.masthead-title em { color: #2878c8; font-weight: 650; }
+.masthead-sub { margin-top: 3px; font-size: .9rem; }
+.menu-toggle {
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  border: 1px solid #d9e6f4;
+  border-radius: 15px;
+  background: rgba(255,255,255,.98);
+  color: #1f5f9e;
+  box-shadow: 0 6px 22px rgba(28,75,120,.12);
+}
+.menu-toggle > span:not(.menu-toggle-lines) { display: none; }
+.menu-toggle-lines { width: 20px; flex-basis: 20px; gap: 5px; }
+.menu-toggle-lines i { height: 2px; }
+.nav-disclosure[open] {
+  background: rgba(12, 30, 51, .38);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.nav-disclosure .site-nav {
+  width: min(350px, 88vw);
+  padding: 86px 20px 28px;
+  border-right-color: #e1ebf5;
+  border-radius: 0 22px 22px 0;
+  box-shadow: 18px 0 48px rgba(13,43,73,.2);
+}
+.nav-disclosure .site-nav::before {
+  content: "メニュー";
+  display: block;
+  margin: 0 0 8px 3px;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+.nav-disclosure .site-nav a {
+  min-height: 50px;
+  border-radius: 12px;
+  font-size: .94rem;
+  font-weight: 650;
+}
+.nav-disclosure .site-nav a[aria-current="page"] {
+  border-color: #d5e7fa;
+  background: #eaf4ff;
+  color: #174675;
+}
+.sister-site-switch {
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.sister-site-switch + .sister-site-switch { border-top: 0; }
+.sister-site-switch .container { max-width: 1160px; }
+.sister-site-switch a {
+  gap: 4px 10px;
+  padding: 12px 0;
+  color: var(--ink-2);
+  font-size: .82rem;
+}
+.switch-label { color: #2878c8; }
+.sister-site-switch strong { color: var(--navy-deep); }
+.switch-description { color: var(--muted); }
+.switch-arrow { color: #2878c8; }
+.hero { padding-top: clamp(26px, 4vw, 44px); }
+.hero-grid {
+  border-color: #d9e9fa;
+  border-radius: 28px;
+  background: linear-gradient(125deg, #edf6ff 0%, #e4f0ff 65%, #f8fbff 100%);
+  box-shadow: 0 14px 38px rgba(25,68,110,.06);
+}
+.hero-grid::after { content: none; }
+.hero h1 { letter-spacing: -.045em; }
+.eyebrow { color: #2878c8; letter-spacing: .07em; }
+.button {
+  border-radius: 12px;
+  background: #246fba;
+  border-color: #246fba;
+  box-shadow: 0 6px 16px rgba(36,111,186,.16);
+}
+.button:hover { background: #174f88; border-color: #174f88; }
+.button-secondary {
+  border-color: #d4e3f3;
+  background: rgba(255,255,255,.88);
+  color: #174f88;
+  box-shadow: none;
+}
+.topic, .article-card, .page-hero .container, .about-band {
+  border-color: #e0eaf4;
+  box-shadow: 0 5px 22px rgba(28,67,105,.035);
+}
+.topic { border-radius: 18px; }
+.article-card { border-radius: 16px; }
+.topic-no, .article-card .tag, .chip {
+  background: #edf5ff;
+  color: #2463a6;
+}
+.topic-featured {
+  border-color: #d2e4f8;
+  background: linear-gradient(115deg, #edf6ff, #fff);
+}
+.prose h2 { border-bottom-color: #dce7f2; }
+.prose li::marker, .about-site-arrow { color: #2878c8; }
+@media (max-width: 699px) {
+  .masthead { padding-top: 74px; }
+  .masthead > .container { grid-template-areas: "title" "subtitle"; padding-bottom: 17px; }
+  .masthead-title { font-size: clamp(1.95rem, 8vw, 2.45rem); }
+  .masthead-sub { font-size: .82rem; }
+  .menu-toggle { top: 12px; left: 12px; }
+  .hero-grid { border-radius: 20px; }
+  .sister-site-switch a { padding: 11px 0; }
+}
