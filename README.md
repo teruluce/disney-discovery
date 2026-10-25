@@ -11,6 +11,9 @@ Disney Discovery（DD）は、ディズニーに詳しくない人やライト�
 - 更新頻度を無理に上げず、正確さと読みやすさを優先する
 - 既存プロジェクト「BGS」とは別のリポジトリ・編集方針で運営する
 
+## English version
+An English-language section for international visitors is being developed under `en/`. It includes practical Tokyo Disney Resort guides and approachable articles about park experiences. The English pages share the existing visual system and are linked from the Japanese homepage.
+
 ## Project documents
 - [サイト企画書](docs/SITE_PLAN.md)
 - [SEO・記事戦略](docs/SEO_STRATEGY.md)
