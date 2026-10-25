@@ -12,6 +12,15 @@
 
 ## 作業履歴
 
+### 2026-10-25 — 英語版URLの正規URL修正
+- **担当:** ChatGPT
+- **対象ブランチ:** `fix/english-canonical-urls`
+- **変更:** 英語版8ページと日本語トップページの言語関連メタデータで、誤っていた `teruluce.github.io` のURLを実際のGitHub Pagesドメイン `teruluce07-cmd.github.io` に修正。
+- **理由:** canonical / hreflang / Open Graph のURLが公開先と一致しないと、検索エンジンやSNSの参照先がずれる可能性があるため。
+- **確認:** 9ファイルのURL文字列を更新。
+- **未実施:** 公開後のブラウザ確認とSNSプレビュー確認。
+
+
 ### 2026-10-25 — 英語版サイト初期構築（PR準備）
 - **担当:** ChatGPT
 - **対象ブランチ:** `feature/english-version`
