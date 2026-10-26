@@ -58,6 +58,6 @@ DDはBGSの記事を単純に言い換えて量産せず、読者・検索意図
 - `articles/index.html`: 記事一覧。
 - `articles/*.html`: 記事4本（来園準備チェックリスト／パークチケットの基本／アプリでできること／時間指定サービスの違い）。
 - `profile.html`、`contact.html`、`privacy.html`、`404.html`: 運営者・連絡先・方針・エラーページ。
-- `assets/css/style.css`: 全ページ共通のスタイル（「黄昏のパークと旅の手帳」デザイン）。
+- `assets/css/style.css`: 全ページ共通のスタイル（「Night Sky」デザイン：寒色系・ライト/ダーク対応）。
 - `sitemap.xml`、`robots.txt`、`favicon.svg`、`assets/img/og-default.png`: 検索・共有用のファイル。
 - 新しい記事を追加するときは、既存記事のHTMLを複製し、`articles/index.html`・`index.html`・`sitemap.xml` にも追記する。
