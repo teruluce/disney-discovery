@@ -1139,3 +1139,12 @@
 - **未確認・要確認:** ブラウザ表示（PC・スマホ）、英語表現のネイティブ校正、公式サービス名の英語表記（Mobile Order、Standby Pass等）が公式英語サイトの表記と一致しているか、GitHub Pages反映後の動作。
 - **既知の課題（今回は未変更）:** サイトマップ・robots.txt・日本語記事のcanonicalは `teruluce.github.io`、英語ページとトップページのcanonicalは `teruluce07-cmd.github.io` と混在している。日本語側にhreflangを足す作業は、ドメインを統一してから行うのが安全。
 - **次の候補:** チケットの基本、時間指定サービスの違い、来園準備チェックリスト、パーク内の撮影ルール。
+
+
+### 2026-10-26 — Claude：公開ドメインを `teruluce.github.io` に統一
+- **担当:** Claude
+- **ブランチ:** `fix/unify-domain-teruluce`
+- **背景:** ユーザーから「teruluce07はもう使わない」との指示。サイトマップ・robots.txt・日本語記事は `teruluce.github.io`、英語ページとトップページは `teruluce07-cmd.github.io` と混在していた。
+- **変更:** HTML内の canonical、hreflang、OGP（og:url・og:image）、構造化データのURLにある `teruluce07-cmd.github.io` を `teruluce.github.io` に置換（トップ、英語版全ページ、エレクトリカルパレード記事内のBGS Chroniclesリンク1件）。過去の作業ログの記述は履歴として変更していない。
+- **検証:** ログ以外のファイルに `teruluce07` が残っていないことを確認。ブラウザ表示、公開反映、検索エンジン上の扱いは未確認。
+- **注意:** 英語記事の日本語側へのhreflang追加（日本語記事のcanonicalは既に `teruluce.github.io` のため、今後追加可能）は未実施。
