@@ -408,3 +408,107 @@ main.section .topic-list { margin: 28px 0; }
 }
 /* 画像の保存操作を抑制（完全な取得防止ではありません） */
 img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+
+/* ---------- Light paper theme refinement (2026-10-27) ---------- */
+/* Always keep Disney Discovery bright and readable, regardless of device theme. */
+:root {
+  color-scheme: light;
+  --bg: #fbfcff;
+  --bg-soft: #f1f6ff;
+  --surface: #ffffff;
+  --surface-2: #f7f9fd;
+  --ink: #243047;
+  --ink-2: #42516a;
+  --muted: #66748b;
+  --line: #e3e9f2;
+  --line-strong: #cbd6e5;
+  --accent: #4778d8;
+  --accent-strong: #315cae;
+  --link: #315cae;
+  --violet: #8b80df;
+  --cyan: #6ebfd6;
+  --grad: linear-gradient(115deg, #7da8ed 0%, #a29ae8 58%, #8bd0df 125%);
+  --grad-btn: linear-gradient(115deg, #5e8fe0, #9288d9);
+  --shadow-s: 0 1px 2px rgba(42, 61, 93, .035), 0 4px 14px rgba(42, 61, 93, .045);
+  --shadow-m: 0 2px 4px rgba(42, 61, 93, .035), 0 16px 38px rgba(42, 61, 93, .09);
+}
+[data-theme="beginner"]  { --hue: #668fdb; }
+[data-theme="trivia"]    { --hue: #58aaa5; }
+[data-theme="character"] { --hue: #9186d9; }
+[data-theme="movie"]     { --hue: #68afcf; }
+[data-theme="parade"]    { --hue: #b18bd3; }
+[data-theme="tips"]      { --hue: #68b79a; }
+[data-theme="tool"]      { --hue: #66b7cf; }
+
+/* Replace the dark night-sky hero with a soft, paper-like daylight treatment. */
+.hero-grid {
+  color: var(--ink);
+  background:
+    radial-gradient(75% 110% at 4% 0%, rgba(190, 214, 255, .68), transparent 66%),
+    radial-gradient(65% 90% at 96% 8%, rgba(222, 211, 255, .58), transparent 66%),
+    radial-gradient(75% 70% at 55% 120%, rgba(194, 235, 242, .55), transparent 68%),
+    linear-gradient(135deg, #f5f8ff, #ffffff 62%, #f7f5ff);
+  border: 1px solid #e6ebf7;
+  box-shadow: 0 22px 54px -34px rgba(69, 100, 158, .28);
+}
+.hero-sky { opacity: .28; }
+.hero-sky .tw { fill: #7796d1; }
+.hero-sky .sp { fill: #8b9ed6; }
+.hero-art { opacity: .22; }
+.hero .eyebrow {
+  border-color: #dce5f6;
+  background: rgba(255,255,255,.78);
+  color: #526eaa;
+}
+.hero h1 { color: #253858; }
+.hero .lead { color: #52617a; }
+.hero .button-secondary {
+  border-color: #d4deee;
+  background: rgba(255,255,255,.82);
+  color: #344765;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.hero .button-secondary:hover { border-color: #9bb5e5; background: #fff; color: #294a83; }
+.hero-chips { border-top-color: #dce5f2; }
+.hero-chips-label { color: #687da5; }
+.hero-chips a {
+  border-color: #d8e2f2;
+  background: rgba(255,255,255,.84);
+  color: #40577c;
+}
+.hero-chips a:hover { border-color: #a9bce0; background: #fff; color: #294a83; }
+
+/* Keep the site-wide about panel and footer light as well. */
+.about-band {
+  color: var(--ink);
+  background:
+    radial-gradient(70% 130% at 100% 0%, rgba(221, 213, 255, .68), transparent 64%),
+    radial-gradient(60% 100% at 0% 100%, rgba(196, 235, 243, .62), transparent 68%),
+    linear-gradient(135deg, #f5f8ff, #ffffff 65%, #f5fbfc);
+  border: 1px solid #e4eaf5;
+}
+.about-band .eyebrow { color: #637db2; }
+.about-band h2 { color: #293b59; }
+.about-band p:not(.eyebrow) { color: #53627a; }
+.about-band .button { background: #5e8fe0; color: #fff; box-shadow: 0 6px 18px rgba(94, 143, 224, .18); }
+.about-band .button:hover { color: #fff; }
+.site-footer {
+  border: 1px solid #e4eaf3;
+  border-bottom: 0;
+  background:
+    radial-gradient(60% 120% at 100% 0%, rgba(220, 213, 255, .45), transparent 62%),
+    linear-gradient(180deg, #f3f6fc, #edf2fa);
+  color: #4b5b73;
+}
+.brand, .brand-name { color: #2e405d; }
+.footer-copy { color: #65738a; }
+.footer-links a { color: #405675; }
+.footer-links a:hover { color: #263e65; }
+.disclaimer { border-top-color: #dbe3ef; color: #68768b; }
+.copyright { color: #68768b; }
+.site-footer .copyright a { color: #405675; }
+.site-footer .container > p:not([class]) { color: #68768b; }
+@media (prefers-color-scheme: dark) {
+  .site-footer { border-top: 1px solid #e4eaf3; }
+}
