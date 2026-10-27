@@ -12,6 +12,18 @@
 
 ## 作業履歴
 
+### 2026-10-27 — ChatGPT：英語版の実用ガイドを3本追加（第2弾）
+- **担当:** ChatGPT
+- **作業前確認:** 最新の `docs/AI_WORK_LOG.md`、`docs/CONTENT_GUIDELINES.md`、英語版記事一覧・トップページ・サイトマップを確認。既存の英語版7記事と直近のClaudeによる英語化作業を確認し、内容の重複を避けた。
+- **変更ブランチ:** `feature/english-guides-batch-3`
+- **新規記事:** `en/articles/ticket-basics.html`（チケットの基本）、`en/articles/what-to-pack.html`（持ち物チェックリスト）、`en/articles/park-photography.html`（撮影のヒントとマナー）。
+- **関連更新:** `en/articles/index.html` に08〜10として登録、`en/index.html` の来園計画リンクにチケット・持ち物記事を追加、`sitemap.xml` に3ページを登録。
+- **編集方針:** 英語読者、とくに初来園者向けに具体的な準備手順と判断ポイントを説明。変動する料金・年齢区分・運用ルールは固定値で断定せず、公式案内での確認を促した。撮影記事では他のゲストへの配慮と現地ルールを重視。
+- **検証:** GitHub APIで3記事の作成と、一覧・トップ・サイトマップ・作業ログの更新を実施。HTMLの実ブラウザ表示、全リンク自動検査、ネイティブ英語校正、GitHub Pages反映は未確認。
+- **公開状況:** ブランチ上の作業。PR作成後、ユーザーの確認・マージ待ち。公開済みとは扱わない。
+- **次の候補:** 時間指定サービス（Disney Premier Access、Standby Pass、Priority Seating）の違い、雨の日の準備、パーク内の移動・休憩計画を英語記事に展開し、記事間リンクを整える。
+
+
 ### 2026-10-26 — PC表示の最適化
 - **担当:** Claude
 - **依頼:** 「Night Sky」デザインのPC表示も最適化する。
