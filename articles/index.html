@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; script-src &#x27;self&#x27; &#x27;sha256-lobnmnzaImU61D3Cyab4AGRcDmmBmmgqmDK22qaTxWs=&#x27;; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; data:; object-src &#x27;none&#x27;; base-uri &#x27;self&#x27;; form-action &#x27;none&#x27;">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ディズニー初心者向け記事一覧｜Disney Discovery</title>
   <meta name="description" content="ディズニー初心者向けの記事一覧。東京ディズニーリゾートの持ち物、雨の日の過ごし方、チケット、公式アプリ、回り方やキャラクターの雑学を紹介します。">
@@ -50,6 +52,12 @@
     }
   }
   </script>
+<script src="../assets/js/article-search.js" defer></script>
+
+<!-- BEGIN GENERATED METADATA -->
+<link rel="alternate" hreflang="en" href="https://teruluce.github.io/disney-discovery/en/articles/">
+<link rel="alternate" hreflang="ja" href="https://teruluce.github.io/disney-discovery/articles/">
+<!-- END GENERATED METADATA -->
 </head>
 <body class="list-page">
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -72,8 +80,11 @@
     </section>
     <section class="article-section">
       <div class="container">
-        <div class="filter-bar" id="filter-bar" role="group" aria-label="テーマで絞り込む" hidden></div>
-        <ul class="article-grid">
+        <div class="article-controls" id="article-controls" hidden>
+<div class="article-search"><label for="article-query">記事のタイトル・要約から探す<input id="article-query" type="search" maxlength="200" aria-controls="article-list" autocomplete="off" spellcheck="false"></label><button class="article-reset" id="article-reset" type="button">検索・絞り込みを解除</button></div>
+<p class="article-status" id="article-status" role="status" aria-live="polite" aria-atomic="true"></p>
+<p class="scroll-hint" id="filter-hint">テーマのボタンは横にスクロールできます。</p><div class="filter-bar" id="filter-bar" role="group" aria-label="テーマで絞り込む" aria-describedby="filter-hint"></div></div>
+        <ul class="article-grid" id="article-list">
           <li><a class="article-card" data-theme="beginner" href="disney-mobile-order-guide.html"><span class="tag">パーク初心者ガイド</span><h3>ディズニーのモバイルオーダーの使い方｜注文・支払い・受け取りの流れ</h3><p>注文するタイミングから支払い、席の確保、変更・キャンセルまで、当日の動き方を整理します。</p><span class="card-foot"><span>確認日 2026.10.28</span><span class="more">読む →</span></span></a></li>
           <li><a class="article-card" data-theme="movie" href="../articles/pixar-marvel-spiderman-rights-guide.html"><span class="tag">映画・作品の雑学</span><h3>ピクサーとマーベルとは？ディズニーとの関係とスパイダーマンの権利を解説</h3><p>ピクサーやマーベルとディズニーの関係、ソニーがスパイダーマン映画に関わる理由を初心者向けに解説します。</p><span class="card-foot"><span>記事更新日 2026.10.22</span><span class="more">読む →</span></span></a></li>
 
@@ -442,7 +453,7 @@
               <span class="card-foot"><span>確認日 2026.10.15</span><span class="more">読む →</span></span>
             </a>
           </li>
-        </ul>
+        </ul><p class="article-empty" id="article-empty" hidden>該当する記事がありません。検索語やテーマを変えるか、検索・絞り込みを解除してください。</p>
       </div>
     </section>
   </main>
@@ -469,46 +480,5 @@
       <p class="copyright">© Disney Discovery. All rights reserved.</p>
     </div>
   </footer>
-<script>
-/* テーマ別の絞り込み（JavaScriptが使えない場合は、全記事がそのまま表示されます） */
-(function () {
-  var THEMES = {"パーク初心者ガイド":1,"パークの豆知識":1,"キャラクター図鑑":1,"映画・作品の雑学":1,"パレード・ショー":1};
-  var MAP = {"first-visit-checklist.html":"パーク初心者ガイド","park-ticket-basics.html":"パーク初心者ガイド","tdr-app-guide.html":"パーク初心者ガイド","restaurant-priority-seating-guide.html":"パーク初心者ガイド","tdr-hotel-types.html":"パーク初心者ガイド","tdr-access-guide.html":"パーク初心者ガイド","maihama-train-confusion-guide.html":"パーク初心者ガイド","why-park-areas-feel-different.html":"パークの豆知識","tokyo-disneyland-vs-disneysea.html":"パークの豆知識","park-day-and-night.html":"パークの豆知識","tdr-history-timeline.html":"パークの豆知識","tokyo-disneyland-history.html":"パークの豆知識","tokyo-disneysea-history.html":"パークの豆知識","fantasy-springs-guide.html":"パークの豆知識","donald-duck-profile.html":"キャラクター図鑑","character-greeting-guide.html":"キャラクター図鑑","mickey-mouse-debut.html":"キャラクター図鑑","oswald-lucky-rabbit.html":"キャラクター図鑑","pixar-marvel-spiderman-rights-guide.html":"映画・作品の雑学","how-disney-animation-is-made.html":"映画・作品の雑学","walt-disney-profile.html":"映画・作品の雑学","snow-white-1937.html":"映画・作品の雑学","tangled-rapunzel-secrets.html":"映画・作品の雑学","paypay-payment-guide.html":"パーク初心者ガイド","time-saving-services.html":"パーク初心者ガイド","park-photography-rules.html":"パーク初心者ガイド","d-otaku-terms.html":"パークの豆知識","parades-shows-guide.html":"パレード・ショー","regular-parades-shows.html":"パレード・ショー","halloween-parades-shows.html":"パレード・ショー","christmas-parades-shows.html":"パレード・ショー","goofy-guide.html":"キャラクター図鑑","pluto-guide.html":"キャラクター図鑑","minnie-mouse-profile.html":"キャラクター図鑑","daisy-duck-profile.html":"キャラクター図鑑","stitch-guide.html":"キャラクター図鑑","winnie-the-pooh-guide.html":"映画・作品の雑学","toy-story-basics.html":"映画・作品の雑学","frozen-character-guide.html":"映画・作品の雑学","lion-king-basics.html":"映画・作品の雑学","baymax-guide.html":"映画・作品の雑学","what-is-bgs.html":"パークの豆知識","rainy-day-disney-guide.html":"パーク初心者ガイド","disney-park-packing-list.html":"パーク初心者ガイド","disney-hot-weather-guide.html":"パーク初心者ガイド","disney-with-kids-guide.html":"パーク初心者ガイド","disney-park-budget-tips.html":"パーク初心者ガイド"};
-  var list = document.querySelector('.article-grid');
-  var bar = document.getElementById('filter-bar');
-  if (!list || !bar) return;
-  var items = Array.prototype.slice.call(list.children);
-  var counts = {};
-  items.forEach(function (li) {
-    var a = li.querySelector('a');
-    var file = a ? a.getAttribute('href').split('/').pop() : '';
-    var theme = MAP[file];
-    if (!theme) { var t = li.querySelector('.tag'); theme = t ? t.textContent.trim() : ''; }
-    li.setAttribute('data-theme', theme);
-    counts[theme] = (counts[theme] || 0) + 1;
-  });
-  function chip(label, key, n) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'filter-chip';
-    b.setAttribute('data-key', key);
-    b.setAttribute('aria-pressed', key === '' ? 'true' : 'false');
-    b.textContent = label + '（' + n + '）';
-    return b;
-  }
-  bar.appendChild(chip('すべて', '', items.length));
-  Object.keys(THEMES).forEach(function (k) { if (counts[k]) bar.appendChild(chip(k, k, counts[k])); });
-  bar.addEventListener('click', function (e) {
-    var b = e.target.closest ? e.target.closest('.filter-chip') : null;
-    if (!b) return;
-    var key = b.getAttribute('data-key');
-    Array.prototype.forEach.call(bar.children, function (c) {
-      c.setAttribute('aria-pressed', c === b ? 'true' : 'false');
-    });
-    items.forEach(function (li) { li.hidden = !(key === '' || li.getAttribute('data-theme') === key); });
-  });
-  bar.hidden = false;
-})();
-</script>
 </body>
 </html>
