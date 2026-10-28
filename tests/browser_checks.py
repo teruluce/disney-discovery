@@ -70,7 +70,7 @@ with sync_playwright() as p:
     print('PASS: all content pages render without script, CSP or resource errors')
 
     for path in ['', 'articles/', 'profile.html', 'articles/first-visit-checklist.html',
-                 'articles/disney-mobile-order-guide.html', 'en/', 'en/articles/getting-there-by-train.html']:
+                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html']:
         page.goto(BASE + path)
         for width in [320, 390, 768, 960, 1440]:
             page.set_viewport_size({'width': width, 'height': 900})
@@ -82,12 +82,12 @@ with sync_playwright() as p:
         assert page.locator('.nav-disclosure nav').is_visible(), path
         page.keyboard.press('Enter')
         assert not page.locator('.nav-disclosure nav').is_visible(), path
-    print('PASS: seven page layouts at five widths; keyboard menu activation')
+    print('PASS: eight page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
-    assert visible(page) == 51
+    assert visible(page) == 52
     chips = page.locator('.filter-chip')
-    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 51
+    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 52
     tips = page.locator('.filter-chip').filter(has_text='パークを楽しむヒント')
     tips.focus()
     page.keyboard.press('Enter')
@@ -98,7 +98,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(250)
     assert visible(page) == 0 and page.locator('#article-empty').is_visible()
     page.locator('#article-reset').click()
-    assert visible(page) == 51 and query.evaluate('(e) => document.activeElement === e')
+    assert visible(page) == 52 and query.evaluate('(e) => document.activeElement === e')
     query.fill('ﾓﾊﾞｲﾙｵｰﾀﾞｰ')
     page.wait_for_timeout(250)
     assert visible(page) >= 1
@@ -141,7 +141,7 @@ with sync_playwright() as p:
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
     nojs = plain.new_page()
-    for path, count in [('articles/', 51), ('en/articles/', 10)]:
+    for path, count in [('articles/', 52), ('en/articles/', 10)]:
         nojs.goto(BASE + path)
         assert visible(nojs) == count
         assert not nojs.locator('#article-controls').is_visible()
@@ -149,3 +149,4 @@ with sync_playwright() as p:
         assert nojs.locator('.nav-disclosure nav').is_visible()
     print('PASS: all articles and mobile navigation remain available without JavaScript')
     browser.close()
+
