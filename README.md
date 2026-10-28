@@ -15,6 +15,7 @@ Disney Discovery（DD）は、ディズニーに詳しくない人やライト�
 An English-language section for international visitors is available under `en/`. It includes practical Tokyo Disney Resort guides and approachable articles about park experiences. The English pages share the existing visual system and are linked from the Japanese homepage.
 
 ## Project documents
+- [公開前チェックと保守](docs/MAINTENANCE.md)
 - [サイト企画書](docs/SITE_PLAN.md)
 - [SEO・記事戦略](docs/SEO_STRATEGY.md)
 - [コンテンツ制作ガイドライン](docs/CONTENT_GUIDELINES.md)
