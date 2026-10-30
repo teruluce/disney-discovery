@@ -6,16 +6,21 @@
 ## 重複回避と企画
 新記事は会話・列・共有空間・鑑賞時の配慮に限定。撮影機材詳細は `park-photography.html`、準備・天候・アプリ・チケットは既存記事へ誘導します。全10記事の意図比較、未実装の追加記事候補4本（短い日本語・食事注文・ゲストサービス・アクセシビリティ）は `docs/ENGLISH_ETIQUETTE_RESEARCH.md` に記録しました。SEO方針と作業ログも更新済みです。
 
-## 出典調査と公開前のブロッカー
-**ライブ出典調査は通信制限のため未完了です。このPRはDraftとして公開保留にします。** 以下はレビュー対象であり、最新内容を確認済みの資料としては扱っていません。
+## 出典確認（2026-10-30）
+公開済み開発環境からTDR利用約款（英日）、滞在中のお願い、エンターテイメント案内（英日）の本文を確認しました。
 
-- https://www.tokyodisneyresort.jp/en/theme_park_terms_of_use.html （英語利用約款、URLを含め要確認）
-- https://www.tokyodisneyresort.jp/theme_park_terms_of_use.html （日本語利用約款）
-- https://www.tokyodisneyresort.jp/topics/info/stay.html （既存日本語記事の出典URL）
-- https://www.tokyodisneyresort.jp/tdr/resort/entertainment.html （既存日本語記事の出典URL）
-- JNTO／JR Eastの一次資料、英語検索結果の比較も接続許可後に実施が必要です。
+- https://www.tokyodisneyresort.jp/en/theme_park_terms_of_use.html
+- https://www.tokyodisneyresort.jp/theme_park_terms_of_use.html
+- https://www.tokyodisneyresort.jp/topics/info/stay.html
+- https://www.tokyodisneyresort.jp/tdr/resort/entertainment.html
+- https://www.tokyodisneyresort.jp/en/tdr/resort/entertainment.html
+- https://www.japan.travel/fr/guide/understanding-and-mastering-japanese-manners-and-etiquette/ （JNTO、フランス語。英語URLからリダイレクト。公共交通の会話・電話マナーを確認）
 
-TDRとGitHub APIは環境プロキシのCONNECTで403。必要なドメインを環境設定下書きへ保存済みですが、有効化は別です。出典URLの実到達・重要ルールの英日比較・交通マナーの一次資料・英語SERP比較を完了してから公開可否を判断してください。本文に確認日を捏造していません。検索語は仮説で、検索需要の実測ではありません。
+英語の大型帽子等の取り外し要請と、日本語の公演によるカチューシャ等への案内の違いを本文で説明し、確認日を追記。機材等の詳細は既存記事へ誘導しています。引用の長い転載や新規画像はありません。
+
+英語検索結果調査は試みましたが、GoogleはJS誘導、Bingは一般的な東京旅行結果を返し、対象テーマの競合比較に使える結果は取得できませんでした。検索意図は一次資料と既存本文の比較を基に設計した編集仮説であり、需要や競合性を実測したものではありません。JR Eastは403でしたが、交通マナーはJNTOで確認しました。以前の通信ブロッカーは解消済みです。
+
+ユーザーから今回の変更のマージ指示あり。チェック成功後にマージします。
 
 ## 検証
 - `python scripts/check_site.py`: PASS、74ページ・71サイトマップURL。内部リンク・アンカー・記事掲載・hreflang相互参照・JSON-LD・CSPを検証。英語メタ重複とOGP不一致の回帰チェックを追加。
@@ -24,4 +29,4 @@ TDRとGitHub APIは環境プロキシのCONNECTで403。必要なドメインを
 - 新記事390px／1440pxのスクリーンショットを目視確認。ローカル開発サーバーのHTTP 200と本文も確認。
 - `git diff --check`: PASS。
 
-Search Console、順位・流入・CTR・インデックス状況、実機Safari、外部URLの最新内容、独立した英文校正、GitHub Pages反映は未確認。技術チェック成功と編集上の公開承認を区別しています。
+Search Console、順位・流入・CTR・インデックス状況、実機Safari、独立した英文校正、GitHub Pages反映は未確認。技術チェック成功と編集上の公開承認を区別しています。

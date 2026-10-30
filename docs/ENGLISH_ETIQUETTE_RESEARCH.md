@@ -25,7 +25,7 @@ All ten articles still exist on the fetched main. Read their bodies, metadata an
 | what-to-pack.html | What essentials and weather/family items should I bring? | No duplicate packing list; link to existing checklist. |
 | park-photography.html | How do I take considerate photos and check equipment rules? | Keep equipment and detailed filming coverage there; new page has only a short sightline reminder and link. |
 
-## Sources and verification status
+## Initial sources and verification status (historical; superseded below)
 
 The following are **primary-source review targets**, not sources freshly verified during this session. Existing Japanese photography coverage links to the Japanese TDR pages below and records its own historical check date of 2026-10-11; that date must not be reused as evidence of a new check.
 
@@ -65,3 +65,16 @@ All query phrases below are unmeasured hypotheses. Primary-source review and Eng
 | Accessibility planning for an international visit | What should I check before using mobility or other accessibility support? | Service eligibility, preparation and official contact routes; distinct from train directions and generic first-visit planning | `Tokyo Disney Resort accessibility guide English` | Current TDR accessibility and disability services in English/Japanese; railway accessible station information; eligibility must be verified | Medium, high maintenance |
 
 A broad “differences from other Disney parks” article is deferred: it risks competing with first-visit, tickets, app and this etiquette guide. Use links and carefully sourced additions in those pages first.
+
+
+## Live verification completed before merge — 2026-10-30
+
+The published environment now permits GitHub API and primary-source access. Read the full live TDR English and Japanese Terms of Use, Japanese park-stay guidance, and English/Japanese entertainment guidance. All article TDR source URLs returned their intended content. Terms section 3.1 requires compliance with facility notices and cast requests; section 7 prohibits disruptive conduct. Entertainment guidance directs guests to consult cast about viewing locations/methods. English guidance asks removal of large hats or other headwear; Japanese guidance says large decorative hats/headbands may need removal depending on the show. Updated the article to state that distinction and cite the English page directly. General sightline courtesy remains distinct from a resort-wide headband ban. Source-check date added to the article.
+
+Verified additional source: https://www.tokyodisneyresort.jp/en/tdr/resort/entertainment.html .
+
+JNTO's English guide request redirected to its French edition; read the public-transport section in https://www.japan.travel/fr/guide/understanding-and-mastering-japanese-manners-and-etiquette/ . It describes quiet train conversation, queueing to allow disembarking, and avoiding phone calls. Linked the French primary source with an explicit language label; do not claim an English response. Two guessed JNTO URLs returned 404 and were not used. JR East returned 403; the independently read JNTO source supplies the transport context, so JR access is no longer a prerequisite for this article.
+
+Search limitations: Google returned a JavaScript/redirect shell. Bing requests for both `Tokyo Disney Resort etiquette` and quoted `"Tokyo Disney" "etiquette"` returned generic Tokyo travel results rather than reliable topic-specific results. This is not usable evidence of topic competition or demand. English SERP comparison remains inconclusive and is reported as a limitation, not completed market research. No ranking or keyword-volume conclusions are drawn. This does not alter the narrowly defined reader question or the full-body internal overlap comparison above.
+
+All factual publication gates concerning cited conduct guidance are resolved. Search Console, search performance, external editorial review and real-device Safari remain unverified. The initial access-denial notes above describe the earlier session, not current connectivity.
