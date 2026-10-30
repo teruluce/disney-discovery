@@ -63,6 +63,10 @@ def sync(check=False):
                 from urllib.parse import urljoin
                 item['image'] = urljoin(url, images[0].attrs['src'])
             graph.append(item)
+        if path == 'en/articles/index.html':
+            graph.append({'@type': 'CollectionPage', '@id': url + '#collection',
+                          'url': url, 'name': doc.all('h1')[0].text.strip(),
+                          'description': description, 'inLanguage': lang})
         # Use the visible breadcrumb; do not invent publication dates or translations.
         crumbs = doc.all('nav', 'breadcrumb')
         if crumbs and path != '404.html' and path != 'articles/index.html':

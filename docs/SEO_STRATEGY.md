@@ -80,3 +80,11 @@
 - 対象ファイル：index.html、articles/index.html、articles/winnie-the-pooh-guide.html、articles/stitch-guide.html、articles/toy-story-basics.html、articles/frozen-character-guide.html、articles/lion-king-basics.html、articles/baymax-guide.html。
 - 検索結果の説明文は順位上昇を保証しない。Googleは検索語に応じて本文から別のスニペットを生成する場合があるため、公開後はSearch Consoleのページ別データを確認し、同じ期間でCTR・表示回数・平均掲載順位を比較する。
 - SNS共有プレビューの実表示、Google検索結果、GitHub Pagesの反映は公開後に確認する。
+
+## 11. 英語版独立SEOとマナー記事（2026-10-30、PR用変更）
+- 最新main `c65d998` の英語10記事の本文・検索意図を比較し、英語独自企画として `park-etiquette.html` を追加。声量・列・公共空間・鑑賞時の配慮に限定し、撮影機材は既存撮影記事へ誘導。日本語記事の直訳や類似ページの量産は行わない。
+- 英語トップのOGP説明文の不一致を生成処理への一本化で解消。英語一覧に具体的なtitle・description・H1とCollectionPageを設定。既存10記事は全件ソース監査し、根拠のないメタ情報の一括書換えはしない。
+- 新記事のself-canonical、英語lang、Article/BreadcrumbList、OGP、サイトマップを既存生成処理と整合。対応する日本語記事がないため新規hreflangは設定しない。サイト紹介と運営者個人プロフィールの不適切な日英対応は解除。
+- 英語記事のtitle/description重複、OGPとソースメタ情報の不一致を静的チェックに追加。英語トップ・一覧・関連4記事から新記事へリンク。
+- 英語キーワードは仮説。通信許可待ちのため英語検索結果と公式資料の最新確認は未完了。Search Console・検索量・順位・流入・CTR・インデックス状況は未確認で、順位改善を保証しない。公開前の出典確認が必要。
+- 重複比較表、調査対象の一次資料、公開前の確認事項、追加記事候補4本（疑問・違い・検索語仮説・出典・優先度）は [英語記事企画・調査記録](ENGLISH_ETIQUETTE_RESEARCH.md) に記録。追加候補の本文は未実装。

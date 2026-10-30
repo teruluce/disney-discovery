@@ -92,6 +92,15 @@ def check():
                     require(any(n.attrs.get('rel') == 'alternate' and n.attrs.get('href') == doc.link('canonical')
                                 and n.attrs.get('hreflang') == doc.all('html')[0].attrs['lang'] for n in normal[target].all('link')),
                             path + ': non-reciprocal translation link')
+    english = {p: d for p, d in normal.items() if p.startswith('en/')}
+    for key, values in [('titles', [d.all('title')[0].text for d in english.values()]),
+                        ('descriptions', [d.meta('description') for d in english.values()])]:
+        require(len(values) == len(set(values)), 'English pages need unique ' + key)
+    for path, doc in english.items():
+        require(doc.all('html')[0].attrs.get('lang') == 'en', path + ': English lang required')
+        require(doc.meta('og:title') == doc.all('title')[0].text, path + ': social title mismatch')
+        require(doc.meta('og:description') == doc.meta('description'), path + ': social description mismatch')
+        require(doc.meta('og:url') == doc.link('canonical'), path + ': social URL mismatch')
     for listing in ('articles/index.html', 'en/articles/index.html'):
         directory = listing.rsplit('/', 1)[0] + '/'
         listed = [local_target(listing, a.attrs['href'])[0] for a in docs[listing].all('a') if 'href' in a.attrs]

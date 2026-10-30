@@ -70,7 +70,7 @@ with sync_playwright() as p:
     print('PASS: all content pages render without script, CSP or resource errors')
 
     for path in ['', 'articles/', 'profile.html', 'articles/first-visit-checklist.html',
-                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html']:
+                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html', 'en/articles/park-etiquette.html']:
         page.goto(BASE + path)
         for width in [320, 390, 768, 960, 1440]:
             page.set_viewport_size({'width': width, 'height': 900})
@@ -82,7 +82,7 @@ with sync_playwright() as p:
         assert page.locator('.nav-disclosure nav').is_visible(), path
         page.keyboard.press('Enter')
         assert not page.locator('.nav-disclosure nav').is_visible(), path
-    print('PASS: eight page layouts at five widths; keyboard menu activation')
+    print('PASS: nine page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
     assert visible(page) == 52
@@ -108,6 +108,15 @@ with sync_playwright() as p:
     page.locator('#article-query').fill('ＥＬＥＣＴＲＩＣＡＬ')
     page.wait_for_timeout(250)
     assert visible(page) == 1
+    page.locator('#article-query').fill('etiquette')
+    page.wait_for_timeout(250)
+    assert page.locator('#article-list > li:visible a[href="park-etiquette.html"]').count() == 1
+    page.locator('#article-list a[href="park-etiquette.html"]').click()
+    assert page.locator('h1').inner_text() == 'Tokyo Disney Resort Etiquette: Park Rules & Japanese Customs'
+    page.locator('a[href="#viewing"]').click()
+    assert page.url.endswith('#viewing')
+    page.locator('article a[href="park-photography.html"]').click()
+    assert page.url.endswith('/park-photography.html')
     print('PASS: complete category coverage, combined search, normalization, no results, reset and live status')
 
     page.goto(BASE + 'articles/first-visit-checklist.html')
@@ -141,7 +150,7 @@ with sync_playwright() as p:
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
     nojs = plain.new_page()
-    for path, count in [('articles/', 52), ('en/articles/', 10)]:
+    for path, count in [('articles/', 52), ('en/articles/', 11)]:
         nojs.goto(BASE + path)
         assert visible(nojs) == count
         assert not nojs.locator('#article-controls').is_visible()
