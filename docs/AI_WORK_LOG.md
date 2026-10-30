@@ -1229,3 +1229,14 @@
 - **検証:** ログ以外のファイルに `teruluce07` が残っていないことを確認。ブラウザ表示、公開反映、検索エンジン上の扱いは未確認。
 - **注意:** 英語記事の日本語側へのhreflang追加（日本語記事のcanonicalは既に `teruluce.github.io` のため、今後追加可能）は未実施。
 
+
+### 2026-10-30 — Codex：英語マナー記事・SEO監査とクラウド環境整備
+- **依頼・範囲:** 企画・調査・英語原稿・実装・テスト・PR準備。マージ／本番公開なし。AGENTS.md、AI_GOVERNANCE.md、編集・SEO・保守方針を読み、origin/main取得後 `c65d998` と一致を確認。作業ブランチ `content/english-etiquette-seo`。既存ユーザー変更なし。
+- **実装:** `en/articles/park-etiquette.html` を新規作成。声量、列、通路、座り見／立ち見、帽子・カチューシャ、視線、簡潔な意思疎通を扱う。公式要件・現地案内・一般的配慮を区別し、一律禁止や国籍への一般化を避ける。撮影詳細や初来園準備は既存記事へ内部リンク。
+- **SEO:** 英語トップOGP説明文を同期処理へ移管。英語一覧title/description/H1と生成CollectionPageを改善。新記事のcanonical・OGP・Article/BreadcrumbList・CSP・サイトマップを整合。無関係な英語About／日本語運営者プロフィールのhreflangを解除。他の対応と英語10記事をソース監査。英語固有の重複メタ情報・OGP不一致チェック、新記事の検索／リンク／5画面幅テストを追加。
+- **企画記録:** `docs/ENGLISH_ETIQUETTE_RESEARCH.md` に全10記事の検索意図比較、出典レビュー対象、未確認事項、追加候補4本を記載。追加候補本文は未実装。
+- **検証済み:** `python scripts/check_site.py`（74ページ・71サイトマップURL）、`python scripts/sync_metadata.py --check`（差分0）、`git diff --check`。`CHROMIUM_PATH=/usr/bin/chromium python tests/browser_checks.py` 全6グループ成功（全ページ描画、9ページ×5幅、検索・新記事遷移、キーボード、テーマ・コントラスト、JS無効）。新記事の390px／1440pxスクリーンショットを目視確認。内部HTTPサーバーで新記事200応答と本文を確認。ソース監査で英語14ページの固有メタ・self-canonical・lang・OGPも確認。
+- **環境:** Python 3.12、Playwright 1.62.0、システムChromiumを利用。requirements再実行成功。静的サイトのためアプリビルド・DB・新規秘密情報は不要。再利用用install_script/start_skillと調査先・GitHub APIドメインを環境設定下書きに保存。下書きは実行・有効化・公開ではない。
+- **未確認・ブロッカー:** TDR公式HTTPSが接続ポリシー403、GitHub APIがForbidden。公式英日資料の最新内容・出典URL実到達・英語SERP比較は未検証。記事本文の公式確認日を捏造しない。通信許可を環境設定で有効化後、調査を完了するまで公開保留。Search Console、公開ホスト、実機Safari、独立した英文校正は未確認。
+- **状態:** レビュー用変更。PR作成結果は下記追記を参照。mainの変更・マージ・本番デプロイは実施しない。
+- **PR作成の準備状況:** GitHub API接続は下書き保存後の再確認でもCONNECT 403。PR本文を準備し、作業ブランチのpushとDraft PR作成を試みる。PRの作成成功はURLが得られるまで主張しない。
