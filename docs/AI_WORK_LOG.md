@@ -1240,3 +1240,4 @@
 - **未確認・ブロッカー:** TDR公式HTTPSが接続ポリシー403、GitHub APIがForbidden。公式英日資料の最新内容・出典URL実到達・英語SERP比較は未検証。記事本文の公式確認日を捏造しない。通信許可を環境設定で有効化後、調査を完了するまで公開保留。Search Console、公開ホスト、実機Safari、独立した英文校正は未確認。
 - **状態:** レビュー用変更。PR作成結果は下記追記を参照。mainの変更・マージ・本番デプロイは実施しない。
 - **PR作成の準備状況:** GitHub API接続は下書き保存後の再確認でもCONNECT 403。PR本文を準備し、作業ブランチのpushとDraft PR作成を試みる。PRの作成成功はURLが得られるまで主張しない。
+- **最終結果:** 作業ブランチをGitHubへpush済み。`gh pr create --draft` は `Post https://api.github.com/graphql: Forbidden` で失敗し、PR未作成。再利用できるPR本文は `docs/ENGLISH_ETIQUETTE_PR.md` に保存。通信許可の有効化後、出典確認・英文修正が必要なら実施してからDraft PR作成を再開する。マージ・本番公開なし。
