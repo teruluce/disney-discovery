@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import sys
 from urllib.parse import urlsplit, unquote
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from site_support import BASE, ROOT, documents, is_redirect
@@ -161,7 +161,9 @@ with sync_playwright() as p:
         client.goto(BASE + 'journal/')
         client.locator('.journal-card').click()
         assert client.url.endswith('/journal/resort-line-stamp-rally-2026.html')
-        assert client.locator('article img').evaluate('(e) => e.complete && e.naturalWidth === 900')
+        client.locator('article img').scroll_into_view_if_needed()
+        expect(client.locator('article img')).to_have_js_property('complete', True)
+        expect(client.locator('article img')).to_have_js_property('naturalWidth', 900)
         assert client.locator('time.experience-date').get_attribute('datetime') == '2026-10-18'
         client.goto(BASE + 'articles/resort-line-stamp-rally-2026.html#my-stamp')
         client.wait_for_url('**/journal/resort-line-stamp-rally-2026.html*')
