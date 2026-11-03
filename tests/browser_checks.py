@@ -70,7 +70,7 @@ with sync_playwright() as p:
     print('PASS: all content pages render without script, CSP or resource errors')
 
     for path in ['', 'articles/', 'profile.html', 'articles/first-visit-checklist.html',
-                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html', 'en/articles/park-etiquette.html', 'journal/', 'journal/resort-line-stamp-rally-2026.html']:
+                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html', 'en/articles/park-etiquette.html', 'journal/', 'journal/resort-line-stamp-rally-2026.html', 'en/articles/suica-payment-guide.html']:
         page.goto(BASE + path)
         for width in [320, 390, 768, 960, 1440]:
             page.set_viewport_size({'width': width, 'height': 900})
@@ -82,7 +82,7 @@ with sync_playwright() as p:
         assert page.locator('.nav-disclosure nav').is_visible(), path
         page.keyboard.press('Enter')
         assert not page.locator('.nav-disclosure nav').is_visible(), path
-    print('PASS: eleven page layouts at five widths; keyboard menu activation')
+    print('PASS: twelve page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
     assert visible(page) == 52
@@ -117,6 +117,15 @@ with sync_playwright() as p:
     assert page.url.endswith('#viewing')
     page.locator('article a[href="park-photography.html"]').click()
     assert page.url.endswith('/park-photography.html')
+    page.goto(BASE + 'en/articles/')
+    page.locator('#article-query').fill('Suica')
+    page.wait_for_timeout(250)
+    assert visible(page) == 1
+    page.locator('#article-list > li:visible a[href="suica-payment-guide.html"]').click()
+    assert page.url.endswith('/en/articles/suica-payment-guide.html')
+    page.locator('a[href="what-to-pack.html"]').click()
+    page.locator('a[href="suica-payment-guide.html"]').click()
+    assert page.locator('#top-up').is_visible()
     print('PASS: complete category coverage, combined search, normalization, no results, reset and live status')
 
     page.goto(BASE + 'articles/first-visit-checklist.html')
@@ -150,7 +159,7 @@ with sync_playwright() as p:
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
     nojs = plain.new_page()
-    for path, count in [('articles/', 52), ('en/articles/', 11)]:
+    for path, count in [('articles/', 52), ('en/articles/', 12)]:
         nojs.goto(BASE + path)
         assert visible(nojs) == count
         assert not nojs.locator('#article-controls').is_visible()
