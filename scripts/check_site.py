@@ -109,6 +109,11 @@ def check():
                 require(listed.count(path) == 1, f'{listing}: article must appear exactly once: {path}')
         ids = {n.attrs.get('id') for n in docs[listing].all()}
         require({'article-list', 'article-controls', 'article-status'} <= ids, listing + ': incomplete search controls')
+    listing = 'journal/index.html'
+    listed = [local_target(listing, a.attrs['href'])[0] for a in docs[listing].all('a') if 'href' in a.attrs]
+    for path in normal:
+        if path.startswith('journal/') and path != listing:
+            require(listed.count(path) == 1, f'{listing}: journal entry must appear exactly once: {path}')
     sitemap = ET.parse(ROOT / 'sitemap.xml')
     urls = [n.text for n in sitemap.findall('.//{*}loc')]
     expected = {d.link('canonical') for p, d in normal.items() if p != '404.html'}
