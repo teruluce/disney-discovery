@@ -70,7 +70,7 @@ with sync_playwright() as p:
     print('PASS: all content pages render without script, CSP or resource errors')
 
     for path in ['', 'articles/', 'profile.html', 'articles/first-visit-checklist.html',
-                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html', 'en/articles/park-etiquette.html']:
+                 'articles/disney-mobile-order-guide.html', 'articles/ticket-change-cancellation-guide.html', 'en/', 'en/articles/getting-there-by-train.html', 'en/articles/park-etiquette.html', 'journal/', 'journal/resort-line-stamp-rally-2026.html']:
         page.goto(BASE + path)
         for width in [320, 390, 768, 960, 1440]:
             page.set_viewport_size({'width': width, 'height': 900})
@@ -82,7 +82,7 @@ with sync_playwright() as p:
         assert page.locator('.nav-disclosure nav').is_visible(), path
         page.keyboard.press('Enter')
         assert not page.locator('.nav-disclosure nav').is_visible(), path
-    print('PASS: nine page layouts at five widths; keyboard menu activation')
+    print('PASS: eleven page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
     assert visible(page) == 52
@@ -157,5 +157,25 @@ with sync_playwright() as p:
         nojs.locator('summary').click()
         assert nojs.locator('.nav-disclosure nav').is_visible()
     print('PASS: all articles and mobile navigation remain available without JavaScript')
+    for client in (page, nojs):
+        client.goto(BASE + 'journal/')
+        client.locator('.journal-card').click()
+        assert client.url.endswith('/journal/resort-line-stamp-rally-2026.html')
+        assert client.locator('article img').evaluate('(e) => e.complete && e.naturalWidth === 900')
+        assert client.locator('time.experience-date').get_attribute('datetime') == '2026-10-18'
+        client.goto(BASE + 'articles/resort-line-stamp-rally-2026.html#my-stamp')
+        client.wait_for_url('**/journal/resort-line-stamp-rally-2026.html*')
+        assert client.locator('article figure').count() == 1
+    # Also inspect the fallback HTML itself; meta refresh works even without JS.
+    fallback = (ROOT / 'articles/resort-line-stamp-rally-2026.html').read_text()
+    assert 'href="../journal/resort-line-stamp-rally-2026.html"' in fallback
+    assert 'noindex,follow' in fallback
+    for width in (1200, 1440):
+        page.set_viewport_size({'width': width, 'height': 900})
+        page.goto(BASE)
+        assert page.locator('.site-nav-inline').is_visible()
+        assert page.locator('.site-nav-inline a').filter(has_text='Journal').is_visible()
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    print('PASS: Journal cards, photo, date, old URL with/without JS and desktop navigation')
     browser.close()
 

@@ -468,3 +468,9 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
 @media (min-width: 960px) { .toc-scroll-hint { display: none; } }
 @media print { .article-controls, .scroll-hint { display: none !important; } }
 @media print { .grad-text { background: none; color: #243047; } }
+
+/* Journal adds a fifth main link; use the disclosure menu on narrower laptops. */
+@media (min-width: 960px) and (max-width: 1199px) {
+  .nav-disclosure { display: block; }
+  .site-nav-inline, .header-actions { display: none; }
+}

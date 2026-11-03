@@ -14,6 +14,10 @@ Disney Discovery（DD）は、ディズニーに詳しくない人やライト�
 ## English version
 An English-language section for international visitors is available under `en/`. It includes practical Tokyo Disney Resort guides and approachable articles about park experiences. The English pages share the existing visual system and are linked from the Japanese homepage.
 
+## Discovery Journal
+
+てるのディズニーや舞浜での日々を写真と文章で残す[日々の記録](journal/)。投稿方法と編集方針は [Journalの運用](docs/JOURNAL.md) を参照してください。
+
 ## Project documents
 - [公開前チェックと保守](docs/MAINTENANCE.md)
 - [サイト企画書](docs/SITE_PLAN.md)

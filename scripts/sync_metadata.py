@@ -36,7 +36,7 @@ def sync(check=False):
         title = doc.all('title')[0].text
         description = doc.meta('description')
         url = doc.link('canonical')
-        article = (path.startswith('articles/') or path.startswith('en/articles/')) and not path.endswith('index.html')
+        article = (path.startswith('articles/') or path.startswith('en/articles/') or path.startswith('journal/')) and not path.endswith('index.html')
         lines = []
         for key, target in sorted(pairs[path].items()):
             target_url = docs[target].link('canonical')
@@ -58,6 +58,11 @@ def sync(check=False):
                     'headline': doc.all('h1')[0].text.strip(), 'description': description,
                     'inLanguage': lang, 'mainEntityOfPage': url,
                     'publisher': {'@type': 'Organization', 'name': 'Disney Discovery', 'url': BASE}}
+            if path.startswith('journal/'):
+                for cls, key in [('published-date', 'datePublished'), ('updated-date', 'dateModified')]:
+                    dates = doc.all('time', cls)
+                    if dates:
+                        item[key] = dates[0].attrs['datetime']
             images = doc.all('img')
             if images:
                 from urllib.parse import urljoin
