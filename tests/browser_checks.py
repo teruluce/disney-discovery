@@ -188,5 +188,20 @@ with sync_playwright() as p:
         assert page.locator('.site-nav-inline a').filter(has_text='Journal').is_visible()
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     print('PASS: Journal cards, photo, date, old URL with/without JS and desktop navigation')
+    for client in (page, nojs):
+        client.emulate_media(forced_colors='none', reduced_motion='reduce')
+        client.goto(BASE)
+        client.locator('.hero-chips a[href="#journal"]').click()
+        assert client.url.endswith('#journal')
+        client.locator('.home-journal-preview img').scroll_into_view_if_needed()
+        expect(client.locator('.home-journal-preview img')).to_have_js_property('naturalWidth', 900)
+        client.locator('#journal a[href="journal/resort-line-stamp-rally-2026.html"]').click()
+        assert client.url.endswith('/journal/resort-line-stamp-rally-2026.html')
+        client.goto(BASE + 'en/')
+        for slug in ('getting-there-by-train', 'suica-payment-guide', 'park-etiquette', 'park-photography', 'first-visit'):
+            assert client.locator('.latest-section a[href="articles/' + slug + '.html"]').is_visible()
+        client.locator('#journal a[href="../journal/"]').click()
+        assert client.url.endswith('/journal/')
+    print('PASS: reorganized Japanese/English homepage journeys with and without JavaScript')
     browser.close()
 
