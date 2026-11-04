@@ -26,7 +26,8 @@ def serve(route):
     if not exists:
         path = ROOT / '404.html'
     kind = {'.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'application/javascript',
-            '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml'}.get(path.suffix, 'text/plain')
+            '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml',
+            '.woff2': 'font/woff2'}.get(path.suffix, 'text/plain')
     route.fulfill(status=200 if exists else 404, content_type=kind, body=path.read_bytes())
 
 
@@ -144,14 +145,17 @@ with sync_playwright() as p:
 
     page.emulate_media(color_scheme='dark', reduced_motion='reduce')
     page.goto(BASE)
-    assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(251, 252, 255)'
+    assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(238, 234, 225)'
     assert page.locator('html').evaluate('(e) => getComputedStyle(e).scrollBehavior') == 'auto'
-    for color in ['#315cae', '#315b85', '#6757af']:
-        assert contrast(color, '#d4e2ff') >= 3, color
-    for color in ['#315cae', '#6757af']:
-        assert contrast(color, '#ffffff') >= 4.5, color
-    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).backgroundImage').find('49, 92, 174') >= 0
-    assert page.locator('.button').first.evaluate('(e) => getComputedStyle(e).backgroundImage').find('49, 92, 174') >= 0
+    # Ink on paper and marker, muted copy, and the ink-filled primary action.
+    for ink, paper in [('#293f4c', '#fffdf6'), ('#293f4c', '#f6e5b0'),
+                       ('#686b65', '#fffdf6'), ('#fffdf6', '#365e70')]:
+        assert contrast(ink, paper) >= 4.5, (ink, paper)
+    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') == 'rgb(41, 63, 76)'
+    assert page.locator('.button').first.evaluate('(e) => getComputedStyle(e).backgroundImage').find('54, 94, 112') >= 0
+    page.evaluate('document.fonts.ready')
+    assert page.evaluate('document.fonts.check(\'24px "Yomogi"\', "気になること")')
+    assert page.evaluate('document.fonts.check(\'24px "Caveat"\', "Disney Discovery")')
     page.emulate_media(forced_colors='active')
     assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') != 'rgba(0, 0, 0, 0)'
     print('PASS: fixed light theme, reduced motion, forced colors and headline/button contrast')
