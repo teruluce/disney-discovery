@@ -17,6 +17,7 @@ jobs:
           python-version: '3.12'
       - run: python scripts/check_site.py
       - run: python tests/journal_preservation.py
+      - run: python tests/reorganization_checks.py
       - run: pip install -r tests/requirements.txt
       - run: python -m playwright install --with-deps chromium
       - run: python tests/browser_checks.py

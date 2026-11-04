@@ -474,3 +474,11 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
   .nav-disclosure { display: block; }
   .site-nav-inline, .header-actions { display: none; }
 }
+
+/* A single existing Journal photo; no additional scripts or image downloads above the fold. */
+.home-journal-preview { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; }
+.home-journal-preview img { width: min(100%, 180px); height: auto; justify-self: center; border-radius: var(--radius); }
+.home-journal-preview > div { min-width: 0; }
+@media (min-width: 700px) {
+  .home-journal-preview { grid-template-columns: 180px minmax(0, 1fr); gap: 32px; }
+}
