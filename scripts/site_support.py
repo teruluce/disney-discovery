@@ -82,3 +82,8 @@ def local_target(path, href):
 
 def is_redirect(doc):
     return any(n.attrs.get('http-equiv', '').lower() == 'refresh' for n in doc.all('meta'))
+
+
+def is_retired(doc):
+    """A retained old URL that serves a noindex publication-ended notice."""
+    return doc.meta('dd-content-status') == 'retired'

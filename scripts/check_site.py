@@ -3,7 +3,7 @@ import base64
 import hashlib
 import json
 import xml.etree.ElementTree as ET
-from site_support import BASE, ROOT, documents, is_redirect, local_target, canonical_path
+from site_support import BASE, ROOT, documents, is_redirect, local_target, canonical_path, is_retired
 from sync_metadata import sync
 
 
@@ -46,6 +46,8 @@ def check():
                 if target is None:
                     continue
                 require((ROOT / target).is_file(), f'{path}: missing {href}')
+                if node.tag == 'a' and target in docs and target != path:
+                    require(not is_retired(docs[target]), f'{path}: links to retired article {href}')
                 if fragment and target in docs:
                     require(any(n.attrs.get('id') == fragment for n in docs[target].all()), f'{path}: missing anchor {href}')
             if node.tag == 'a' and node.attrs.get('target') == '_blank':
@@ -57,9 +59,13 @@ def check():
                 if image and (ROOT / image).suffix.lower() in ('.jpg', '.jpeg') and (ROOT / image).is_file():
                     declared = tuple(int(node.attrs.get(k, '0')) for k in ('width', 'height'))
                     require(jpeg_size(ROOT / image) == declared, path + ': image dimensions differ from the JPEG')
+        if is_retired(doc):
+            require(doc.meta('robots') == 'noindex,follow', path + ': retired page must be noindex')
+            require(not is_redirect(doc), path + ': retired page must not redirect')
+            require(not any('Article' in n.text for n in doc.all('script')), path + ': retired page must not carry Article metadata')
         if is_redirect(doc):
             target = canonical_path(doc.link('canonical'))
-            require(target in normal, path + ': invalid redirect destination')
+            require(target in normal and not is_retired(normal[target]), path + ': invalid redirect destination')
             continue
         require(len(doc.all('h1')) == 1, path + ': exactly one h1 required')
         require(doc.meta('description') and doc.all('title'), path + ': missing search metadata')
@@ -105,7 +111,7 @@ def check():
         directory = listing.rsplit('/', 1)[0] + '/'
         listed = [local_target(listing, a.attrs['href'])[0] for a in docs[listing].all('a') if 'href' in a.attrs]
         for path in normal:
-            if path.startswith(directory) and path != listing:
+            if path.startswith(directory) and path != listing and not is_retired(normal[path]):
                 require(listed.count(path) == 1, f'{listing}: article must appear exactly once: {path}')
         ids = {n.attrs.get('id') for n in docs[listing].all()}
         require({'article-list', 'article-controls', 'article-status'} <= ids, listing + ': incomplete search controls')
@@ -116,7 +122,7 @@ def check():
             require(listed.count(path) == 1, f'{listing}: journal entry must appear exactly once: {path}')
     sitemap = ET.parse(ROOT / 'sitemap.xml')
     urls = [n.text for n in sitemap.findall('.//{*}loc')]
-    expected = {d.link('canonical') for p, d in normal.items() if p != '404.html'}
+    expected = {d.link('canonical') for p, d in normal.items() if p != '404.html' and not is_retired(d)}
     require(set(urls) == expected and len(urls) == len(set(urls)), 'Sitemap must contain each normal page once, without redirects/404')
     require(not sync(check=True), 'Generated metadata needs updating: run python scripts/sync_metadata.py')
     if errors:

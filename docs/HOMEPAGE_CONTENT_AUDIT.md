@@ -1,5 +1,7 @@
 # Disney Discovery トップ試作・既存記事棚卸し
 
+> これはPR #83初版の棚卸し記録です。今回の公開終了11本・統合3本については、[最新のURL対応表](URL_REORGANIZATION.md)と[改稿レビュー資料](PROTOTYPE_REVIEW.md)を参照してください。
+
 判断日：2026年11月5日（日本時間）。対象：最新 main `4e51382d3c706adfd6a707deeb6a02f873465b1b`。
 
 ## 調査の範囲と限界

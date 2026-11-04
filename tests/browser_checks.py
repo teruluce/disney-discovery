@@ -86,9 +86,9 @@ with sync_playwright() as p:
     print('PASS: twelve page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
-    assert visible(page) == 52
+    assert visible(page) == 38
     chips = page.locator('.filter-chip')
-    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 52
+    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 38
     tips = page.locator('.filter-chip').filter(has_text='パークを楽しむヒント')
     tips.focus()
     page.keyboard.press('Enter')
@@ -99,7 +99,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(250)
     assert visible(page) == 0 and page.locator('#article-empty').is_visible()
     page.locator('#article-reset').click()
-    assert visible(page) == 52 and query.evaluate('(e) => document.activeElement === e')
+    assert visible(page) == 38 and query.evaluate('(e) => document.activeElement === e')
     query.fill('ﾓﾊﾞｲﾙｵｰﾀﾞｰ')
     page.wait_for_timeout(250)
     assert visible(page) >= 1
@@ -171,7 +171,7 @@ with sync_playwright() as p:
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
     nojs = plain.new_page()
-    for path, count in [('articles/', 52), ('en/articles/', 12)]:
+    for path, count in [('articles/', 38), ('en/articles/', 12)]:
         nojs.goto(BASE + path)
         assert visible(nojs) == count
         assert not nojs.locator('#article-controls').is_visible()
@@ -215,5 +215,31 @@ with sync_playwright() as p:
         client.locator('#journal a[href="../journal/"]').click()
         assert client.url.endswith('/journal/')
     print('PASS: reorganized Japanese/English homepage journeys with and without JavaScript')
+    # Approved retirement notices and consolidation routes must work without JS, too.
+    import json
+    transitions = json.loads((ROOT / 'tests/fixtures/article-reorganization.json').read_text())['transitions']
+    for client in (page, nojs):
+        for path, transition in transitions.items():
+            client.goto(BASE + path + '#sources')
+            if transition['action'] == 'retire':
+                assert client.url.split('#')[0] == BASE + path
+                assert client.locator('h1').inner_text() == 'この記事の公開は終了しました'
+                assert client.locator('meta[name="robots"]').get_attribute('content') == 'noindex,follow'
+                assert client.locator('article').count() == 0
+            else:
+                client.wait_for_url(BASE + transition['target'] + '#' + transition['fragment'])
+                assert client.locator('#' + transition['fragment']).is_visible()
+        client.goto(BASE + 'articles/')
+        for path in transitions:
+            assert client.locator('#article-list a[href$="' + path.split('/')[-1] + '"]').count() == 0
+    for width in (320, 390):
+        page.set_viewport_size({'width': width, 'height': 844})
+        page.goto(BASE)
+        for link in page.locator('.entrances > a').all():
+            box = link.bounding_box()
+            assert box['y'] + box['height'] <= 844
+        assert page.locator('#discover .photo-slot').count() == 0
+        assert page.locator('.quick-links').bounding_box()['y'] < page.locator('.cover-image').bounding_box()['y']
+    print('PASS: 11 ended notices and 3 section redirects with/without JS; 3 mobile entrances in first screen')
     browser.close()
 
