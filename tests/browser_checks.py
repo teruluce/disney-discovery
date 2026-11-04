@@ -145,12 +145,20 @@ with sync_playwright() as p:
 
     page.emulate_media(color_scheme='dark', reduced_motion='reduce')
     page.goto(BASE)
+    assert page.locator('html').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(248, 247, 243)'
+    for label in ['初めて行く方へ', '舞浜へのアクセス']:
+        link = page.locator('.quick-links a').filter(has_text=label)
+        assert link.is_visible()
+        assert link.bounding_box()['y'] + link.bounding_box()['height'] <= 844
+    # The original notebook remains on article/profile pages.
+    page.goto(BASE + 'profile.html')
     assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(238, 234, 225)'
     assert page.locator('html').evaluate('(e) => getComputedStyle(e).scrollBehavior') == 'auto'
     # Ink on paper and marker, muted copy, and the ink-filled primary action.
     for ink, paper in [('#293f4c', '#fffdf6'), ('#293f4c', '#f6e5b0'),
                        ('#686b65', '#fffdf6'), ('#fffdf6', '#365e70')]:
         assert contrast(ink, paper) >= 4.5, (ink, paper)
+    page.goto(BASE + 'en/')
     assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') == 'rgb(41, 63, 76)'
     assert page.locator('.button').first.evaluate('(e) => getComputedStyle(e).backgroundImage').find('54, 94, 112') >= 0
     page.evaluate('document.fonts.ready')
@@ -195,11 +203,11 @@ with sync_playwright() as p:
     for client in (page, nojs):
         client.emulate_media(forced_colors='none', reduced_motion='reduce')
         client.goto(BASE)
-        client.locator('.hero-chips a[href="#journal"]').click()
+        client.locator('.entrances a[href="#journal"]').click()
         assert client.url.endswith('#journal')
-        client.locator('.home-journal-preview img').scroll_into_view_if_needed()
-        expect(client.locator('.home-journal-preview img')).to_have_js_property('naturalWidth', 900)
-        client.locator('#journal a[href="journal/resort-line-stamp-rally-2026.html"]').click()
+        client.locator('.journal-photo img').scroll_into_view_if_needed()
+        expect(client.locator('.journal-photo img')).to_have_js_property('naturalWidth', 900)
+        client.locator('#journal a[href="journal/resort-line-stamp-rally-2026.html"]').first.click()
         assert client.url.endswith('/journal/resort-line-stamp-rally-2026.html')
         client.goto(BASE + 'en/')
         for slug in ('getting-there-by-train', 'suica-payment-guide', 'park-etiquette', 'park-photography', 'first-visit'):
