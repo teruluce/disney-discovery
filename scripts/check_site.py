@@ -109,7 +109,8 @@ def check():
         require(doc.meta('og:url') == doc.link('canonical'), path + ': social URL mismatch')
     for listing in ('articles/index.html', 'en/articles/index.html'):
         directory = listing.rsplit('/', 1)[0] + '/'
-        listed = [local_target(listing, a.attrs['href'])[0] for a in docs[listing].all('a') if 'href' in a.attrs]
+        list_node = next(n for n in docs[listing].all() if n.attrs.get('id') == 'article-list')
+        listed = [local_target(listing, a.attrs['href'])[0] for a in list_node.all('a') if 'href' in a.attrs]
         for path in normal:
             if path.startswith(directory) and path != listing and not is_retired(normal[path]):
                 require(listed.count(path) == 1, f'{listing}: article must appear exactly once: {path}')

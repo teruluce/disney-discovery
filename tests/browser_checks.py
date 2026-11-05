@@ -150,23 +150,16 @@ with sync_playwright() as p:
         link = page.locator('.quick-links a').filter(has_text=label)
         assert link.is_visible()
         assert link.bounding_box()['y'] + link.bounding_box()['height'] <= 844
-    # The original notebook remains on article/profile pages.
-    page.goto(BASE + 'profile.html')
-    assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(238, 234, 225)'
-    assert page.locator('html').evaluate('(e) => getComputedStyle(e).scrollBehavior') == 'auto'
-    # Ink on paper and marker, muted copy, and the ink-filled primary action.
-    for ink, paper in [('#293f4c', '#fffdf6'), ('#293f4c', '#f6e5b0'),
-                       ('#686b65', '#fffdf6'), ('#fffdf6', '#365e70')]:
-        assert contrast(ink, paper) >= 4.5, (ink, paper)
-    page.goto(BASE + 'en/')
-    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') == 'rgb(41, 63, 76)'
-    assert page.locator('.button').first.evaluate('(e) => getComputedStyle(e).backgroundImage').find('54, 94, 112') >= 0
-    page.evaluate('document.fonts.ready')
-    assert page.evaluate('document.fonts.check(\'24px "Yomogi"\', "気になること")')
-    assert page.evaluate('document.fonts.check(\'24px "Caveat"\', "Disney Discovery")')
+    for path in ['profile.html', 'articles/', 'articles/first-visit-checklist.html', 'journal/', 'en/', 'en/articles/first-visit.html']:
+        page.goto(BASE + path)
+        assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(248, 247, 243)'
+        assert page.locator('h1').evaluate('(e) => getComputedStyle(e).color') == 'rgb(39, 59, 58)'
+        assert 'serif' in page.locator('h1').evaluate('(e) => getComputedStyle(e).fontFamily')
+    for ink, paper in [('#273b3a', '#f8f7f3'), ('#5d6763', '#f8f7f3'), ('#ffffff', '#355b50')]:
+        assert contrast(ink, paper) >= 4.5
     page.emulate_media(forced_colors='active')
-    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') != 'rgba(0, 0, 0, 0)'
-    print('PASS: fixed light theme, reduced motion, forced colors and headline/button contrast')
+    assert page.locator('h1').evaluate('(e) => getComputedStyle(e).color') != 'rgba(0, 0, 0, 0)'
+    print('PASS: shared magazine design, readable contrast, reduced motion and forced colors')
 
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
@@ -249,3 +242,8 @@ with sync_playwright() as p:
     print('PASS: 11 ended notices and 3 section redirects with/without JS; 3 mobile entrances in first screen')
     browser.close()
 
+
+# On the authorized main release, also verify the actual deployed Pages site.
+if os.environ.get('GITHUB_EVENT_NAME') == 'push' and os.environ.get('GITHUB_REF') == 'refs/heads/main':
+    import runpy
+    runpy.run_path(str(ROOT / 'tests/public_checks.py'), run_name='__main__')

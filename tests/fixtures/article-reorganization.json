@@ -550,28 +550,28 @@
     }
   },
   "protected_hashes": {
-    "en/about.html": "c0afefda6d39f946f2eae81ad4bfc0fb96bca6c83cb8bf6fd6137674f87c6140",
-    "en/articles/electrical-parade.html": "30e71df3c54592c94bc1fdd2f81e1ed5bdcc34ff2523d34563a1a2c823c675a9",
-    "en/articles/first-visit.html": "75fece79345cc466a82653f9036f19b81acc6187925f76fc64624e42de32dbdc",
-    "en/articles/getting-there-by-train.html": "46883a7a0c6384fd93f92c93ca9298c68c8c6659c0602bc99f95cf50127a3137",
-    "en/articles/index.html": "84894d1f60a578a83425e0ca142067e1a9577b3e0e3f3a56ced1e06f9a27f7f5",
-    "en/articles/land-vs-sea.html": "4bf9032ee8cd1683a7fe8323b499dbc9b3742af4d40c762f6f3586b98cb8f8e9",
-    "en/articles/official-app-guide.html": "124ed870490b2496e0a01a88601523bce74e742287c9b4e4f3dce1cee77a0c21",
-    "en/articles/park-etiquette.html": "0a4e5573c51d64f76421ea9840113525c3a36185aad9a7b642e9d82667f248df",
-    "en/articles/park-photography.html": "ab3a3932e3f1f2863f20c236bb2e27d260d13a5f68dddce3b78366e67b5fa0c6",
-    "en/articles/rainy-day.html": "be9dfc899b877469d3d057fe828ea6a15b2f0d027cc3ac50945ea1fb1645c625",
-    "en/articles/suica-payment-guide.html": "c8cc241adf5fdbb2691690f1ec8f760c326e447de83931875ac5fb5de053194d",
-    "en/articles/ticket-basics.html": "a456740ea4e7b069bed982d4b6fc6d22b39681400aacdaaae3bbf7b6a6fbe5fd",
-    "en/articles/unique-tokyo-disneysea.html": "ac1cb531b7d5e0a3adf9fee8f7f72dceb8e76b6f288b2d6dc8e35e9661fd7dbb",
-    "en/articles/what-to-pack.html": "ad559f4b098fc40429507d04d6ab0c6b6e27015ed4d202a1cb6cac1028450193",
-    "en/index.html": "843188f33a4b387a06f19f3e166be221652cfba7899abca60e3655b637d859ab",
-    "journal/index.html": "02e7f590fba88b87b2975e3971f60f4316239517a7f7cf87f4a764a940a3aa5f",
-    "journal/resort-line-stamp-rally-2026.html": "8903d356370b2fbc75b4140650b0bcff3be0bbe4b4fbd7f8c38224bcd988ecbc",
     "articles/chip-and-dale-difference.html": "232bf758d22886cb4ce1532a847e1b196a89e4e78d12e10acea5c6dfe204bd96",
     "articles/disney-first-timer-app-day-plan.html": "2ab72f810b84d415133e2f5b49c4c6d858dafc52baeca733a8cf917441a17bae",
     "articles/resort-line-stamp-rally-2026.html": "9092900f087153e42027e33c1a8fa0dca26e58b6c2e9c0afc6a95256f1589911",
-    "assets/img/resort-line-stamp-rally-teru.jpg": "6aafe57a563a1140ad854c46e6fccd5388b92f6a5c5a3fb0e861f48b08907792",
-    "assets/css/style.css": "d30cc8b9295639c470aa795785df590a170c2809e668ca15be9173e93dd3d08a",
-    "assets/css/journal.css": "a760934acd298559064ee5f344d62ca9625b5c1ac36a398336b661fb4408a3fc"
+    "assets/img/resort-line-stamp-rally-teru.jpg": "6aafe57a563a1140ad854c46e6fccd5388b92f6a5c5a3fb0e861f48b08907792"
+  },
+  "protected_main_hashes": {
+    "en/about.html": "e23e113a93023f30b996031cf6cb079008003f7f5c851b205c87e2126c29cbfd",
+    "en/articles/electrical-parade.html": "7a95e4b23febe493d586c9dc665b101eecc811f0bfbf833ef12faf6820a6a3d1",
+    "en/articles/first-visit.html": "c9f5582e3b043361feb1d4d53f6fe2beb16673ad9bca5e261d9679c56364c2c2",
+    "en/articles/getting-there-by-train.html": "975706afd9c4e2dcb64c8b579520c0ad2ca8e502da16441f6474276bef3be565",
+    "en/articles/index.html": "f1cefcfe104da6416f500fea71f1ac89d66b8e30148f92c082e4d75ffe822e0f",
+    "en/articles/land-vs-sea.html": "2df51be1db6b74b22219020159d8cf4c017f5c9d74ef4eb399c4ecf77fd58c42",
+    "en/articles/official-app-guide.html": "839c5ec8d64e396e366573bb73dd1630611b39212280aa88b44ebc6b3c44e9a4",
+    "en/articles/park-etiquette.html": "617c7798d1768f639d7d92421bb342bd2da2a1e35e5cafd8f0d38c8caa7a5c25",
+    "en/articles/park-photography.html": "5d529719ec2e5033b5e9dcbc958a335e3a92f2d26228e57b000759ba43389083",
+    "en/articles/rainy-day.html": "c3957ad14f013e9ad548a8f3e83001bbdc167debd97c4c90b56eb3ba24f8571b",
+    "en/articles/suica-payment-guide.html": "33f4983147ad2a3b9575e05108052335526126610ecc70958cfa95fcbc43e84a",
+    "en/articles/ticket-basics.html": "cfbed054cdbe1e32107412c5b7572cbacfdd30c2affdad83645aca69b7cf1823",
+    "en/articles/unique-tokyo-disneysea.html": "768a23f0129ab423447dc5d342af75313ef5a31401aa9e8c1b983e2b78ae4cde",
+    "en/articles/what-to-pack.html": "cc75d05bc9b18c76b2c04bece9e919bd8bb24cc53d6a42d5a4e335bf6ed0e5ba",
+    "en/index.html": "c048953d4347f8f696301a612d72da95f1831e42bf338e9bdb44c53a8704d0b2",
+    "journal/index.html": "5953c569de0c1c9e481fd0f73bab00994e04d57cbf66627ecdb2d7955fe27b8a",
+    "journal/resort-line-stamp-rally-2026.html": "30bcb0cdec4af6da7f2be3d6da9b280b2b2a6e1ea6876a26e490604f1f6cb06a"
   }
 }

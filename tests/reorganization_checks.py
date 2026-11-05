@@ -22,6 +22,9 @@ assert len(articles) == 50 and sum(p.startswith('en/') for p in articles) == 12
 assert {p for p, d in docs.items() if is_retired(d)} == retired
 for path, digest in fixture['protected_hashes'].items():
     assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, path
+for path, digest in fixture['protected_main_hashes'].items():
+    body = re.search(r'<main\b[\s\S]*?</main>', (ROOT / path).read_text())[0]
+    assert hashlib.sha256(body.encode()).hexdigest() == digest, path
 for path in retired:
     d = docs[path]
     assert d.meta('robots') == 'noindex,follow' and not is_redirect(d)
@@ -44,7 +47,7 @@ assert {p for p, d in docs.items() if is_redirect(d)} - merged == set({'articles
 for path, digest in {'en/articles/electrical-parade.html': '7a95e4b23febe493d586c9dc665b101eecc811f0bfbf833ef12faf6820a6a3d1', 'en/articles/first-visit.html': 'c9f5582e3b043361feb1d4d53f6fe2beb16673ad9bca5e261d9679c56364c2c2', 'en/articles/getting-there-by-train.html': '975706afd9c4e2dcb64c8b579520c0ad2ca8e502da16441f6474276bef3be565', 'en/articles/land-vs-sea.html': '2df51be1db6b74b22219020159d8cf4c017f5c9d74ef4eb399c4ecf77fd58c42', 'en/articles/official-app-guide.html': '839c5ec8d64e396e366573bb73dd1630611b39212280aa88b44ebc6b3c44e9a4', 'en/articles/park-etiquette.html': '617c7798d1768f639d7d92421bb342bd2da2a1e35e5cafd8f0d38c8caa7a5c25', 'en/articles/park-photography.html': '5d529719ec2e5033b5e9dcbc958a335e3a92f2d26228e57b000759ba43389083', 'en/articles/rainy-day.html': 'c3957ad14f013e9ad548a8f3e83001bbdc167debd97c4c90b56eb3ba24f8571b', 'en/articles/suica-payment-guide.html': '33f4983147ad2a3b9575e05108052335526126610ecc70958cfa95fcbc43e84a', 'en/articles/ticket-basics.html': 'cfbed054cdbe1e32107412c5b7572cbacfdd30c2affdad83645aca69b7cf1823', 'en/articles/unique-tokyo-disneysea.html': '768a23f0129ab423447dc5d342af75313ef5a31401aa9e8c1b983e2b78ae4cde', 'en/articles/what-to-pack.html': 'cc75d05bc9b18c76b2c04bece9e919bd8bb24cc53d6a42d5a4e335bf6ed0e5ba'}.items():
     body = re.search(r'<main\b[\s\S]*?</main>', (ROOT / path).read_text())[0]
     assert hashlib.sha256(body.encode()).hexdigest() == digest, path
-print('PASS: 50 active articles, 11 noindex notices, 3 merged routes; all English/Journal files and 3 original redirects unchanged')
+print('PASS: 50 active articles, 11 noindex notices, 3 merged routes; English/Journal bodies and 3 original redirects unchanged')
 
 # Public cover derivatives must never reintroduce capture metadata from the private source.
 for name in ('cover-courtyard-teru-640.jpg', 'cover-courtyard-teru-1280.jpg'):
