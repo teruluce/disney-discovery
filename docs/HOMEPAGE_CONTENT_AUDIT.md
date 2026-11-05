@@ -1,0 +1,165 @@
+# Disney Discovery トップ試作・既存記事棚卸し
+
+> これはPR #83初版の棚卸し記録です。今回の公開終了11本・統合3本については、[最新のURL対応表](URL_REORGANIZATION.md)と[改稿レビュー資料](PROTOTYPE_REVIEW.md)を参照してください。
+
+判断日：2026年11月5日（日本時間）。対象：最新 main `4e51382d3c706adfd6a707deeb6a02f873465b1b`。
+
+## 調査の範囲と限界
+
+- AGENTS.md、AI_GOVERNANCE.md、README、編集・Journal・保守方針、リポジトリの本文・見出し・リンク・画像を確認。日本語51記事、英語12記事、Journal1記事の計64記事、転送3ページを別表に収録。記事一覧・プロフィール等の固定ページは記事数に含めない。
+- 通常のgit fetchは環境プロキシへの接続に失敗。GitHub連携のmainコミット取得と比較APIで、ローカル既存HEAD `fb0e206` からの変更が10ファイルであることを確認し、各ファイルを取得してローカルに反映した。全ファイルのGitツリーがmainの `244802121f80a25d772b634f116ebc1a75597448` と一致することを確認。GitHubから取得したコミット情報もSHA一致を確認して復元し、作業ブランチの起点を最新mainそのものに設定した。既存記事の本文はこの差分に含まれない。
+- 公開トップ `https://teruluce.github.io/disney-discovery/` はWeb取得を試みたが取得不可。公開サイトの見た目・デプロイ済みSHAは未確認。最新mainのHTML/CSSをローカルで表示した内容を基準に試作した。公開中の状態と同一とは断定しない。
+- 本表の「残す」は資産を維持する編集提案であり、記載された料金・運営制度を現在の事実として再検証済みという意味ではない。本文内の確認日と今回の調査日を分けて扱う。
+- **全記事の検索流入・外部リンク（被リンク）は未確認**。Search Console、アクセス解析、被リンク計測の実データにはアクセスしていない。記事内の出典リンクは被リンクではない。数字を推定して廃止判断に使っていない。
+- 日本語・英語の内容の近さは言語別の役割として評価。翻訳対応の記事を重複記事として廃止しない。独自写真と体験は、撮影者や本人の経験が本文・運用記録で確認できる場合に限定した。
+
+## 分類の意味と件数
+
+「残す」は記事を維持、「統合候補」は本文の一部を移す検討、「過去の記録として残す」は当時の情報として保存、「トップ掲載を外す」は記事一覧・URLを残して主要枠から除外。「廃止候補」は公開自体を終える検討を意味する。
+
+| 区分 | 件数 |
+|---|---:|
+| 残す | 38 |
+| 統合候補 | 3 |
+| 過去の記録として残す | 2 |
+| トップ掲載を外す | 21 |
+| 廃止候補 | 0 |
+
+廃止候補は0件。舞浜との接点が薄い記事も具体的な疑問には答えており、流入・被リンク未確認の段階でURLを廃止する根拠が足りない。分類は相互排他の主判定。「残す」でも全件をトップに掲載する意味ではない。Journalは過去の記録であることを明示してトップで紹介する。
+
+## 残す
+
+| 記事名・URL | 理由 | 独自写真・体験 |
+|---|---|---|
+| [ディズニーのキャラクターグリーティングとは？会い方と当日の確認方法](https://teruluce.github.io/disney-discovery/articles/character-greeting-guide.html) | TDRで誰に・どこで会えるか、当日の時間・受付・撮影枚数の確認に答える。アプリ記事は準備、こちらは現地の会い方と役割が異なる。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーランド・シーのクリスマスショー2026](https://teruluce.github.io/disney-discovery/articles/christmas-parades-shows.html) | TDRの2026年クリスマス公演をランド・シーで比較。本文では11/11〜12/25の開催予定で、判断日11/5時点で過去記事とはしない。開催内容は未再検証のため試作トップでは推さず、掲載前に再確認。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [暑い日のディズニー対策｜服装・水分補給・休憩のポイント](https://teruluce.github.io/disney-discovery/articles/disney-hot-weather-guide.html) | 暑い日の服装・給水・休憩・中断判断に答える。持ち物記事の季節用品と重なるが、当日の行動判断が独立。パークの具体的な休憩施設・実体験の補強余地あり。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのモバイルオーダーの使い方｜注文・支払い・受け取りの流れ](https://teruluce.github.io/disney-discovery/articles/disney-mobile-order-guide.html) | TDRで注文から支払い・受取、変更、希望枠がないときの対応まで答える。レストラン予約記事とは席の確保の違いがあり、統合せず相互案内。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーの予算の立て方｜チケット・食事・お土産の考え方](https://teruluce.github.io/disney-discovery/articles/disney-park-budget-tips.html) | TDR来園予算の支出分類・確定額と上限額のメモに答える。チケット記事は券種と購入条件、初来園記事は時系列準備であり、予算という独立した疑問を残す。独自の支出実例は未確認。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーの持ち物リスト｜必需品と季節別の便利グッズ](https://teruluce.github.io/disney-discovery/articles/disney-park-packing-list.html) | TDRの必需品と天候・子ども連れ別の追加用品を一覧化。雨・暑さ記事への入口として残し、季節別の詳しい過ごし方は各記事へ。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [子ども連れディズニーの準備｜持ち物・休憩・当日の回り方](https://teruluce.github.io/disney-discovery/articles/disney-with-kids-guide.html) | TDRで子どもの生活リズム、持ち物、休憩、迷子への備えを整理。初来園の一般準備と読者条件が異なる。年齢別の具体例を補強したい。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [エレクトリカルパレードはどこで見る？場所取りと楽しみ方](https://teruluce.github.io/disney-discovery/articles/electrical-parade-dreamlights.html) | TDRの夜パレードの鑑賞場所・待機・鑑賞しない場合の行動に答える。公演一覧と目的が異なるため個別記事を維持。待機時間は実測ではなく目安である点を継続。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ファンタジースプリングスとは？3つのエリアと見どころの基本](https://teruluce.github.io/disney-discovery/articles/fantasy-springs-guide.html) | TDRの3エリア・4アトラクションとホテルの基礎を表で整理。歴史記事と開業日は重なるが、初訪問の施設把握という別の疑問に答える。利用方法の最新確認は必要。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [初めてのディズニーガイド｜チケット・アプリ・来園前の準備](https://teruluce.github.io/disney-discovery/articles/first-visit-checklist.html) | TDRの準備を時系列で示し、当日の優先順位と予定変更の代替案まで扱う。来園ガイドの中心に置き、制度の詳細は個別記事で維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [舞浜へ行く電車はややこしい？京葉線・武蔵野線と東京駅の乗り換え](https://teruluce.github.io/disney-discovery/articles/maihama-train-confusion-guide.html) | 舞浜での列車の行先、東京駅の長い乗換、帰路の注意に答える。アクセス総合にはない迷い方の解決があるため独立維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーランド・シーのパレード＆ショーガイド](https://teruluce.github.io/disney-discovery/articles/parades-shows-guide.html) | TDRの通年公演と季節記事の入口、公式スケジュール・鑑賞条件の確認方法。公演の具体説明は少なく、レギュラー記事との統合先に適する。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのパークは昼と夜でどう変わる？景色の楽しみ方](https://teruluce.github.io/disney-discovery/articles/park-day-and-night.html) | TDRで昼・夕暮れ・夜に何を見るか、同じ場所をどう撮り比べるかに答える。帰宅後にも読みやすいテーマ。本人撮影の風景写真は本文に未確認で、写真補強が最優先。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーの写真撮影ルール｜三脚・自撮り棒・ショー撮影の注意点](https://teruluce.github.io/disney-discovery/articles/park-photography-rules.html) | TDRの三脚・自撮り棒・鑑賞中の撮影とSNS掲載の配慮に答える。風景の楽しみ方と運営ルールの疑問を分けて維持。独自写真は未確認。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのチケットは何歳から必要？年齢区分・料金・買い方](https://teruluce.github.io/disney-discovery/articles/park-ticket-basics.html) | TDRの年齢区分・券種・販売開始・買い方に答える。キャンセル記事は購入後の問題解決で別目的。価格や販売条件の再確認は掲載前に必要。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーでPayPayは使える？店頭・DPA・モバイルオーダー・チケット購入を解説](https://teruluce.github.io/disney-discovery/articles/paypay-payment-guide.html) | TDRの店頭、モバイルオーダー、DPA、チケット購入で異なる決済対応に答える。コード決済と残高カードを区別している。個別利用記録はあるが、てる本人か・日時・端末は未確認。 | 残高カードの個別利用記録あり。ただし、てる本人の体験か・利用日・端末は未確認 |
+| [雨の日のディズニーを楽しむ方法｜屋内施設・服装・過ごし方](https://teruluce.github.io/disney-discovery/articles/rainy-day-disney-guide.html) | TDRで雨の強さに応じて予定を変える、屋内施設を組み合わせる、足元・機材を守る疑問に答える。持ち物一覧と行動判断を分ける。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのレストラン予約とは？いつから・当日の受付方法](https://teruluce.github.io/disney-discovery/articles/restaurant-priority-seating-guide.html) | TDRで事前・当日のレストラン受付、希望時間が取れない場合に答える。モバイルオーダーは注文手段であり別記事を維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーリゾートへの行き方｜舞浜駅・リゾートライン・空港から](https://teruluce.github.io/disney-discovery/articles/tdr-access-guide.html) | 舞浜駅から各パーク・空港からの経路を比較。総合アクセスの入口にする。東京駅〜舞浜の約15分/約20分という公式表記差を断定せず残している点も維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーリゾート・アプリでできること｜機能と事前準備](https://teruluce.github.io/disney-discovery/articles/tdr-app-guide.html) | TDRアプリの機能・ログイン・グループ作成・利用タイミングに答える。初来園の手順記事は要約、こちらは設定と機能の詳細として維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーリゾートの歴史年表｜開園から2024年までの主な施設](https://teruluce.github.io/disney-discovery/articles/tdr-history-timeline.html) | TDRと舞浜周辺の開業年・施設の流れを一覧で引ける。歴史記事2本の統合先候補。トップの主枠には置かず、調べ物として残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーリゾートのホテルの種類｜ディズニーホテルとオフィシャルホテルの違い](https://teruluce.github.io/disney-discovery/articles/tdr-hotel-types.html) | TDRと提携ホテル3区分・送迎の違いに答える。開業年は歴史年表と重なるが宿泊先の区分比較は独立。現状は開業年が先行するため比較を先に出す改善候補。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのチケット購入後に行けなくなったら？キャンセル・日付変更の方法](https://teruluce.github.io/disney-discovery/articles/ticket-change-cancellation-guide.html) | TDRの購入後に行けなくなった場合の返金と日付変更、購入先別条件、履歴に出ないときに答える。チケットの買い方記事とは場面が異なる。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [スタンバイパス・プレミアアクセス・エントリー受付の違い](https://teruluce.github.io/disney-discovery/articles/time-saving-services.html) | TDRのDPA・スタンバイパス・エントリー受付などの料金・仕組みの違いに答える。アプリ全機能の説明とは別の比較意図。条件の変動は再確認が必要。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーランドとディズニーシーの違いは？テーマと特徴を比較](https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-vs-disneysea.html) | TDRでどちらのパークを選ぶか、テーマ・目的別に比較できる。エリアの雰囲気記事は歩きながらの観察であり、重複するテーマ説明は短い相互リンクに留める。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのパークは、なぜエリアごとに雰囲気が違う？](https://teruluce.github.io/disney-discovery/articles/why-park-areas-feel-different.html) | TDRのエリアの建物・看板・音・植栽を観察する楽しみ方に答える。BGSの深掘りを移植せず、現地の見方として残す。本人の観察写真で独自性を増やしたい。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Tokyo Disneyland's Electrical Parade Dreamlights](https://teruluce.github.io/disney-discovery/en/articles/electrical-parade.html) | TDRの夜パレードの概要・鑑賞と季節版に答える。日本語版は場所選びの詳細、英語版は訪日客の概説で役割が異なる。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Tokyo Disney Resort for First-Time Visitors](https://teruluce.github.io/disney-discovery/en/articles/first-visit.html) | TDRのパーク選び・チケット・アプリ・移動・マナーへの入口。日本語版と読者の言語が異なるため統合しない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [How to Get to Tokyo Disney Resort by Train: Maihama Station Basics](https://teruluce.github.io/disney-discovery/en/articles/getting-there-by-train.html) | 舞浜までの列車、東京駅の乗換、帰路の行先を英語で説明。日本語の電車ガイドの対応版として独立維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Tokyo Disneyland vs. Tokyo DisneySea: What's the Difference?](https://teruluce.github.io/disney-discovery/en/articles/land-vs-sea.html) | TDRの2パークの特徴から選ぶ疑問に英語で答える。一般作品記事と異なり来園判断に直結。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [The Tokyo Disney Resort App: What It Does and How to Prepare](https://teruluce.github.io/disney-discovery/en/articles/official-app-guide.html) | TDRアプリの機能・事前ログイン・利用タイミングを英語で整理。日本語の対応版を保つ。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Tokyo Disney Resort Etiquette: Park Rules & Japanese Customs](https://teruluce.github.io/disney-discovery/en/articles/park-etiquette.html) | TDRの列・通行・地面に座る場面・鑑賞・日本語が話せないときの相談を英語で整理。日本の慣習と公式ルールを分ける独立した訪日客向け需要がある。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Photography at Tokyo Disney Resort: Tips and Etiquette](https://teruluce.github.io/disney-discovery/en/articles/park-photography.html) | TDRの混雑・公演・グリーティング・夜景・共有時の配慮を英語で説明。日本語ルール記事と一部重なるが言語別の入口を維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [How to Enjoy Tokyo Disney Resort on a Rainy Day](https://teruluce.github.io/disney-discovery/en/articles/rainy-day.html) | TDRの雨具・屋内体験・予定変更・機材保護を英語で説明。英語の準備ガイドから辿る用途を残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Suica at Tokyo Disney Resort and Japan’s Vending Machines](https://teruluce.github.io/disney-discovery/en/articles/suica-payment-guide.html) | 舞浜への移動に加えTDR内のIC支払い・チャージ、駅や自販機での使い方に答える。訪日客の実用疑問が明確で日本語PayPay記事と決済手段が異なる。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Tokyo Disney Resort Tickets: A Beginner’s Guide](https://teruluce.github.io/disney-discovery/en/articles/ticket-basics.html) | TDRの券種・年齢区分・購入経路・入園準備を英語で説明。購入前の疑問に答える対応版を維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [What Makes Tokyo DisneySea Unique?](https://teruluce.github.io/disney-discovery/en/articles/unique-tokyo-disneysea.html) | TDSのポートの雰囲気・音・景観の観察に英語で答える。日本語エリア記事と近いが言語版として維持。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [What to Pack for Tokyo Disney Resort](https://teruluce.github.io/disney-discovery/en/articles/what-to-pack.html) | TDRの必需品・季節・子ども・不要な物を英語で整理。英語の初来園から使える準備一覧として残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+
+## 統合候補
+
+| 記事名・URL | 理由 | 独自写真・体験 |
+|---|---|---|
+| [東京ディズニーランド・シーのレギュラーショーとパレード](https://teruluce.github.io/disney-discovery/articles/regular-parades-shows.html) | ランド昼夜・シー水上/ステージの構成とスケジュール確認が共通。総合側はリンク中心、レギュラー側は4公演の説明が中心。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーランドの歴史｜1983年4月15日の開園とその後のあゆみ](https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-history.html) | 1983/4/15開園、2000/7のイクスピアリ・アンバサダー、2001/9のシー、2008/7のランドホテルが年表と重なる。個別本文の独自の調査・写真は未確認。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [東京ディズニーシーの歴史｜2001年9月4日の開園と8つのテーマポート](https://teruluce.github.io/disney-discovery/articles/tokyo-disneysea-history.html) | 2001/9/4開園・同月ミラコスタ・2024/6の拡張が年表と重なる。8ポートの説明はエリア記事、3作品の施設はFS記事とも重なる。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+
+## 過去の記録として残す
+
+| 記事名・URL | 理由 | 独自写真・体験 |
+|---|---|---|
+| [東京ディズニーランド・シーのハロウィーンショー2026](https://teruluce.github.io/disney-discovery/articles/halloween-parades-shows.html) | 本文上2026年ハロウィーンは終了。ランドのInto the Frenzyとシーのグリーティングの違いを年度資料として保存。開催中の案内としてトップに出さない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーリゾートラインのスタンプラリー体験｜シー25周年の記念スタンプ](https://teruluce.github.io/disney-discovery/journal/resort-line-stamp-rally-2026.html) | 舞浜のリゾートラインで2026/10/18に7種類を重ねた本人の体験。模試帰り・1回目失敗・2回目成功と写真があり、独自性が明確。25周年版は本文上10/31終了。最新イベント案内と分けてJournalから見せる。 | 写真：てる・2026/10/18のキャプション、本文の本人の再挑戦体験を確認 |
+
+## トップ掲載を外す
+
+| 記事名・URL | 理由 | 独自写真・体験 |
+|---|---|---|
+| [ベイマックスとは？『ベイマックス』のケアロボットを解説](https://teruluce.github.io/disney-discovery/articles/baymax-guide.html) | ケアロボットの設定・ヒロとタダシの関係を説明。作品の疑問には答えるが、TDRの施設・体験を選ぶ具体的な情報は本文にない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [チップとデールは兄弟？誕生日・見分け方・クラリスとの関係](https://teruluce.github.io/disney-discovery/articles/chip-and-dale-guide.html) | 兄弟か・誕生日・鼻と歯の見分け方・クラリスとの関係に具体的に答える。旧見分け方記事は統合済み。パークでの見分けにも役立つが今回は一般読み物として主要枠から外す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [Dオタ用語の意味を解説｜インパ・グリ・地蔵・整番とは？](https://teruluce.github.io/disney-discovery/articles/d-otaku-terms.html) | TDRファンのインパ・グリ・地蔵・整番などの疑問に答える。舞浜との接点はあるが、来園準備の優先度は低め。用語を必要箇所から引ける形で記事一覧に残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [デイジーダックとは？初登場とドナルドとの関係](https://teruluce.github.io/disney-discovery/articles/daisy-duck-profile.html) | 初期のDonna Duck、ドナルド・ミニーとの関係を説明。作品の人物紹介が中心で舞浜への直接的な案内は弱い。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ドナルドダックとは？初登場作品や誕生日の由来を紹介](https://teruluce.github.io/disney-discovery/articles/donald-duck-profile.html) | 初登場作品と6/9の由来に答える。キャラクター知識として価値は残し、TDRの現地体験へ直結する情報が薄いため主要枠から外す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [『アナと雪の女王』の登場人物を整理｜アナ・エルサ・オラフ](https://teruluce.github.io/disney-discovery/articles/frozen-character-guide.html) | アナ・エルサ・オラフ・クリストフの役割を整理。ファンタジースプリングスと作品上の関係はあるが、本文は映画紹介が中心。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [グーフィーとは？初登場作品とプルートとの違い](https://teruluce.github.io/disney-discovery/articles/goofy-guide.html) | 初登場、Dippy Dawg、プルートとの役割の違いを説明。プルート記事と相互に重なるが、各キャラクターを調べる意図は異なるため廃止しない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ディズニーのアニメーションはどう作られる？手描きとCGの工夫](https://teruluce.github.io/disney-discovery/articles/how-disney-animation-is-made.html) | Once Upon a Studioの手描きとCG、視線・タイミング・旧モデルの調整を説明。制作の疑問には答えるが舞浜との直接の接点は薄い。ラプンツェル記事とは制作対象が異なり統合しない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [『ライオン・キング』とは？シンバの成長と物語のテーマ](https://teruluce.github.io/disney-discovery/articles/lion-king-basics.html) | シンバの成長、喪失、責任、サークル・オブ・ライフを説明。一般作品紹介で、TDRで何をするかへの具体的な案内はない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ミッキーマウスの初登場作品は？『蒸気船ウィリー』と名前の由来](https://teruluce.github.io/disney-discovery/articles/mickey-mouse-debut.html) | 蒸気船ウィリー以前の制作作、名前の伝説、誕生日・声優を整理。歴史の疑問に答えるが舞浜の準備・体験とは距離がある。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ミニーマウスとは？初登場作品とミッキーとの関係](https://teruluce.github.io/disney-discovery/articles/minnie-mouse-profile.html) | Steamboat Willieでの初登場・ミッキーとの関係・服装を説明。ミッキー記事と初登場が重なるが、人物別の検索意図は残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [オズワルド・ラッキー・ラビットとは？ミッキーマウスより前のウサギ](https://teruluce.github.io/disney-discovery/articles/oswald-lucky-rabbit.html) | ミッキー以前のキャラクター、権利喪失と2006年の復帰に答える。舞浜の体験・写真への直接接点は弱い。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ピクサーとマーベルとは？ディズニーとの関係とスパイダーマンの権利を解説](https://teruluce.github.io/disney-discovery/articles/pixar-marvel-spiderman-rights-guide.html) | 制作会社・ブランド・ソニーとスパイダーマンの映画権利の疑問に答える。舞浜との接点が特に薄いが、それだけで廃止と判断しない。権利関係の最新検証は別途必要。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [プルートとは？ミッキーとの関係と初登場作品](https://teruluce.github.io/disney-discovery/articles/pluto-guide.html) | 初登場時の名前・ミッキーの相棒・グーフィーとの違いに答える。グーフィー記事と違いの説明は重なるが人物別の入口として残す。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [『白雪姫』（1937年）はなぜ特別？初公開の日と制作の背景](https://teruluce.github.io/disney-discovery/articles/snow-white-1937.html) | 初公開日、制作期間・費用、受賞を説明。映画史の調べ物で、TDRのアトラクション案内ではない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [スティッチとは？エイリアンの正体と『リロ＆スティッチ』](https://teruluce.github.io/disney-discovery/articles/stitch-guide.html) | 試作品626号とリロ、オハナの関係を説明。TDRの施設の選び方・会い方へ踏み込んでいない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [『塔の上のラプンツェル』の秘密。魔法の髪、灯籠、塔の壁画のこと](https://teruluce.github.io/disney-discovery/articles/tangled-rapunzel-secrets.html) | 制作技術・灯籠・壁画・原作との差を比較し、ラプンツェルの森と夜パレードへの接点もある。ただし中心は映画の一般読み物なので主要枠から外す。実地の写真・体験は未確認。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [『トイ・ストーリー』とは？ウッディとバズから始まる物語](https://teruluce.github.io/disney-discovery/articles/toy-story-basics.html) | 1995年の第1作とウッディ・バズの関係、CGと物語を説明。ホテルやパークでの体験への直接案内はない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [ウォルト・ディズニーとは？生い立ちから主な出来事まで](https://teruluce.github.io/disney-discovery/articles/walt-disney-profile.html) | 生涯、創業、白雪姫と米国ディズニーランドの年表。舞浜の歴史年表とは対象が異なるので安易に統合しないが主要枠には出さない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [BGSとは？ ディズニーパークの背景設定を楽しむ基礎知識](https://teruluce.github.io/disney-discovery/articles/what-is-bgs.html) | パークの看板・造形を観察し、事実と解釈を分ける基礎説明。舞浜との接点はあるが、背景設定の深掘りはBGS Chroniclesの担当であり、主要枠には出さない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+| [くまのプーさんとは？原作とディズニー作品の始まり](https://teruluce.github.io/disney-discovery/articles/winnie-the-pooh-guide.html) | 原作と1966年のディズニー版、仲間と日常の物語を説明。TDRのハニーハント等の実用案内は本文にない。 | 独自写真・本人の体験記述は未確認（本文に写真なし） |
+
+## 統合候補の本文比較と保持する情報
+
+記事名や語句の一致だけではなく、本文の節・表・出典・リンクを比較した。以下は将来の編集案で、今回は本文移動・URL変更・転送追加をしていない。
+
+| 統合元 → 統合先 | 本文で重なる内容と差 | 残すべき情報・移し方 |
+|---|---|---|
+| [東京ディズニーランド・シーのレギュラーショーとパレード](https://teruluce.github.io/disney-discovery/articles/regular-parades-shows.html) → [統合先](https://teruluce.github.io/disney-discovery/articles/parades-shows-guide.html) | ランド昼夜・シー水上/ステージの構成とスケジュール確認が共通。総合側はリンク中心、レギュラー側は4公演の説明が中心。 | ハーモニー・イン・カラー、ドリームライツ、ビリーヴ！、ダンス・ザ・グローブ！の比較、観賞条件の確認手順、期間限定公演を常設と断定しない注意。後者の2027/3/31表記を含む期間・公演時間・受付対象は再検証してから移す。 |
+| [東京ディズニーランドの歴史｜1983年4月15日の開園とその後のあゆみ](https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-history.html) → [統合先](https://teruluce.github.io/disney-discovery/articles/tdr-history-timeline.html) | 1983/4/15開園、2000/7のイクスピアリ・アンバサダー、2001/9のシー、2008/7のランドホテルが年表と重なる。個別本文の独自の調査・写真は未確認。 | 開園日の公式ブログ（2013/3/8付）という出典の文脈、公式確認と姉妹サイトの説明を区別する注意、開園前の経緯を知るためのBGSリンク。統合先のランド節で残す。 |
+| [東京ディズニーシーの歴史｜2001年9月4日の開園と8つのテーマポート](https://teruluce.github.io/disney-discovery/articles/tokyo-disneysea-history.html) → [統合先](https://teruluce.github.io/disney-discovery/articles/tdr-history-timeline.html) | 2001/9/4開園・同月ミラコスタ・2024/6の拡張が年表と重なる。8ポートの説明はエリア記事、3作品の施設はFS記事とも重なる。 | 9/4が記念日で2026年が25周年という時点情報と出典、8テーマポートの一覧はエリア記事への案内で情報に到達できる形を維持。FSの6/6開業日と関連記事、公式とBGS考察の区別を残す。 |
+
+統合時も、元URLの扱い・被リンク・英語対応・既存アンカーを確認してから個別に承認する。例：シーの歴史の8ポート表は単に消すのでなく、統合先からエリア解説・FS記事へ辿れる状態を残す。公演の総合ガイドには季節記事への入口を残し、夜パレード個別記事の場所取りの説明は移植しない。
+
+### 比較したが分けて残す組み合わせ
+
+| 記事 | 重なり | 分ける理由・残す情報 |
+|---|---|---|
+| [アクセス総合](https://teruluce.github.io/disney-discovery/articles/tdr-access-guide.html) / [電車の迷い方](https://teruluce.github.io/disney-discovery/articles/maihama-train-confusion-guide.html) | 舞浜駅からランド・シーへの基本移動 | 総合には空港経路・区間時間と乗換時間の区別、電車記事には行先確認・東京駅構内・帰路の誤乗防止がある。検索意図が別。 |
+| [初来園](https://teruluce.github.io/disney-discovery/articles/first-visit-checklist.html) / [アプリ](https://teruluce.github.io/disney-discovery/articles/tdr-app-guide.html) | ログイン・グループ作成・当日の確認 | 前者は準備の時系列と予定変更、後者は機能・設定・使える時点の詳細。入口では要約し詳細へリンク。 |
+| [持ち物](https://teruluce.github.io/disney-discovery/articles/disney-park-packing-list.html) / [雨](https://teruluce.github.io/disney-discovery/articles/rainy-day-disney-guide.html) / [暑さ](https://teruluce.github.io/disney-discovery/articles/disney-hot-weather-guide.html) | 雨具・給水・季節用品 | 一覧と当日の行動判断は別。雨の強弱・足元の対処、暑さによる中断判断を一覧に押し込まない。 |
+| [レストラン予約](https://teruluce.github.io/disney-discovery/articles/restaurant-priority-seating-guide.html) / [モバイルオーダー](https://teruluce.github.io/disney-discovery/articles/disney-mobile-order-guide.html) | 食事予定と枠が取れない場合 | 優先案内と注文・受取では機能が違う。後者で席が確保されない点と変更可能な時点を残す。 |
+| [チケット](https://teruluce.github.io/disney-discovery/articles/park-ticket-basics.html) / [購入後の変更](https://teruluce.github.io/disney-discovery/articles/ticket-change-cancellation-guide.html) | 有効期間・購入先・変更条件 | 購入前の選択と購入後の問題解決を分ける。変更時の再決済・返金や購入履歴に出ない場合を省略しない。 |
+| [ランドとシー](https://teruluce.github.io/disney-discovery/articles/tokyo-disneyland-vs-disneysea.html) / [エリアの雰囲気](https://teruluce.github.io/disney-discovery/articles/why-park-areas-feel-different.html) | パークのテーマ・エリア例 | 前者は来園するパークの選択、後者は現地の建物・音・植栽の観察。後者の繰り返す観察リストは将来の段落整理の候補。 |
+| [グーフィー](https://teruluce.github.io/disney-discovery/articles/goofy-guide.html) / [プルート](https://teruluce.github.io/disney-discovery/articles/pluto-guide.html) | 両者の違いの説明 | 各キャラクターの初登場と役割を調べる別の入口。違いは簡潔にし相互リンクで補える。主要枠には出さない。 |
+
+## 維持する旧URLの転送（分類件数の外数）
+
+本文をすでに統合・移動した3ページ。新たな廃止候補に数えず、現状のmeta refresh・canonical・通常リンクを維持する。HTTP 301への変更は行わない。
+
+| 旧記事名・URL | 現在の転送先 | 判定・理由 |
+|---|---|---|
+| [チップとデールの見分け方｜Disney Discovery](https://teruluce.github.io/disney-discovery/articles/chip-and-dale-difference.html) | [https://teruluce.github.io/disney-discovery/articles/chip-and-dale-guide.html](https://teruluce.github.io/disney-discovery/articles/chip-and-dale-guide.html) | 残す（既存転送）。既存の入口・リンク資産の保護。流入・被リンク未確認。 |
+| [ディズニー初心者の当日ガイド｜Disney Discovery](https://teruluce.github.io/disney-discovery/articles/disney-first-timer-app-day-plan.html) | [https://teruluce.github.io/disney-discovery/articles/tdr-app-guide.html](https://teruluce.github.io/disney-discovery/articles/tdr-app-guide.html) | 残す（既存転送）。既存の入口・リンク資産の保護。流入・被リンク未確認。 |
+| [Discovery Journalへ移転しました](https://teruluce.github.io/disney-discovery/articles/resort-line-stamp-rally-2026.html) | [https://teruluce.github.io/disney-discovery/journal/resort-line-stamp-rally-2026.html](https://teruluce.github.io/disney-discovery/journal/resort-line-stamp-rally-2026.html) | 残す（既存転送）。既存の入口・リンク資産の保護。流入・被リンク未確認。 |
+
+## 写真の利用根拠と差し替え計画
+
+| 素材・枠 | 確認した根拠 | 今回の扱い |
+|---|---|---|
+| assets/img/resort-line-stamp-rally-teru.jpg（900×1339） | Journal本文のキャプション「写真：てる（2026年10月18日撮影）」、docs/JOURNAL.mdの移行記録。本人が押したスタンプの体験写真。EXIFなし・GPSなしという運用記録。 | Journal紹介に元画像をそのまま使用。スタンプ全体を表示し、撮影者と体験日を明示。公式配布用画像やフリー素材とは扱わない。 |
+| teru-profile.jpg / assets/img/teru-profile-480.jpg | プロフィール用のドナルド写真。撮影者・場所・利用許諾を示す記録は今回の範囲では未確認。 | 風景用・公演用の素材に流用しない。既存プロフィールは維持。 |
+| assets/img/og-default.png | OGP用途の既存画像。舞浜の本人撮影写真の根拠として使えない。 | 既存OGPを維持。風景写真の代用品にはしない。 |
+| PHOTO 01：カバー | 利用根拠のある横長の風景写真は未発見。 | 写真差し替え予定と明示した空枠。舞浜・パークの街並みや水辺、横長3:2程度の本人写真を想定。 |
+| PHOTO 02：昼と夜 | 同上。 | 写真差し替え予定。夕暮れ・水面・夜景、横長3:2程度を想定。同じ場所の昼夜比較があると記事も補強できる。 |
+| PHOTO 03：エリアの雰囲気 | 同上。 | 写真差し替え予定。建物・看板・植栽の細部、横長〜正方形程度を想定。 |
+
+風景が未提供のため、今回判断できるのは余白・文字・導線と写真の配置。風景写真を入れた際の色や写真誌としての仕上がりは未確認。外部の公式写真・検索画像・生成したパーク写真は追加していない。
+
+## 試作の範囲
+
+日本語トップ index.html と専用 assets/css/home-prototype.css に限定。本文は短い案内文のみ。映画・キャラクター一般読み物の主要枠を外し、記事一覧からの入口を維持する。英語版、Journal、既存記事、転送、共通CSS、サイトマップを変更しない。旧トップの #reading への既存リンクはページ末尾のサイト案内へ到達させる。
+
+最初の画面に初来園・アクセスの直接リンクを置き、3入口→風景特集→Journal→準備記事の選択肢へ進む。PC・スマホとも同じ情報順序。Journalの本人の感情・出来事は創作しない。

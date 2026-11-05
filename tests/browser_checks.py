@@ -86,9 +86,9 @@ with sync_playwright() as p:
     print('PASS: twelve page layouts at five widths; keyboard menu activation')
 
     page.goto(BASE + 'articles/')
-    assert visible(page) == 52
+    assert visible(page) == 38
     chips = page.locator('.filter-chip')
-    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 52
+    assert sum(int(re.search(r'（(\d+)）', x).group(1)) for x in chips.all_text_contents()[1:]) == 38
     tips = page.locator('.filter-chip').filter(has_text='パークを楽しむヒント')
     tips.focus()
     page.keyboard.press('Enter')
@@ -99,7 +99,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(250)
     assert visible(page) == 0 and page.locator('#article-empty').is_visible()
     page.locator('#article-reset').click()
-    assert visible(page) == 52 and query.evaluate('(e) => document.activeElement === e')
+    assert visible(page) == 38 and query.evaluate('(e) => document.activeElement === e')
     query.fill('ﾓﾊﾞｲﾙｵｰﾀﾞｰ')
     page.wait_for_timeout(250)
     assert visible(page) >= 1
@@ -145,25 +145,26 @@ with sync_playwright() as p:
 
     page.emulate_media(color_scheme='dark', reduced_motion='reduce')
     page.goto(BASE)
-    assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(238, 234, 225)'
-    assert page.locator('html').evaluate('(e) => getComputedStyle(e).scrollBehavior') == 'auto'
-    # Ink on paper and marker, muted copy, and the ink-filled primary action.
-    for ink, paper in [('#293f4c', '#fffdf6'), ('#293f4c', '#f6e5b0'),
-                       ('#686b65', '#fffdf6'), ('#fffdf6', '#365e70')]:
-        assert contrast(ink, paper) >= 4.5, (ink, paper)
-    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') == 'rgb(41, 63, 76)'
-    assert page.locator('.button').first.evaluate('(e) => getComputedStyle(e).backgroundImage').find('54, 94, 112') >= 0
-    page.evaluate('document.fonts.ready')
-    assert page.evaluate('document.fonts.check(\'24px "Yomogi"\', "気になること")')
-    assert page.evaluate('document.fonts.check(\'24px "Caveat"\', "Disney Discovery")')
+    assert page.locator('html').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(248, 247, 243)'
+    for label in ['初めて行く方へ', '舞浜へのアクセス']:
+        link = page.locator('.quick-links a').filter(has_text=label)
+        assert link.is_visible()
+        assert link.bounding_box()['y'] + link.bounding_box()['height'] <= 844
+    for path in ['profile.html', 'articles/', 'articles/first-visit-checklist.html', 'journal/', 'en/', 'en/articles/first-visit.html']:
+        page.goto(BASE + path)
+        assert page.locator('body').evaluate('(e) => getComputedStyle(e).backgroundColor') == 'rgb(248, 247, 243)'
+        assert page.locator('h1').evaluate('(e) => getComputedStyle(e).color') == 'rgb(39, 59, 58)'
+        assert 'serif' in page.locator('h1').evaluate('(e) => getComputedStyle(e).fontFamily')
+    for ink, paper in [('#273b3a', '#f8f7f3'), ('#5d6763', '#f8f7f3'), ('#ffffff', '#355b50')]:
+        assert contrast(ink, paper) >= 4.5
     page.emulate_media(forced_colors='active')
-    assert page.locator('.grad-text').evaluate('(e) => getComputedStyle(e).color') != 'rgba(0, 0, 0, 0)'
-    print('PASS: fixed light theme, reduced motion, forced colors and headline/button contrast')
+    assert page.locator('h1').evaluate('(e) => getComputedStyle(e).color') != 'rgba(0, 0, 0, 0)'
+    print('PASS: shared magazine design, readable contrast, reduced motion and forced colors')
 
     plain = browser.new_context(java_script_enabled=False, viewport={'width': 390, 'height': 844})
     plain.route('**/*', serve)
     nojs = plain.new_page()
-    for path, count in [('articles/', 52), ('en/articles/', 12)]:
+    for path, count in [('articles/', 38), ('en/articles/', 12)]:
         nojs.goto(BASE + path)
         assert visible(nojs) == count
         assert not nojs.locator('#article-controls').is_visible()
@@ -195,11 +196,11 @@ with sync_playwright() as p:
     for client in (page, nojs):
         client.emulate_media(forced_colors='none', reduced_motion='reduce')
         client.goto(BASE)
-        client.locator('.hero-chips a[href="#journal"]').click()
+        client.locator('.entrances a[href="#journal"]').click()
         assert client.url.endswith('#journal')
-        client.locator('.home-journal-preview img').scroll_into_view_if_needed()
-        expect(client.locator('.home-journal-preview img')).to_have_js_property('naturalWidth', 900)
-        client.locator('#journal a[href="journal/resort-line-stamp-rally-2026.html"]').click()
+        client.locator('.journal-photo img').scroll_into_view_if_needed()
+        expect(client.locator('.journal-photo img')).to_have_js_property('naturalWidth', 900)
+        client.locator('#journal a[href="journal/resort-line-stamp-rally-2026.html"]').first.click()
         assert client.url.endswith('/journal/resort-line-stamp-rally-2026.html')
         client.goto(BASE + 'en/')
         for slug in ('getting-there-by-train', 'suica-payment-guide', 'park-etiquette', 'park-photography', 'first-visit'):
@@ -207,5 +208,42 @@ with sync_playwright() as p:
         client.locator('#journal a[href="../journal/"]').click()
         assert client.url.endswith('/journal/')
     print('PASS: reorganized Japanese/English homepage journeys with and without JavaScript')
+    # Approved retirement notices and consolidation routes must work without JS, too.
+    import json
+    transitions = json.loads((ROOT / 'tests/fixtures/article-reorganization.json').read_text())['transitions']
+    for client in (page, nojs):
+        for path, transition in transitions.items():
+            client.goto(BASE + path + '#sources')
+            if transition['action'] == 'retire':
+                assert client.url.split('#')[0] == BASE + path
+                assert client.locator('h1').inner_text() == 'この記事の公開は終了しました'
+                assert client.locator('meta[name="robots"]').get_attribute('content') == 'noindex,follow'
+                assert client.locator('article').count() == 0
+            else:
+                client.wait_for_url(BASE + transition['target'] + '#' + transition['fragment'])
+                assert client.locator('#' + transition['fragment']).is_visible()
+        client.goto(BASE + 'articles/')
+        for path in transitions:
+            assert client.locator('#article-list a[href$="' + path.split('/')[-1] + '"]').count() == 0
+    for width in (320, 390):
+        page.set_viewport_size({'width': width, 'height': 844})
+        page.goto(BASE)
+        for link in page.locator('.entrances > a').all():
+            box = link.bounding_box()
+            assert box['y'] + box['height'] <= 844
+        cover = page.locator('.cover-image img')
+        expect(cover).to_have_js_property('complete', True)
+        assert cover.evaluate('(e) => e.naturalWidth > 0 && Math.abs(e.naturalWidth / e.naturalHeight - 4/3) < .01')
+        assert cover.evaluate('(e) => Math.abs(e.getBoundingClientRect().width / e.getBoundingClientRect().height - 4/3) < .01')
+        assert cover.evaluate('(e) => getComputedStyle(e).objectFit') == 'contain'
+        assert '写真：てる' in page.locator('.cover-image figcaption').inner_text()
+        assert page.locator('#discover .photo-slot').count() == 0
+        assert page.locator('.quick-links').bounding_box()['y'] < page.locator('.cover-image').bounding_box()['y']
+    print('PASS: 11 ended notices and 3 section redirects with/without JS; 3 mobile entrances in first screen')
     browser.close()
 
+
+# On the authorized main release, also verify the actual deployed Pages site.
+if os.environ.get('GITHUB_EVENT_NAME') == 'push' and os.environ.get('GITHUB_REF') == 'refs/heads/main':
+    import runpy
+    runpy.run_path(str(ROOT / 'tests/public_checks.py'), run_name='__main__')

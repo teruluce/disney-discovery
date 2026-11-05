@@ -35,3 +35,7 @@ An English-language section for international visitors is available under `en/`.
 HTML/CSSによる静的サイトとして構成し、GitHub Pagesで公開しています。公開先URLは https://teruluce.github.io/disney-discovery/ です。
 
 記事では、制度や運営情報の確認先・確認時点を必要な箇所に示します。検索エンジン向けに `sitemap.xml`、`robots.txt`、Googleの所有権確認用HTMLを配置しています。Search Consoleの管理画面での登録・計測状況は、リポジトリだけでは確認できません。
+
+## 正式デザインと公開確認
+
+写真入りトップの写真誌スタイルを全ページに適用しています。共通の表示は `assets/css/magazine.css`、ページ構造は既存HTML/CSSで管理します。[正式版の確認資料](docs/FINAL_REVIEW.md)を参照してください。mainへのpushでは既存検証に加えて、GitHub Pages上の実URLを確認する検証ジョブの公開URLチェックを実行します。

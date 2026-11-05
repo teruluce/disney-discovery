@@ -5,7 +5,7 @@ import hashlib
 import html
 import json
 import re
-from site_support import BASE, ROOT, documents, canonical_path, is_redirect
+from site_support import BASE, ROOT, documents, canonical_path, is_redirect, is_retired
 
 START = '<!-- BEGIN GENERATED METADATA -->'
 END = '<!-- END GENERATED METADATA -->'
@@ -36,7 +36,7 @@ def sync(check=False):
         title = doc.all('title')[0].text
         description = doc.meta('description')
         url = doc.link('canonical')
-        article = (path.startswith('articles/') or path.startswith('en/articles/') or path.startswith('journal/')) and not path.endswith('index.html')
+        article = (path.startswith('articles/') or path.startswith('en/articles/') or path.startswith('journal/')) and not path.endswith('index.html') and not is_retired(doc)
         lines = []
         for key, target in sorted(pairs[path].items()):
             target_url = docs[target].link('canonical')
