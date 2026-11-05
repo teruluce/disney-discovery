@@ -45,3 +45,22 @@ for path, digest in {'en/articles/electrical-parade.html': '7a95e4b23febe493d586
     body = re.search(r'<main\b[\s\S]*?</main>', (ROOT / path).read_text())[0]
     assert hashlib.sha256(body.encode()).hexdigest() == digest, path
 print('PASS: 50 active articles, 11 noindex notices, 3 merged routes; all English/Journal files and 3 original redirects unchanged')
+
+# Public cover derivatives must never reintroduce capture metadata from the private source.
+for name in ('cover-courtyard-teru-640.jpg', 'cover-courtyard-teru-1280.jpg'):
+    data = (ROOT / 'assets/img' / name).read_bytes()
+    assert data[:2] == b'\xff\xd8'
+    offset = 2
+    while offset < len(data):
+        assert data[offset] == 0xff
+        while data[offset] == 0xff:
+            offset += 1
+        marker = data[offset]
+        offset += 1
+        if marker in (0xda, 0xd9):  # Compressed scan / end of JPEG headers.
+            break
+        assert marker not in (0xe1, 0xe2, 0xed, 0xfe), (name, 'EXIF/XMP, ICC/MPF, Photoshop/IPTC or comment metadata')
+        size = int.from_bytes(data[offset:offset + 2], 'big')
+        assert size >= 2
+        offset += size
+print('PASS: both public cover JPEGs contain no EXIF/GPS, XMP, ICC/MPF, IPTC or comments')

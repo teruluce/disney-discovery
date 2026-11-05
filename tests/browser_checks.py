@@ -238,6 +238,12 @@ with sync_playwright() as p:
         for link in page.locator('.entrances > a').all():
             box = link.bounding_box()
             assert box['y'] + box['height'] <= 844
+        cover = page.locator('.cover-image img')
+        expect(cover).to_have_js_property('complete', True)
+        assert cover.evaluate('(e) => e.naturalWidth > 0 && Math.abs(e.naturalWidth / e.naturalHeight - 4/3) < .01')
+        assert cover.evaluate('(e) => Math.abs(e.getBoundingClientRect().width / e.getBoundingClientRect().height - 4/3) < .01')
+        assert cover.evaluate('(e) => getComputedStyle(e).objectFit') == 'contain'
+        assert '写真：てる' in page.locator('.cover-image figcaption').inner_text()
         assert page.locator('#discover .photo-slot').count() == 0
         assert page.locator('.quick-links').bounding_box()['y'] < page.locator('.cover-image').bounding_box()['y']
     print('PASS: 11 ended notices and 3 section redirects with/without JS; 3 mobile entrances in first screen')
