@@ -46,7 +46,7 @@ with sync_playwright() as p:
             page.wait_for_url(BASE+row['target']+'#'+row['fragment'])
         else:
             assert page.locator('meta[name="robots"]').get_attribute('content')=='noindex,follow'
-    for old,target in [('articles/chip-and-dale-difference.html','articles/chip-and-dale-guide.html'),('articles/disney-first-timer-app-day-plan.html','articles/first-visit-checklist.html'),('articles/resort-line-stamp-rally-2026.html','journal/resort-line-stamp-rally-2026.html')]:
+    for old,target in [('articles/chip-and-dale-difference.html','articles/chip-and-dale-guide.html'),('articles/disney-first-timer-app-day-plan.html','articles/tdr-app-guide.html'),('articles/resort-line-stamp-rally-2026.html','journal/resort-line-stamp-rally-2026.html')]:
         page.goto(BASE+old);page.wait_for_url('**/'+target+'*')
     browser.close()
 print('LIVE PASS: deployed CSS matches release; responsive pages, images, Japanese/English menus, search, 11 notices and all 6 redirects',flush=True)
