@@ -136,11 +136,24 @@ with sync_playwright() as p:
     page.keyboard.press('ArrowRight')
     page.wait_for_timeout(200)
     assert table.evaluate('(e) => e.scrollLeft > 0')
-    page.goto(BASE + 'articles/missing/audit.html')
-    home = page.locator('.breadcrumb a').first
-    assert home.get_attribute('href') == BASE
-    home.click()
-    assert page.url == BASE
+    for missing in ('articles/missing/audit.html', 'en/articles/missing/'):
+        response = page.goto(BASE + missing, wait_until='load')
+        assert response.status == 404, missing
+        assert page.locator('meta[name="robots"]').get_attribute('content') == 'noindex'
+        stylesheets = page.locator('link[rel="stylesheet"]').evaluate_all(
+            '(links) => links.map(link => link.sheet ? link.href : null)')
+        assert stylesheets == [BASE + 'assets/css/style.css', BASE + 'assets/css/magazine.css']
+        links = page.locator('header a, footer a, main a').evaluate_all(
+            '(links) => links.filter(link => !link.getAttribute("href").startsWith("#")).map(link => link.href)')
+        allowed = {BASE + target for target in ('', '#visit', '#discover', 'articles/', 'journal/',
+                                                'profile.html', 'en/', 'contact.html', 'privacy.html')}
+        assert set(links) == allowed, (missing, links)
+        page.locator('summary.menu-toggle').click()
+        page.get_by_role('navigation', name='モバイルナビゲーション').get_by_text('記事一覧').click()
+        assert page.url == BASE + 'articles/'
+        page.goto(BASE + missing)
+        page.locator('footer .brand').click()
+        assert page.url == BASE
     print('PASS: keyboard table scrolling and nested 404 recovery')
 
     page.emulate_media(color_scheme='dark', reduced_motion='reduce')
